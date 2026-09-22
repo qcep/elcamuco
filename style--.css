@@ -5,11 +5,6 @@
     box-sizing: border-box;
 }
 
-html, body {
-    overflow-x: clip;   /* 👈 CAMBIO: antes era hidden, rompía el sticky en móvil */
-    max-width: 100%;
-}
-
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #1a1a1a;
@@ -64,20 +59,6 @@ nav a:hover {
 
 .btn-reservar:hover {
     background-color: #E67E22;
-}
-
-/* --- MENÚ HAMBURGUESA (oculto en escritorio) --- */
-.menu-toggle {
-    display: none;
-}
-
-.hamburguesa {
-    display: none;
-}
-
-.menu-links {
-    display: flex;
-    align-items: center;
 }
 
 /* Hero Section */
@@ -156,9 +137,7 @@ nav a:hover {
 }
 
 .logo-secundario {
-    width: 250px;
-    max-width: 100%;
-    height: auto;
+    width: 120px;
     margin-top: 10px;
 }
 
@@ -352,161 +331,16 @@ footer p {
     margin: 5px 0;
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-
-/* --- Tablets --- */
-@media (max-width: 992px) {
-    header { padding: 15px 25px; }
-    .logo span { font-size: 1.6rem; }
-    .hero-content h1 { font-size: 3.5rem; }
-    .nosotros h2,
-    .servicios-viajero h2,
-    .galeria h2 { font-size: 2.5rem; }
-}
-
-/* --- Móviles --- */
+/* Responsive */
 @media (max-width: 768px) {
-
-    /* --- Header con menú hamburguesa --- */
-    header {
-        position: sticky;      /* 👈 REFORZADO: asegura que se quede fijo */
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 12px 18px;
-    }
-
-    .logo img { width: 55px; }
-    .logo span { font-size: 1.5rem; }
-
-    /* Mostrar hamburguesa */
-    .hamburguesa {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 22px;
-        cursor: pointer;
-        z-index: 1100;
-        position: relative;
-    }
-
-    .hamburguesa span {
-        display: block;
-        height: 3px;
-        background: #E74C3C;
-        border-radius: 3px;
-        transition: 0.3s;
-    }
-
-    /* Panel lateral del menú */
-    .menu-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 75%;
-        max-width: 320px;
-        height: 100vh;
-        background: #222;
-        display: flex;
-        flex-direction: column;
-        padding: 90px 25px 30px;
-        gap: 5px;
-        transition: right 0.35s ease;
-        box-shadow: -5px 0 20px rgba(0,0,0,0.6);
-        overflow-y: auto;
-        align-items: stretch;
-    }
-
-    .menu-toggle:checked ~ .menu-links {
-        right: 0;
-    }
-
-    .menu-links a {
-        margin: 0;
-        font-size: 1.05rem;
-        padding: 12px 0;
-        border-bottom: 1px solid #333;
-        text-align: left;
-    }
-
-    .menu-links .btn-reservar {
-        text-align: center;
-        margin-top: 15px;
-        border-bottom: none;
-        padding: 12px 20px;
-    }
-
-    /* --- Hero --- */
-    .hero {
-        height: 70vh;
-        padding: 0 20px;
-    }
-    .hero-content h1 {
-        font-size: 2.2rem;
-        line-height: 1.1;
-    }
-    .hero-content p { font-size: 1rem; }
-    .btn-principal {
-        padding: 12px 28px;
-        font-size: 1rem;
-    }
-
-    /* --- Nosotros --- */
-    .nosotros { padding: 50px 20px; }
+    header { padding: 15px 20px; flex-direction: column; gap: 15px; }
+    nav a { margin: 0 10px; font-size: 0.9rem; }
+    .hero-content h1 { font-size: 3rem; }
     .nosotros .container { flex-direction: column; }
-    .nosotros h2 { font-size: 2rem; }
-    .nosotros p { font-size: 1rem; }
-    .nosotros .imagen img { box-shadow: 5px 5px 0 #E67E22; }
-
-    .logo-secundario {
-        width: 160px;
-        max-width: 100%;
-    }
-
-    /* --- Menú (grid de platillos): 2 columnas --- */
-    .servicios {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        padding: 40px 15px;
-    }
-    .card img { height: 130px; }
-    .card h3 {
-        font-size: 1.2rem;
-        padding: 12px 12px 5px;
-    }
-    .card p {
-        font-size: 0.85rem;
-        padding: 0 12px 12px;
-    }
-
-    /* --- Servicios Viajero --- */
-    .servicios-viajero { padding: 50px 20px; }
-    .servicios-viajero h2 { font-size: 2rem; }
-    .subtitulo-servicios { font-size: 1rem; margin-bottom: 30px; }
-    .grid-servicios { grid-template-columns: 1fr; gap: 20px; }
-    .card-servicio img { height: 180px; }
-
-    /* --- Galería: 2 columnas --- */
-    .galeria { padding: 50px 15px; }
-    .galeria h2 { font-size: 2rem; }
-    .grid-galeria {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-    .grid-galeria img { height: 130px; }
-}
-
-/* --- Móviles pequeños (iPhone SE, etc.) --- */
-@media (max-width: 400px) {
-    .hero-content h1 { font-size: 1.8rem; }
-    .logo span { font-size: 1.3rem; }
-    .logo img { width: 45px; }
-    .card h3 { font-size: 1.05rem; }
-    .grid-galeria img { height: 110px; }
-    .menu-links { width: 85%; }
+    .nosotros .imagen img { box-shadow: 5px 5px 0px #E67E22; }
+    .servicios { padding: 40px 20px; }
+    .card { width: 100%; }
+    .servicios-viajero { padding: 40px 20px; }
+    .grid-servicios { grid-template-columns: 1fr; }
+    .galeria { padding: 40px 20px; }
 }

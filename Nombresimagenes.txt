@@ -1,6 +1,7 @@
 
 Comida	Nombre de imagen
 Huevos Estrellados	huevos-estrellados.png
+
 Huevos Revueltos	huevos-revueltos.png
 Huevos Revueltos a la Mexicana	huevos-revueltos-mexicana.png
 Omelet	omelet.png

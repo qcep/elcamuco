@@ -1,7 +1,7 @@
 /* ============================================
    EL CAMUCO - script.js
    Funciones:
-   1. Menú hamburguesa móvil
+   1. Cerrar menú hamburguesa móvil al hacer clic en un enlace
    2. Scroll suave con offset del header
    3. Filtro por categorías
    4. Botón "Volver arriba"
@@ -10,31 +10,14 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     /* ==========================================
-       1. MENÚ HAMBURGUESA MÓVIL
+       1. CERRAR MENÚ HAMBURGUESA AL HACER CLIC EN UN ENLACE
        ========================================== */
     const header = document.querySelector('header');
-    const nav = document.querySelector('nav');
+    const menuToggle = document.getElementById('menu-toggle');
 
-    // Crear el botón hamburguesa dinámicamente
-    const btnHamburguesa = document.createElement('button');
-    btnHamburguesa.classList.add('btn-hamburguesa');
-    btnHamburguesa.setAttribute('aria-label', 'Abrir menú');
-    btnHamburguesa.innerHTML = '☰';
-    header.insertBefore(btnHamburguesa, nav);
-
-    btnHamburguesa.addEventListener('click', function () {
-        nav.classList.toggle('nav-abierto');
-        const abierto = nav.classList.contains('nav-abierto');
-        btnHamburguesa.innerHTML = abierto ? '✕' : '☰';
-        btnHamburguesa.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
-    });
-
-    // Cerrar el menú al hacer clic en un enlace (móvil)
-    nav.querySelectorAll('a').forEach(function (enlace) {
+    document.querySelectorAll('.menu-links a').forEach(function (enlace) {
         enlace.addEventListener('click', function () {
-            nav.classList.remove('nav-abierto');
-            btnHamburguesa.innerHTML = '☰';
-            btnHamburguesa.setAttribute('aria-label', 'Abrir menú');
+            if (menuToggle) menuToggle.checked = false;
         });
     });
 
