@@ -7,8 +7,8 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #FDFEFE;
-    color: #333;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
     line-height: 1.6;
 }
 
@@ -18,8 +18,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: #222;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -34,13 +34,13 @@ header {
 .logo span {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
-    color: #C0392B;
+    color: #E74C3C;
     letter-spacing: 2px;
 }
 
 nav a {
     text-decoration: none;
-    color: #4A2E1B;
+    color: #e0e0e0;
     font-weight: 600;
     margin-left: 20px;
     transition: color 0.3s;
@@ -64,7 +64,7 @@ nav a:hover {
 /* Hero Section */
 .hero {
     height: 85vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('fachada-noche.png');
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('fachada-noche.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -79,17 +79,18 @@ nav a:hover {
     font-size: 4.5rem;
     letter-spacing: 2px;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
 
 .hero-content p {
     font-size: 1.3rem;
     margin-bottom: 30px;
+    color: #d0d0d0;
 }
 
 .btn-principal {
     background-color: #F1C40F;
-    color: #4A2E1B;
+    color: #1a1a1a;
     padding: 15px 40px;
     text-decoration: none;
     font-weight: bold;
@@ -107,7 +108,7 @@ nav a:hover {
 /* Sección Nosotros */
 .nosotros {
     padding: 80px 50px;
-    background-color: #FDFEFE;
+    background-color: #1a1a1a;
 }
 
 .nosotros .container {
@@ -125,13 +126,13 @@ nav a:hover {
 .nosotros h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3rem;
-    color: #C0392B;
+    color: #E74C3C;
     margin-bottom: 20px;
 }
 
 .nosotros p {
     font-size: 1.1rem;
-    color: #555;
+    color: #b0b0b0;
     margin-bottom: 20px;
 }
 
@@ -156,18 +157,19 @@ nav a:hover {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     padding: 80px 50px;
-    background-color: #f9f9f9;
+    background-color: #232323;
     max-width: 1400px;
     margin: 0 auto;
 }
 
 .card {
-    background: white;
+    background: #2a2a2a;
     border-radius: 10px;
     overflow: hidden;
     width: 100%;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
     transition: transform 0.3s;
+    border: 1px solid #333;
 }
 
 .card:hover {
@@ -183,32 +185,32 @@ nav a:hover {
 .card h3 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
-    color: #4A2E1B;
+    color: #E67E22;
     padding: 20px 20px 10px;
 }
 
 .card p {
     padding: 0 20px 20px;
-    color: #666;
+    color: #b0b0b0;
 }
 
-/* --- NUEVA SECCIÓN: SERVICIOS PARA EL VIAJERO --- */
+/* --- SECCIÓN: SERVICIOS PARA EL VIAJERO --- */
 .servicios-viajero {
     padding: 80px 50px;
-    background-color: #FDFEFE;
+    background-color: #1a1a1a;
     text-align: center;
 }
 
 .servicios-viajero h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3rem;
-    color: #C0392B;
+    color: #E74C3C;
     margin-bottom: 10px;
 }
 
 .subtitulo-servicios {
     font-size: 1.2rem;
-    color: #666;
+    color: #b0b0b0;
     margin-bottom: 50px;
 }
 
@@ -221,19 +223,19 @@ nav a:hover {
 }
 
 .card-servicio {
-    background: white;
+    background: #2a2a2a;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid #eee;
+    border: 1px solid #333;
     display: flex;
     flex-direction: column;
 }
 
 .card-servicio:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(230, 126, 34, 0.2);
+    box-shadow: 0 15px 35px rgba(230, 126, 34, 0.35);
 }
 
 .card-servicio img {
@@ -252,12 +254,12 @@ nav a:hover {
 .card-servicio-info h3 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
-    color: #4A2E1B;
+    color: #E67E22;
     margin-bottom: 10px;
 }
 
 .card-servicio-info p {
-    color: #666;
+    color: #b0b0b0;
     font-size: 1rem;
     margin-bottom: 20px;
     flex-grow: 1;
@@ -284,13 +286,13 @@ nav a:hover {
 .galeria {
     padding: 80px 50px;
     text-align: center;
-    background-color: #fff;
+    background-color: #1a1a1a;
 }
 
 .galeria h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3rem;
-    color: #C0392B;
+    color: #E74C3C;
     margin-bottom: 40px;
 }
 
@@ -312,16 +314,17 @@ nav a:hover {
 
 .grid-galeria img:hover {
     transform: scale(1.03);
-    filter: brightness(1.1);
+    filter: brightness(1.15);
 }
 
 /* Footer */
 footer {
-    background-color: #4A2E1B;
-    color: white;
+    background-color: #111;
+    color: #e0e0e0;
     text-align: center;
     padding: 40px 20px;
     font-size: 0.9rem;
+    border-top: 1px solid #333;
 }
 
 footer p {
