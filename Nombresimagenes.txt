@@ -1,0 +1,36 @@
+
+Comida	Nombre de imagen
+Huevos Estrellados	huevos-estrellados.png
+Huevos Revueltos	huevos-revueltos.png
+Huevos Revueltos a la Mexicana	huevos-revueltos-mexicana.png
+Omelet	omelet.png
+Huevo con Chorizo	huevo-chorizo.png
+Huevo con Tocino	huevo-tocino.png
+Huevo Con Jamon	huevo-jamon.png
+Nopalitos	nopalitos.png
+Acelgas	acelgas.png
+Calabacitas	calabacitas.png
+Enchiladas	enchiladas.png
+Entomatadas	entomatadas.png
+Queso en Salsa	queso-salsa.png
+Milanesa de Pollo	milanesa-pollo.png
+Chile Poblano Relleno (Picadillo)	chile-poblano-picadillo.png
+Chile Poblano Relleno (Queso)	chile-poblano-queso.png
+Milanesa de Pollo Empanizada	milanesa-pollo-empanizada.png
+Fajitas de Pollo a la Mexicana	fajitas-pollo-mexicana.png
+Chuleta de Puerco	chuleta-puerco.png
+Chuleta de Puerco en Salsa	chuleta-puerco-salsa.png
+Chicharron de Puerco en Salsa	chicharron-puerco-salsa.png
+Chicharron a la Mexicana	chicharron-mexicana.png
+Bistek a la Plancha	bistek-plancha.png
+Bistek a la Mexicana	bistek-mexicana.png
+Bistek en Salsa	bistek-salsa.png
+Arrachera a la Plancha	arrachera-plancha.png
+Arrachera a la Mexicana	arrachera-mexicana.png
+Deshebrada de Res	deshebrada-res.png
+Picadillo de Res	picadillo-res.png
+Barbacoa	barbacoa.png
+Cabrito Frito	cabrito-frito.png
+Cabrito Asado	cabrito-asado.png
+Cabrito en Salsa	cabrito-salsa.png
+Cabeza de Cabrito	cabeza-cabrito.png

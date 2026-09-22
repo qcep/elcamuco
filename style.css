@@ -1,0 +1,343 @@
+/* Reset y Estilos Globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FDFEFE;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: #C0392B;
+    letter-spacing: 2px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #4A2E1B;
+    font-weight: 600;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #E67E22;
+}
+
+.btn-reservar {
+    background-color: #C0392B;
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-reservar:hover {
+    background-color: #E67E22;
+}
+
+/* Hero Section */
+.hero {
+    height: 85vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('fachada-noche.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+}
+
+.btn-principal {
+    background-color: #F1C40F;
+    color: #4A2E1B;
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.btn-principal:hover {
+    background-color: #E67E22;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Sección Nosotros */
+.nosotros {
+    padding: 80px 50px;
+    background-color: #FDFEFE;
+}
+
+.nosotros .container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nosotros .texto {
+    flex: 1;
+}
+
+.nosotros h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: #C0392B;
+    margin-bottom: 20px;
+}
+
+.nosotros p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.logo-secundario {
+    width: 120px;
+    margin-top: 10px;
+}
+
+.nosotros .imagen {
+    flex: 1;
+}
+
+.nosotros .imagen img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 10px 10px 0px #E67E22;
+}
+
+/* Sección Servicios (Buffet y Tienda) */
+.servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 80px 50px;
+    background-color: #f9f9f9;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: #4A2E1B;
+    padding: 20px 20px 10px;
+}
+
+.card p {
+    padding: 0 20px 20px;
+    color: #666;
+}
+
+/* --- NUEVA SECCIÓN: SERVICIOS PARA EL VIAJERO --- */
+.servicios-viajero {
+    padding: 80px 50px;
+    background-color: #FDFEFE;
+    text-align: center;
+}
+
+.servicios-viajero h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: #C0392B;
+    margin-bottom: 10px;
+}
+
+.subtitulo-servicios {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card-servicio {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-servicio:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(230, 126, 34, 0.2);
+}
+
+.card-servicio img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-servicio-info {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-servicio-info h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: #4A2E1B;
+    margin-bottom: 10px;
+}
+
+.card-servicio-info p {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.btn-servicio {
+    display: inline-block;
+    background-color: #E67E22;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s;
+    align-self: center;
+    width: 100%;
+}
+
+.btn-servicio:hover {
+    background-color: #C0392B;
+}
+
+/* Galería */
+.galeria {
+    padding: 80px 50px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.galeria h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: #C0392B;
+    margin-bottom: 40px;
+}
+
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid-galeria img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.grid-galeria img:hover {
+    transform: scale(1.03);
+    filter: brightness(1.1);
+}
+
+/* Footer */
+footer {
+    background-color: #4A2E1B;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header { padding: 15px 20px; flex-direction: column; gap: 15px; }
+    nav a { margin: 0 10px; font-size: 0.9rem; }
+    .hero-content h1 { font-size: 3rem; }
+    .nosotros .container { flex-direction: column; }
+    .nosotros .imagen img { box-shadow: 5px 5px 0px #E67E22; }
+    .servicios { padding: 40px 20px; }
+    .card { width: 100%; }
+    .servicios-viajero { padding: 40px 20px; }
+    .grid-servicios { grid-template-columns: 1fr; }
+    .galeria { padding: 40px 20px; }
+}
