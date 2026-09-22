@@ -6,8 +6,8 @@
 }
 
 html, body {
-    overflow-x: clip;   /* 👈 CAMBIO: antes era hidden, rompía el sticky en móvil */
     max-width: 100%;
+    /* ✅ FIX: se eliminó "overflow-x: clip" que rompía el position: sticky del header */
 }
 
 body {
@@ -15,6 +15,9 @@ body {
     background-color: #1a1a1a;
     color: #e0e0e0;
     line-height: 1.6;
+    /* ✅ FIX: overflow-x movido aquí, con position relative para no romper sticky */
+    overflow-x: hidden;
+    position: relative;
 }
 
 /* Header */
@@ -371,13 +374,18 @@ footer p {
 
     /* --- Header con menú hamburguesa --- */
     header {
-        position: sticky;      /* 👈 REFORZADO: asegura que se quede fijo */
+        position: -webkit-sticky;   /* ✅ FIX: fallback Safari iOS */
+        position: sticky;
         top: 0;
         width: 100%;
         z-index: 1000;
         flex-direction: row;
         justify-content: space-between;
         padding: 12px 18px;
+        /* ✅ FIX: fuerza contexto limpio y aceleración por hardware (Safari iOS) */
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        will-change: transform;
     }
 
     .logo img { width: 55px; }
@@ -420,6 +428,9 @@ footer p {
         box-shadow: -5px 0 20px rgba(0,0,0,0.6);
         overflow-y: auto;
         align-items: stretch;
+        /* ✅ FIX: mejor comportamiento de scroll en iOS Safari */
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
     }
 
     .menu-toggle:checked ~ .menu-links {
