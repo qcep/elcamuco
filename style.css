@@ -1,3 +1,7 @@
+/* ============================================================
+   EL CAMUCO - style.css (Rediseño Estilo Rústico/Tradicional)
+   ============================================================ */
+
 /* Reset y Estilos Globales */
 * {
     margin: 0;
@@ -7,15 +11,13 @@
 
 html, body {
     max-width: 100%;
-    /* ✅ FIX: se eliminó "overflow-x: clip" que rompía el position: sticky del header */
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #1a1a1a;
-    color: #e0e0e0;
+    background-color: #f4e4c1; /* Color pergamino base */
+    color: #4a2c1b; /* Marrón oscuro para texto general */
     line-height: 1.6;
-    /* ✅ FIX: overflow-x movido aquí, con position relative para no romper sticky */
     overflow-x: hidden;
     position: relative;
 }
@@ -26,11 +28,12 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    background: #222;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    background: #e8d5b5; /* Un tono más claro de pergamino */
+    box-shadow: 0 4px 10px rgba(74, 44, 27, 0.2);
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 3px solid #c49a45; /* Borde dorado */
 }
 
 .logo {
@@ -39,98 +42,135 @@ header {
     gap: 15px;
 }
 
+/* --- ESTILO DEL LOGO (IMAGEN) --- */
+.logo img {
+    border-radius: 8px;
+    background-color: #fff8e7;
+    padding: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* --- TEXTO DEL LOGO EN ROJO --- */
 .logo span {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Alfa Slab One', serif;
     font-size: 2rem;
-    color: #E74C3C;
-    letter-spacing: 2px;
+    color: #E73121; /* Rojo sólido */
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    margin-left: 10px;
+    line-height: 1;
 }
 
 nav a {
     text-decoration: none;
-    color: #e0e0e0;
+    color: #4a2c1b;
     font-weight: 600;
     margin-left: 20px;
     transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #E67E22;
+    color: #E73121;
 }
 
 .btn-reservar {
-    background-color: #C0392B;
-    color: white !important;
+    background-color: #E73121;
+    color: #fff !important;
     padding: 10px 20px;
     border-radius: 5px;
+    border: 2px solid #c49a45;
 }
 
 .btn-reservar:hover {
-    background-color: #E67E22;
+    background-color: #c49a45;
+    color: #4a2c1b !important;
 }
 
-/* --- MENÚ HAMBURGUESA (oculto en escritorio) --- */
-.menu-toggle {
-    display: none;
-}
+/* --- MENÚ HAMBURGUESA --- */
+.menu-toggle { display: none; }
+.hamburguesa { display: none; }
+.menu-links { display: flex; align-items: center; }
 
-.hamburguesa {
-    display: none;
-}
-
-.menu-links {
-    display: flex;
-    align-items: center;
-}
-
-/* Hero Section */
+/* ============================================================
+   HERO SECTION (Usa fondo-horizontal.png)
+   ============================================================ */
 .hero {
     height: 85vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('fachada-noche.png');
+    background: url('fondo-horizontal.png') no-repeat center center;
     background-size: cover;
-    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
+    padding: 0 20px;
+    position: relative;
 }
 
-.hero-content h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 4.5rem;
-    letter-spacing: 2px;
+/* Capa sutil para asegurar legibilidad sin perder el diseño */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(244, 228, 193, 0.3); /* Capa pergamino muy sutil */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.85); /* Caja semi-transparente para el texto */
+    padding: 40px;
+    border-radius: 15px;
+    border: 4px double #c49a45;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.letrero-principal h1 {
+    font-family: 'Alfa Slab One', serif;
+    font-size: 3.5rem;
+    color: #E73121;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    text-shadow: 2px 2px 0px #c49a45;
+    letter-spacing: 1px;
 }
 
 .hero-content p {
     font-size: 1.3rem;
     margin-bottom: 30px;
-    color: #d0d0d0;
+    color: #6b4c3a;
+    font-weight: 600;
 }
 
 .btn-principal {
-    background-color: #F1C40F;
-    color: #1a1a1a;
+    background-color: #E73121;
+    color: #fff;
     padding: 15px 40px;
     text-decoration: none;
     font-weight: bold;
     font-size: 1.2rem;
     border-radius: 50px;
     transition: transform 0.3s, background 0.3s;
+    border: 2px solid #c49a45;
+    display: inline-block;
 }
 
 .btn-principal:hover {
-    background-color: #E67E22;
-    color: white;
+    background-color: #c49a45;
+    color: #4a2c1b;
     transform: scale(1.05);
 }
 
-/* Sección Nosotros */
+/* ============================================================
+   SECCIÓN NOSOTROS (Usa fondo-vertical.png)
+   ============================================================ */
 .nosotros {
     padding: 80px 50px;
-    background-color: #1a1a1a;
+    background: url('fondo-vertical.png') no-repeat center center;
+    background-size: cover;
+    position: relative;
 }
 
 .nosotros .container {
@@ -139,22 +179,26 @@ nav a:hover {
     gap: 50px;
     max-width: 1200px;
     margin: 0 auto;
+    /* Capa semi-transparente para que el contenido resalte */
+    background: rgba(255, 248, 231, 0.85);
+    padding: 40px;
+    border-radius: 15px;
+    border: 2px solid #c49a45;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.nosotros .texto {
-    flex: 1;
-}
+.nosotros .texto { flex: 1; }
 
 .nosotros h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3rem;
-    color: #E74C3C;
+    color: #E73121;
     margin-bottom: 20px;
 }
 
 .nosotros p {
     font-size: 1.1rem;
-    color: #b0b0b0;
+    color: #5a3a2a;
     margin-bottom: 20px;
 }
 
@@ -165,14 +209,13 @@ nav a:hover {
     margin-top: 10px;
 }
 
-.nosotros .imagen {
-    flex: 1;
-}
+.nosotros .imagen { flex: 1; }
 
 .nosotros .imagen img {
     width: 100%;
     border-radius: 10px;
-    box-shadow: 10px 10px 0px #E67E22;
+    box-shadow: 10px 10px 0px #c49a45;
+    border: 2px solid #4a2c1b;
 }
 
 /* Sección Servicios (Buffet y Tienda) */
@@ -181,95 +224,144 @@ nav a:hover {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     padding: 80px 50px;
-    background-color: #232323;
+    background-color: #e8d5b5;
     max-width: 1400px;
     margin: 0 auto;
 }
 
 .card {
-    background: #2a2a2a;
+    background: #fff8e7;
     border-radius: 10px;
     overflow: hidden;
     width: 100%;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    box-shadow: 0 5px 15px rgba(74, 44, 27, 0.15);
     transition: transform 0.3s;
-    border: 1px solid #333;
+    border: 2px solid #c49a45;
 }
 
 .card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(231, 49, 33, 0.2);
 }
 
 .card img {
     width: 100%;
     height: 300px;
     object-fit: cover;
+    border-bottom: 2px solid #c49a45;
 }
 
 .card h3 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
-    color: #E67E22;
+    color: #E73121;
     padding: 20px 20px 10px;
 }
 
 .card p {
     padding: 0 20px 20px;
-    color: #b0b0b0;
+    color: #5a3a2a;
+}
+
+/* --- ESTILOS PARA LOS FILTROS DEL MENÚ --- */
+.filtros-menu {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn-filtro {
+    background: #fff8e7;
+    color: #4a2c1b;
+    border: 2px solid #c49a45;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-filtro:hover,
+.btn-filtro.activo {
+    background: #E73121;
+    color: #fff;
+    border-color: #E73121;
 }
 
 /* --- SECCIÓN: SERVICIOS PARA EL VIAJERO --- */
 .servicios-viajero {
     padding: 80px 50px;
-    background-color: #1a1a1a;
+    background-color: #f4e4c1;
     text-align: center;
 }
 
 .servicios-viajero h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3rem;
-    color: #E74C3C;
+    color: #E73121;
     margin-bottom: 10px;
 }
 
 .subtitulo-servicios {
     font-size: 1.2rem;
-    color: #b0b0b0;
+    color: #5a3a2a;
     margin-bottom: 50px;
 }
 
 .grid-servicios {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .card-servicio {
-    background: #2a2a2a;
+    background: #fff8e7;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 25px rgba(74, 44, 27, 0.15);
     transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid #333;
+    border: 2px solid #c49a45;
     display: flex;
     flex-direction: column;
+    padding: 30px 20px;
+    align-items: center;
 }
 
 .card-servicio:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(230, 126, 34, 0.35);
+    box-shadow: 0 15px 35px rgba(231, 49, 33, 0.25);
 }
 
 .card-servicio img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #c49a45;
+    margin-bottom: 20px;
+}
+
+.icono-servicio {
+    font-size: 3.5rem;
+    color: #E73121;
+    margin-bottom: 20px;
+    background: #e8d5b5;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #c49a45;
 }
 
 .card-servicio-info {
-    padding: 25px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -277,13 +369,13 @@ nav a:hover {
 
 .card-servicio-info h3 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 2rem;
-    color: #E67E22;
+    font-size: 1.8rem;
+    color: #E73121;
     margin-bottom: 10px;
 }
 
 .card-servicio-info p {
-    color: #b0b0b0;
+    color: #5a3a2a;
     font-size: 1rem;
     margin-bottom: 20px;
     flex-grow: 1;
@@ -291,8 +383,8 @@ nav a:hover {
 
 .btn-servicio {
     display: inline-block;
-    background-color: #E67E22;
-    color: white;
+    background-color: #E73121;
+    color: #fff;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -300,23 +392,25 @@ nav a:hover {
     transition: background 0.3s;
     align-self: center;
     width: 100%;
+    border: 2px solid #c49a45;
 }
 
 .btn-servicio:hover {
-    background-color: #C0392B;
+    background-color: #c49a45;
+    color: #4a2c1b;
 }
 
 /* Galería */
 .galeria {
     padding: 80px 50px;
     text-align: center;
-    background-color: #1a1a1a;
+    background-color: #e8d5b5;
 }
 
 .galeria h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3rem;
-    color: #E74C3C;
+    color: #E73121;
     margin-bottom: 40px;
 }
 
@@ -334,25 +428,78 @@ nav a:hover {
     object-fit: cover;
     border-radius: 8px;
     transition: transform 0.3s, filter 0.3s;
+    border: 3px solid #c49a45;
 }
 
 .grid-galeria img:hover {
     transform: scale(1.03);
-    filter: brightness(1.15);
+    filter: brightness(1.05);
 }
 
-/* Footer */
+/* ============================================================
+   FOOTER (Usa fondo-horizontal.png)
+   ============================================================ */
 footer {
-    background-color: #111;
-    color: #e0e0e0;
+    background: url('fondo-horizontal.png') no-repeat center center;
+    background-size: cover;
+    color: #4a2c1b; /* Texto oscuro para contrastar con el fondo claro */
     text-align: center;
-    padding: 40px 20px;
+    padding: 60px 20px;
     font-size: 0.9rem;
-    border-top: 1px solid #333;
+    border-top: 5px solid #c49a45;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(244, 228, 193, 0.4); /* Capa sutil para asegurar legibilidad */
+    z-index: 1;
 }
 
 footer p {
     margin: 5px 0;
+    position: relative;
+    z-index: 2;
+}
+
+footer i {
+    color: #E73121;
+    margin-right: 5px;
+}
+
+/* --- BOTÓN VOLVER ARRIBA --- */
+.btn-volver-arriba {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #E73121;
+    color: #fff;
+    border: 2px solid #c49a45;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, background 0.3s;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-volver-arriba.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn-volver-arriba:hover {
+    background: #c49a45;
+    color: #4a2c1b;
 }
 
 /* ============================================================
@@ -362,19 +509,16 @@ footer p {
 /* --- Tablets --- */
 @media (max-width: 992px) {
     header { padding: 15px 25px; }
-    .logo span { font-size: 1.6rem; }
-    .hero-content h1 { font-size: 3.5rem; }
-    .nosotros h2,
-    .servicios-viajero h2,
-    .galeria h2 { font-size: 2.5rem; }
+    .logo span { font-size: 1.8rem; }
+    .letrero-principal h1 { font-size: 2.8rem; }
+    .nosotros h2, .servicios-viajero h2, .galeria h2 { font-size: 2.5rem; }
 }
 
 /* --- Móviles --- */
 @media (max-width: 768px) {
 
-    /* --- Header con menú hamburguesa --- */
     header {
-        position: -webkit-sticky;   /* ✅ FIX: fallback Safari iOS */
+        position: -webkit-sticky;
         position: sticky;
         top: 0;
         width: 100%;
@@ -382,16 +526,15 @@ footer p {
         flex-direction: row;
         justify-content: space-between;
         padding: 12px 18px;
-        /* ✅ FIX: fuerza contexto limpio y aceleración por hardware (Safari iOS) */
         transform: translateZ(0);
         -webkit-transform: translateZ(0);
         will-change: transform;
+        background: #e8d5b5;
     }
 
     .logo img { width: 55px; }
     .logo span { font-size: 1.5rem; }
 
-    /* Mostrar hamburguesa */
     .hamburguesa {
         display: flex;
         flex-direction: column;
@@ -406,12 +549,11 @@ footer p {
     .hamburguesa span {
         display: block;
         height: 3px;
-        background: #E74C3C;
+        background: #E73121;
         border-radius: 3px;
         transition: 0.3s;
     }
 
-    /* Panel lateral del menú */
     .menu-links {
         position: fixed;
         top: 0;
@@ -419,30 +561,29 @@ footer p {
         width: 75%;
         max-width: 320px;
         height: 100vh;
-        background: #222;
+        background: #f4e4c1;
         display: flex;
         flex-direction: column;
         padding: 90px 25px 30px;
         gap: 5px;
         transition: right 0.35s ease;
-        box-shadow: -5px 0 20px rgba(0,0,0,0.6);
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
         overflow-y: auto;
         align-items: stretch;
-        /* ✅ FIX: mejor comportamiento de scroll en iOS Safari */
         -webkit-overflow-scrolling: touch;
         overscroll-behavior: contain;
+        border-left: 4px solid #c49a45;
     }
 
-    .menu-toggle:checked ~ .menu-links {
-        right: 0;
-    }
+    .menu-toggle:checked ~ .menu-links { right: 0; }
 
     .menu-links a {
         margin: 0;
         font-size: 1.05rem;
         padding: 12px 0;
-        border-bottom: 1px solid #333;
+        border-bottom: 1px solid #c49a45;
         text-align: left;
+        color: #4a2c1b;
     }
 
     .menu-links .btn-reservar {
@@ -453,31 +594,22 @@ footer p {
     }
 
     /* --- Hero --- */
-    .hero {
-        height: 70vh;
-        padding: 0 20px;
-    }
-    .hero-content h1 {
-        font-size: 2.2rem;
-        line-height: 1.1;
-    }
+    .hero { height: 70vh; padding: 0 20px; }
+    .hero-content { padding: 25px; }
+    .letrero-principal h1 { font-size: 2.2rem; line-height: 1.1; }
     .hero-content p { font-size: 1rem; }
-    .btn-principal {
-        padding: 12px 28px;
-        font-size: 1rem;
-    }
+    .btn-principal { padding: 12px 28px; font-size: 1rem; }
 
     /* --- Nosotros --- */
     .nosotros { padding: 50px 20px; }
-    .nosotros .container { flex-direction: column; }
+    .nosotros .container { 
+        flex-direction: column; 
+        padding: 25px;
+    }
     .nosotros h2 { font-size: 2rem; }
     .nosotros p { font-size: 1rem; }
-    .nosotros .imagen img { box-shadow: 5px 5px 0 #E67E22; }
-
-    .logo-secundario {
-        width: 160px;
-        max-width: 100%;
-    }
+    .nosotros .imagen img { box-shadow: 5px 5px 0 #c49a45; }
+    .logo-secundario { width: 160px; max-width: 100%; }
 
     /* --- Menú (grid de platillos): 2 columnas --- */
     .servicios {
@@ -486,38 +618,76 @@ footer p {
         padding: 40px 15px;
     }
     .card img { height: 130px; }
-    .card h3 {
-        font-size: 1.2rem;
-        padding: 12px 12px 5px;
-    }
-    .card p {
-        font-size: 0.85rem;
-        padding: 0 12px 12px;
-    }
+    .card h3 { font-size: 1.2rem; padding: 12px 12px 5px; }
+    .card p { font-size: 0.85rem; padding: 0 12px 12px; }
 
     /* --- Servicios Viajero --- */
     .servicios-viajero { padding: 50px 20px; }
     .servicios-viajero h2 { font-size: 2rem; }
     .subtitulo-servicios { font-size: 1rem; margin-bottom: 30px; }
     .grid-servicios { grid-template-columns: 1fr; gap: 20px; }
-    .card-servicio img { height: 180px; }
+    .card-servicio { padding: 20px 15px; }
+    .icono-servicio { font-size: 2.5rem; width: 70px; height: 70px; }
 
     /* --- Galería: 2 columnas --- */
     .galeria { padding: 50px 15px; }
     .galeria h2 { font-size: 2rem; }
-    .grid-galeria {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
+    .grid-galeria { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .grid-galeria img { height: 130px; }
+
+    /* --- Footer --- */
+    footer { padding: 40px 15px; }
 }
 
 /* --- Móviles pequeños (iPhone SE, etc.) --- */
 @media (max-width: 400px) {
-    .hero-content h1 { font-size: 1.8rem; }
+    .letrero-principal h1 { font-size: 1.8rem; }
     .logo span { font-size: 1.3rem; }
     .logo img { width: 45px; }
     .card h3 { font-size: 1.05rem; }
     .grid-galeria img { height: 110px; }
     .menu-links { width: 85%; }
+    .nosotros .container { padding: 15px; }
+}
+
+/* ============================================================
+   CORRECCIÓN DEL MENÚ DE NAVEGACIÓN (ESCRITORIO)
+   ============================================================ */
+
+@media (min-width: 769px) {
+    
+    .menu-links {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .menu-links a {
+        text-decoration: none;
+        color: #4a2c1b;
+        font-weight: 600;
+        font-size: 1rem;
+        margin: 0;
+        padding: 5px 0;
+        border-bottom: none;
+        transition: color 0.3s ease;
+    }
+
+    .menu-links a:hover {
+        color: #E73121;
+    }
+
+    .menu-links .btn-reservar {
+        background-color: #E73121;
+        color: #fff !important;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: 2px solid #c49a45;
+        margin-left: 10px;
+    }
+
+    .menu-links .btn-reservar:hover {
+        background-color: #c49a45;
+        color: #4a2c1b !important;
+    }
 }

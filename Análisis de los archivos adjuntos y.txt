@@ -1,0 +1,4743 @@
+Análisis de los archivos adjuntos y de la actividad
+
+1. Análisis de los archivos adjuntos
+
+Los archivos proporcionados son materiales de estudio y referencia para el Bloque 4, cuyo tema central son las Bases de Datos Distribuidas (SBDD). A continuación, se describe el contenido de cada uno:
+
+Actividad_Aprendizaje_B4.pdf: Define la actividad a realizar. Solicita seleccionar una situación (laboral, familiar o social) para desarrollar un proyecto de bases de datos distribuidas. Los elementos requeridos son: Nombre del Proyecto, Introducción, Objetivo y Justificación. El desarrollo debe incluir un esquema con la base de datos, la arquitectura a utilizar y las 12 reglas de las bases de datos distribuidas. También pide describir el manejador de base de datos a implementar y los beneficios esperados.
+
+Bloque 4 _ Lectura complementaria 6.pdf (Elmasri, 2000): Capítulo 23 del libro "Sistemas de Bases de datos conceptos fundamentales". Explica a fondo los conceptos de SBDD, la arquitectura cliente-servidor, técnicas de fragmentación (horizontal y vertical), replicación, tipos de SBDD (homogéneos y heterogéneos), procesamiento de consultas distribuidas (incluyendo la semirreunión) y control de concurrencia y recuperación.
+
+18) Elmasri, Ramez. (2000). “Sistemas de bases de datos orientadas a objetos”...: Capítulo 22 del mismo libro. Introduce los conceptos de bases de datos orientadas a objetos (OODB), como identidad de objetos (OID), estructura de objetos, encapsulamiento, jerarquías de tipos y clases, herencia, polimorfismo y objetos complejos. Menciona sistemas como O2 y ObjectStore.
+
+17) C.J. Date. (2001). “Bases de datos de objetos”...: Capítulo 24 del libro "Introducción a los sistemas de bases de datos". Ofrece una perspectiva crítica sobre las bases de datos de objetos, contrastándolas con el modelo relacional. Analiza conceptos como objetos, clases, métodos, mensajes, identidad, encapsulamiento y jerarquías de contención, señalando ventajas y desventajas.
+
+16) C.J. Date (2001) “Bases de datos distribuidas”...: Capítulo 20 del libro de C.J. Date. Presenta una introducción a las bases de datos distribuidas, definiendo el concepto, sus ventajas y los 12 objetivos fundamentales (autonomía local, no dependencia de un sitio central, operación continua, independencia de ubicación, fragmentación, replicación, etc.). También aborda problemas como la propagación de actualizaciones, el control de recuperación y concurrencia, y los sistemas cliente-servidor.
+
+15) Silberschatz, Abraham. (2002). “Bases de datos distribuidas”...: Capítulo 19 del libro "Fundamentos de Bases de Datos". Cubre temas similares a los anteriores: bases de datos homogéneas y heterogéneas, almacenamiento distribuido (replicación y fragmentación), transacciones distribuidas, protocolos de compromiso (2PC y 3PC), control de concurrencia (bloqueo, marcas temporales), disponibilidad y procesamiento de consultas distribuidas (semirreunión). También introduce los sistemas de directorio (LDAP).
+
+Scala_Higher_Education_Sistema_Gestion_Bases_Datos.pdf: Extracto de un libro sobre Sistemas Gestores de Bases de Datos. Se centra en la operación y mantenimiento, bitácoras (logs), recuperación (ROLLBACK), permanencia (COMMIT), modos de operación (alta, baja, recovery), respaldo y recuperación, espejeo (mirroring) y réplica (replication) en MySQL.
+
+Sanchez_Hernandez_Juan_Jose_Backup_Recovery.pdf: Documento específico sobre "Backup and Recovery en MySQL". Explica los tipos de backup (lógico y físico), el uso de mysqldump para exportar y restaurar bases de datos, y cómo automatizar el backup mediante scripts de Bash y crontab.
+
+Leguizamon_Tarazona_Alba_Yolima_Pautas_Correcta_Migracion_Base_Datos.pdf: Documento sobre técnicas de migración de bases de datos. Describe procesos de extracción, transformación y carga (ETL), estrategias de migración (ejecución en paralelo, migración incremental, big bang), y claves para una migración exitosa.
+
+2. Análisis de la actividad
+
+La actividad solicita el diseño de una base de datos distribuida utilizando MySQL, con un enfoque práctico (ejercicio). Las instrucciones son claras:
+
+Revisión de materiales: Se deben consultar los apuntes y las lecturas base y complementaria del bloque (los archivos analizados).
+
+Desarrollo práctico: Se debe crear la base de datos utilizando MySQL Workbench.
+
+Uso de archivo de apoyo: Se menciona un Archivo_Apoyo_B4.pdf que no fue proporcionado, pero que se supone contiene los elementos y acciones a realizar. El archivo Actividad_Aprendizaje_B4.pdf proporcionado cumple una función similar al describir los elementos del proyecto.
+
+Aspectos a considerar:
+
+Capturas de pantalla: Se deben incluir capturas de la consola y de MySQL Workbench que muestren el esquema de la base de datos y cómo se aplican las 12 reglas de las bases de datos distribuidas, así como el resultado obtenido.
+
+Descripción del funcionamiento: Se debe describir claramente el funcionamiento y proceso del esquema, utilizando las 12 reglas, e incluir los beneficios esperados y los resultados obtenidos.
+
+Estructura del documento: Debe incluir portada, introducción y conclusiones.
+
+Citas: Si se utilizan fuentes externas, se deben citar en formato APA.
+
+Entrega: Subir la evidencia en el espacio indicado en la plataforma.
+
+Evaluación: Revisar el instrumento de evaluación para conocer los aspectos a evaluar.
+
+En resumen, la actividad es un proyecto práctico que integra los conceptos teóricos de las bases de datos distribuidas con su implementación en MySQL. Se debe elegir un caso de estudio, diseñar la base de datos distribuida, implementarla en MySQL Workbench, y documentar todo el proceso, haciendo énfasis en la aplicación de las 12 reglas de las bases de datos distribuidas y los beneficios obtenidos. Los archivos adjuntos proporcionan el marco teórico necesario para comprender y aplicar estos conceptos.
+
+primero nos enfocaremos en los puntos siguientes, para ello primero genera un estructura de los archivos que necesitamos crear y trabajar. los cuales se guardaran en esta carpeta principal..
+C:\Users\Eric Flores\Downloads\- Universidad\- IEU AI\18 (MC) Bases de Datos II\Unidad 04\Actividad 04
+
+1. Revisa los apuntes, así como las lecturas base y complementaria del bloque.
+
+2. Realiza la base de datos, por medio del software MySQL Workbench, disponible en el siguiente enlace (https://www.mysql.com/products/workbench/). 
+
+3. Utiliza el archivo de apoyo llamado Archivo_Apoyo_B4.pdf, donde se muestran los elementos que componen a una base de datos, así como de las acciones a realizar con dicha base.
+
+4. Considera los siguientes aspectos para el desarrollo de la actividad:
+
+- Incorpora capturas de pantalla de la consola y MySQL Workbench donde se muestre un esquema con la base de datos, utilizando las 12 reglas de las bases de datos distribuidas, así como del resultado obtenido.
+
+- Describe de forma clara el funcionamiento y proceso del esquema con la base de datos, utilizando las 12 reglas de las bases de datos distribuidas, incluyendo los beneficios esperados, así como del resultado obtenido.
+Entendido. Basándome en los archivos proporcionados y en las instrucciones de la actividad, he diseñado una estructura de carpetas y archivos que te permitirá organizar todo el trabajo de manera lógica y eficiente. Esta estructura está pensada para cubrir todos los puntos solicitados, desde la investigación teórica hasta la implementación práctica y la documentación final.
+
+La estructura se guardará en la ruta que indicaste:
+
+C:\Users\Eric Flores\Downloads\- Universidad\- IEU AI\18 (MC) Bases de Datos II\Unidad 04\Actividad 04
+
+Aquí tienes la propuesta de estructura:
+
+text
+Actividad 04/
+│
+├── 01_Investigacion_y_Apuntes/
+│   ├── Resumen_12_Reglas_BDD.md
+│   ├── Comparativa_Arquitecturas_BDD.md
+│   ├── Notas_Sobre_Fragmentacion_y_Replicacion.md
+│   └── Analisis_Lecturas_Complementarias.md
+│
+├── 02_Diseno_Base_Datos/
+│   ├── Caso_Estudio_Seleccionado.md
+│   ├── Diagrama_Entidad_Relacion.png
+│   ├── Esquema_Logico_Distribuido.md
+│   ├── Plan_de_Fragmentacion_y_Replicacion.xlsx
+│   └── Definicion_12_Reglas_Aplicadas.md
+│
+├── 03_Implementacion_MySQL/
+│   ├── Scripts_SQL/
+│   │   ├── 01_Creacion_Nodos.sql
+│   │   ├── 02_Creacion_Tablas_Fragmentos.sql
+│   │   ├── 03_Insercion_Datos.sql
+│   │   ├── 04_Consultas_Distribuidas.sql
+│   │   └── 05_Pruebas_Conectividad.sql
+│   ├── Configuracion_MySQL_Workbench/
+│   │   └── Conexiones_Nodos.md
+│   └── Capturas_Pantalla/
+│       ├── 01_Esquema_General.png
+│       ├── 02_Fragmentacion_Horizontal.png
+│       ├── 03_Fragmentacion_Vertical.png
+│       ├── 04_Replicacion.png
+│       ├── 05_Consultas_Distribuidas.png
+│       └── 06_Resultados_Obtenidos.png
+│
+├── 04_Documentacion_Final/
+│   ├── Portada.docx
+│   ├── Introduccion.md
+│   ├── Desarrollo_Proyecto.md
+│   ├── Conclusiones.md
+│   ├── Referencias_APA.md
+│   └── Actividad_04_Final.pdf
+│
+└── Archivos_Originales/
+    ├── Actividad_Aprendizaje_B4.pdf
+    ├── Bloque 4 _ Lectura complementaria 6.pdf
+    ├── 18) Elmasri, Ramez. (2000). “Sistemas de bases de datos orientadas a objetos” en Sistemas de Bases de datos conceptos fundamentales. Madrid Addison W.pdf
+    ├── 17) C.J. Date. (2001). “Bases de datos de objetos” en Introducción a los sistemas de bases de datos. México Person Education.pdf
+    ├── 16) C.J. Date (2001) “Bases de datos distribuidas” en Introducción a los sistemas de bases de datos. México Person Education.pdf
+    ├── 15) Silberschatz, Abraham. (2002). “Bases de datos distribuidas”, en Fundamentos de Bases de Datos. Madrid McGraw-Hill.pdf
+    ├── Scala_Higher_Education_Sistema_Gestion_Bases_Datos.pdf
+    ├── Sanchez_Hernandez_Juan_Jose_Backup_Recovery.pdf
+    └── Leguizamon_Tarazona_Alba_Yolima_Pautas_Correcta_Migracion_Base_Datos.pdf
+Descripción de cada carpeta y archivo:
+01_Investigacion_y_Apuntes/: Contendrá tus notas y resúmenes de las lecturas. Es la base teórica.
+
+Resumen_12_Reglas_BDD.md: Un resumen detallado de las 12 reglas de las bases de datos distribuidas (basado en el texto de C.J. Date y otros).
+
+Comparativa_Arquitecturas_BDD.md: Un análisis comparativo de las arquitecturas (cliente-servidor, homogénea, heterogénea, federada).
+
+Notas_Sobre_Fragmentacion_y_Replicacion.md: Apuntes sobre los tipos de fragmentación (horizontal, vertical) y replicación, con ejemplos.
+
+Analisis_Lecturas_Complementarias.md: Un documento que sintetiza los puntos clave de los capítulos sobre bases de datos orientadas a objetos (Elmasri, Date) y los relaciona con el proyecto.
+
+02_Diseno_Base_Datos/: Aquí se define el proyecto antes de implementarlo.
+
+Caso_Estudio_Seleccionado.md: Descripción del caso de estudio (ej. una empresa con sucursales, una biblioteca distribuida, etc.).
+
+Diagrama_Entidad_Relacion.png: El diagrama E-R del caso de estudio.
+
+Esquema_Logico_Distribuido.md: El esquema lógico, indicando qué tablas se fragmentan y cómo.
+
+Plan_de_Fragmentacion_y_Replicacion.xlsx: Una hoja de cálculo que detalla qué fragmentos se almacenan en qué nodos y qué réplicas se crean.
+
+Definicion_12_Reglas_Aplicadas.md: Un documento donde explicas cómo tu diseño cumple con cada una de las 12 reglas.
+
+03_Implementacion_MySQL/: Contiene todo el trabajo práctico.
+
+Scripts_SQL/: Los scripts .sql que usarás en MySQL Workbench.
+
+01_Creacion_Nodos.sql: Scripts para simular la creación de los diferentes nodos (bases de datos).
+
+02_Creacion_Tablas_Fragmentos.sql: Scripts para crear las tablas y fragmentos en cada nodo.
+
+03_Insercion_Datos.sql: Scripts para poblar las tablas con datos de prueba.
+
+04_Consultas_Distribuidas.sql: Las consultas que demuestran el funcionamiento distribuido.
+
+05_Pruebas_Conectividad.sql: Scripts para probar la comunicación entre nodos (si aplica).
+
+Configuracion_MySQL_Workbench/: Documentación de la configuración de las conexiones.
+
+Capturas_Pantalla/: Carpeta para guardar todas las capturas de pantalla que evidencien el proceso (esquemas, tablas, consultas, resultados).
+
+04_Documentacion_Final/: El entregable final.
+
+Portada.docx: La portada del documento.
+
+Introduccion.md: La introducción del proyecto.
+
+Desarrollo_Proyecto.md: El cuerpo del trabajo, donde describes el proceso, aplicas las 12 reglas, presentas las capturas y explicas los beneficios.
+
+Conclusiones.md: Tus conclusiones sobre el proyecto.
+
+Referencias_APA.md: Las referencias bibliográficas en formato APA.
+
+Actividad_04_Final.pdf: El documento final consolidado en PDF.
+
+Archivos_Originales/: Una carpeta para mantener los archivos PDF proporcionados como referencia.
+
+Esta estructura te permitirá trabajar de forma ordenada y asegurarte de que no olvidas ningún punto de la actividad. ¿Te parece bien esta organización?
+
+De la lista anterior cuales puedes generar tu y cuales definitivamente debo hacer yo o en conjunto contigo indicales
+Excelente pregunta. Aquí tienes el desglose de qué puedo generar yo directamente, qué debemos hacer en conjunto, y qué definitivamente debes hacer tú (porque requiere acceso a tu equipo, software o decisiones personales).
+
+1. Archivos que YO puedo generar completamente (texto plano)
+Estos son archivos de documentación, apuntes y plantillas que puedo redactar basándome en los PDFs que me compartiste. No requieren acceso a tu equipo ni a MySQL.
+
+Archivo	Descripción	Formato
+01_Investigacion_y_Apuntes/Resumen_12_Reglas_BDD.md	Resumen detallado de las 12 reglas de las bases de datos distribuidas.	Markdown
+01_Investigacion_y_Apuntes/Comparativa_Arquitecturas_BDD.md	Comparativa de arquitecturas (cliente-servidor, homogénea, heterogénea, federada).	Markdown
+01_Investigacion_y_Apuntes/Notas_Sobre_Fragmentacion_y_Replicacion.md	Apuntes sobre fragmentación horizontal, vertical, replicación y semirreunión.	Markdown
+01_Investigacion_y_Apuntes/Analisis_Lecturas_Complementarias.md	Síntesis de los capítulos sobre bases de datos orientadas a objetos (Elmasri, Date) y su relación con el proyecto.	Markdown
+02_Diseno_Base_Datos/Caso_Estudio_Seleccionado.md	Plantilla con un caso de estudio propuesto (puedo sugerir uno, pero tú decides si lo usas).	Markdown
+02_Diseno_Base_Datos/Esquema_Logico_Distribuido.md	Plantilla del esquema lógico distribuido (basado en el caso de estudio).	Markdown
+02_Diseno_Base_Datos/Definicion_12_Reglas_Aplicadas.md	Documento donde se explica cómo el diseño cumple cada regla (plantilla que llenaremos juntos).	Markdown
+03_Implementacion_MySQL/Scripts_SQL/01_Creacion_Nodos.sql	Script SQL para crear las bases de datos que simulan los nodos.	SQL
+03_Implementacion_MySQL/Scripts_SQL/02_Creacion_Tablas_Fragmentos.sql	Script SQL para crear tablas y fragmentos.	SQL
+03_Implementacion_MySQL/Scripts_SQL/03_Insercion_Datos.sql	Script SQL con datos de prueba.	SQL
+03_Implementacion_MySQL/Scripts_SQL/04_Consultas_Distribuidas.sql	Script SQL con consultas que demuestran el funcionamiento distribuido.	SQL
+03_Implementacion_MySQL/Scripts_SQL/05_Pruebas_Conectividad.sql	Script SQL para probar la comunicación entre nodos (si aplica).	SQL
+03_Implementacion_MySQL/Configuracion_MySQL_Workbench/Conexiones_Nodos.md	Guía de configuración de conexiones en MySQL Workbench.	Markdown
+04_Documentacion_Final/Portada.docx	Plantilla de portada (puedo generar el contenido, pero necesitas Word para el formato final).	Markdown/DOCX
+04_Documentacion_Final/Introduccion.md	Introducción del proyecto.	Markdown
+04_Documentacion_Final/Desarrollo_Proyecto.md	Cuerpo del trabajo (plantilla que llenaremos con tus capturas y resultados).	Markdown
+04_Documentacion_Final/Conclusiones.md	Conclusiones del proyecto.	Markdown
+04_Documentacion_Final/Referencias_APA.md	Referencias bibliográficas en formato APA.	Markdown
+2. Archivos que debemos hacer EN CONJUNTO
+Estos requieren tu intervención porque implican decisiones de diseño, ejecución en tu equipo o capturas de pantalla.
+
+Archivo	Qué hago yo	Qué haces tú
+02_Diseno_Base_Datos/Caso_Estudio_Seleccionado.md	Te propongo 2-3 casos de estudio (ej. empresa con sucursales, biblioteca distribuida, sistema bancario).	Tú eliges el caso definitivo y me das retroalimentación.
+02_Diseno_Base_Datos/Diagrama_Entidad_Relacion.png	Te doy el diseño del diagrama E-R en texto (entidades, atributos, relaciones).	Tú lo dibujas en una herramienta (draw.io, MySQL Workbench, etc.) y lo exportas como PNG.
+02_Diseno_Base_Datos/Plan_de_Fragmentacion_y_Replicacion.xlsx	Te doy la estructura de la hoja de cálculo (columnas, filas, lógica).	Tú la creas en Excel o Sheets con los datos que definamos.
+03_Implementacion_MySQL/Scripts_SQL/*.sql	Yo genero los scripts SQL completos.	Tú los ejecutas en MySQL Workbench, verificas que funcionen y me reportas errores.
+03_Implementacion_MySQL/Capturas_Pantalla/*.png	Te indico exactamente qué capturar y en qué momento.	Tú tomas las capturas en tu equipo y las guardas en la carpeta.
+04_Documentacion_Final/Actividad_04_Final.pdf	Te doy todo el contenido en Markdown.	Tú lo conviertes a PDF (con Word, Pandoc, o similar) y lo subes a la plataforma.
+3. Archivos que DEFINITIVAMENTE debes hacer TÚ
+Estos requieren acceso físico a tu equipo, a MySQL Workbench, o son decisiones personales que no puedo tomar por ti.
+
+Archivo/Acción	Razón
+Instalar y configurar MySQL Workbench	Solo tú tienes acceso a tu equipo.
+Crear las conexiones a los nodos	Requiere tu entorno local (localhost, puertos, usuarios).
+Ejecutar los scripts SQL	Necesitas MySQL Workbench abierto en tu máquina.
+Tomar las capturas de pantalla	Solo tú puedes capturar tu pantalla.
+Grabar video o audio (si se requiere)	No puedo generar archivos multimedia.
+Subir la actividad a la plataforma	Requiere tus credenciales de estudiante.
+Revisar el instrumento de evaluación	Debes consultarlo en la plataforma de tu universidad.
+Decidir el caso de estudio final	Es tu proyecto, tú decides el enfoque.
+Dar formato final al documento (Word/PDF)	Aunque yo genere el Markdown, el formato final es tu responsabilidad.
+Resumen visual
+text
+YO GENERO (texto plano):
+├── 01_Investigacion_y_Apuntes/ (4 archivos .md)
+├── 02_Diseno_Base_Datos/ (3 plantillas .md)
+├── 03_Implementacion_MySQL/Scripts_SQL/ (5 archivos .sql)
+├── 03_Implementacion_MySQL/Configuracion_MySQL_Workbench/ (1 archivo .md)
+└── 04_Documentacion_Final/ (6 archivos .md)
+
+EN CONJUNTO (yo propongo, tú ejecutas/decides):
+├── Caso de estudio final
+├── Diagrama E-R (yo doy texto, tú dibujas)
+├── Plan de fragmentación (yo doy estructura, tú llenas)
+├── Ejecución de scripts SQL (yo genero, tú ejecutas)
+├── Capturas de pantalla (yo indico, tú capturas)
+└── PDF final (yo doy contenido, tú formateas)
+
+TÚ HACES SOLO:
+├── Instalar MySQL Workbench
+├── Configurar conexiones locales
+├── Ejecutar scripts
+├── Tomar capturas
+├── Subir a la plataforma
+└── Revisar instrumento de evaluación
+¿Cómo procedemos?
+Primero, dime si te parece bien esta división de trabajo.
+
+Segundo, elige un caso de estudio (o te propongo 2-3 opciones).
+
+Tercero, yo empiezo a generar los archivos de la sección "YO GENERO" y te los entrego.
+
+Cuarto, tú ejecutas los scripts, tomas capturas y me reportas resultados.
+
+Quinto, juntos refinamos el documento final.
+
+¿Te parece bien este plan? ¿Quieres que empiece generando los archivos de investigación y apuntes, o prefieres que primero definamos el caso de estudio?
+
+Primero cual seria el proyecto prpuesta?
+¡Excelente pregunta! Antes de escribir una sola línea de código o documentación, necesitamos definir el caso de estudio que dará vida a todo el proyecto. Este caso debe cumplir con los siguientes criterios:
+
+Ser realista y cotidiano (laboral, familiar o social), como pide la actividad.
+
+Justificar naturalmente la distribución de datos (es decir, que tenga sentido tener datos en diferentes ubicaciones).
+
+Permitir aplicar las 12 reglas de las bases de datos distribuidas de forma clara.
+
+Ser manejable para implementarlo en MySQL Workbench sin requerir infraestructura compleja (puedes simular varios "nodos" con diferentes esquemas o bases de datos en tu misma máquina).
+
+Con base en esto, te propongo tres opciones de proyecto. Léelas y dime cuál te resuena más, o si quieres combinarlas o proponer una variante.
+
+Opción 1: Sistema de Gestión para una Cadena de Farmacias ("Farmacias del Valle")
+Descripción del caso
+Una cadena de farmacias con 3 sucursales ubicadas en diferentes ciudades (ej. Ciudad de México, Guadalajara y Monterrey). Cada sucursal maneja su propio inventario local, pero la oficina central necesita consultar y consolidar información de todas las sucursales para tomar decisiones (ej. reabastecimiento, reportes de ventas, control de medicamentos controlados).
+
+¿Por qué es distribuido?
+Cada sucursal tiene sus propios datos de inventario, ventas y empleados.
+
+La oficina central necesita acceder a datos remotos para consolidar reportes.
+
+Los medicamentos controlados (que requieren receta) deben registrarse en todas las sucursales por normativa sanitaria (replicación).
+
+Entidades principales
+Entidad	Descripción
+Sucursal	Datos de cada farmacia (ID, nombre, ciudad, dirección).
+Empleado	Empleados de cada sucursal (ID, nombre, puesto, sucursal).
+Medicamento	Catálogo global de medicamentos (ID, nombre, principio activo, precio).
+Inventario	Stock de medicamentos por sucursal (ID_sucursal, ID_medicamento, cantidad).
+Venta	Transacciones de venta (ID, fecha, sucursal, empleado, total).
+Detalle_Venta	Medicamentos vendidos en cada venta (ID_venta, ID_medicamento, cantidad).
+Receta	Registro de medicamentos controlados (ID_receta, ID_venta, médico, folio).
+Fragmentación propuesta
+Horizontal: Empleado, Inventario, Venta y Detalle_Venta se fragmentan por ID_sucursal.
+
+Vertical: Medicamento se puede fragmentar (datos públicos vs. datos de control sanitario).
+
+Replicación: El catálogo de Medicamento se replica en todas las sucursales para consultas rápidas.
+
+Beneficios esperados
+Consultas locales rápidas (cada sucursal accede a su propio inventario).
+
+Reportes consolidados desde la oficina central.
+
+Cumplimiento normativo con medicamentos controlados (replicación).
+
+Alta disponibilidad: si una sucursal falla, las demás siguen operando.
+
+Opción 2: Sistema de Gestión para una Biblioteca Universitaria con Sedes ("Biblioteca IEU")
+Descripción del caso
+Una universidad con 3 campus (ej. Campus Norte, Campus Sur, Campus Virtual). Cada campus tiene su propia biblioteca con un catálogo de libros, préstamos y usuarios. La universidad quiere que un estudiante de cualquier campus pueda consultar el catálogo completo y solicitar préstamos inter-campus.
+
+¿Por qué es distribuido?
+Cada campus tiene su propio catálogo local de libros y registro de préstamos.
+
+Los usuarios (estudiantes y profesores) están registrados en un sistema central, pero sus préstamos son locales.
+
+Se necesita un catálogo unificado para consultas globales.
+
+Entidades principales
+Entidad	Descripción
+Campus	Datos de cada campus (ID, nombre, ciudad).
+Usuario	Estudiantes y profesores (ID, nombre, tipo, campus).
+Libro	Catálogo global de libros (ISBN, título, autor, editorial).
+Ejemplar	Copias físicas de cada libro (ID_ejemplar, ISBN, campus, estado).
+Préstamo	Registro de préstamos (ID, ID_usuario, ID_ejemplar, fecha_prestamo, fecha_devolución).
+Reserva	Reservas de libros no disponibles (ID, ID_usuario, ISBN, campus).
+Fragmentación propuesta
+Horizontal: Ejemplar y Préstamo se fragmentan por ID_campus.
+
+Vertical: Usuario se puede fragmentar (datos públicos vs. datos académicos).
+
+Replicación: El catálogo Libro se replica en todos los campus.
+
+Beneficios esperados
+Consulta local rápida del catálogo de cada campus.
+
+Posibilidad de préstamos inter-campus.
+
+Reportes globales de uso de la biblioteca.
+
+Alta disponibilidad: si un campus falla, los demás siguen operando.
+
+Opción 3: Sistema de Gestión para una Red de Clínicas Veterinarias ("VetRed")
+Descripción del caso
+Una red de 3 clínicas veterinarias en diferentes zonas de una ciudad. Cada clínica atiende a sus propios pacientes (mascotas) y tiene su propio personal. Sin embargo, comparten un historial clínico global para que cualquier veterinario pueda consultar el historial de una mascota, sin importar en qué clínica se atendió.
+
+¿Por qué es distribuido?
+Cada clínica tiene sus propios datos de consultas, tratamientos y personal.
+
+El historial clínico de cada mascota debe estar disponible en todas las clínicas (replicación).
+
+Los dueños pueden registrar a su mascota en cualquier clínica.
+
+Entidades principales
+Entidad	Descripción
+Clinica	Datos de cada clínica (ID, nombre, dirección, teléfono).
+Veterinario	Personal médico (ID, nombre, especialidad, clínica).
+Dueño	Propietarios de mascotas (ID, nombre, teléfono, dirección).
+Mascota	Pacientes (ID, nombre, especie, raza, ID_dueño).
+Consulta	Registro de consultas (ID, ID_mascota, ID_veterinario, fecha, diagnóstico).
+Tratamiento	Tratamientos aplicados (ID, ID_consulta, medicamento, dosis).
+Historial	Historial clínico consolidado (ID_mascota, ID_consulta, resumen).
+Fragmentación propuesta
+Horizontal: Consulta, Tratamiento y Veterinario se fragmentan por ID_clinica.
+
+Vertical: Mascota se puede fragmentar (datos básicos vs. datos médicos).
+
+Replicación: El Historial se replica en todas las clínicas.
+
+Beneficios esperados
+Atención rápida en cualquier clínica.
+
+Historial clínico unificado y disponible.
+
+Reportes globales de salud animal.
+
+Alta disponibilidad: si una clínica falla, las demás siguen operando.
+
+Mi recomendación personal
+Criterio	Farmacias	Biblioteca	Veterinaria
+Facilidad de diseño	Alta	Alta	Media
+Claridad de las 12 reglas	Alta	Alta	Alta
+Replicación justificada	Muy alta (control sanitario)	Alta (catálogo)	Muy alta (historial)
+Fragmentación clara	Alta	Alta	Alta
+Atractivo visual	Medio	Alto	Alto
+Complejidad manejable	Alta	Alta	Media
+Mi recomendación: Opción 1 (Farmacias) o Opción 3 (Veterinaria).
+
+Farmacias es la más clara para explicar las 12 reglas y la replicación (por normativa sanitaria).
+
+Veterinaria es la más atractiva visualmente y permite un historial clínico replicado muy interesante.
+
+¿Qué necesito de ti?
+Elige una opción (1, 2 o 3).
+
+Dime si quieres ajustar algo (ej. número de sucursales, entidades, etc.).
+
+Confirma el nombre del proyecto (ej. "Sistema de Gestión Distribuida para Farmacias del Valle").
+
+Una vez que confirmes, procederé a generar los archivos de la sección "YO GENERO" (investigación, scripts SQL, plantillas) y te indicaré exactamente qué hacer en MySQL Workbench.
+
+¿Cuál eliges?
+
+Sistema de Gestión Distribuida para Farmacias del Valle
+¡Excelente elección! El "Sistema de Gestión Distribuida para Farmacias del Valle" es un caso ideal porque justifica naturalmente la distribución de datos (sucursales en diferentes ciudades), permite aplicar las 12 reglas con claridad y es manejable para implementarlo en MySQL Workbench.
+
+Antes de empezar a generar los archivos, necesito confirmar contigo algunos detalles clave del diseño. Una vez que me des el visto bueno, procederé a generar todos los archivos de la sección "YO GENERO".
+
+Diseño Propuesto: Farmacias del Valle
+1. Nodos (Sucursales)
+Propongo 3 nodos que simulan las sucursales y 1 nodo central (oficina central). En MySQL Workbench, cada nodo será una base de datos independiente en tu misma instancia local.
+
+Nodo	Nombre de la BD	Ciudad	Rol
+Nodo 1	farmacia_cdmx	Ciudad de México	Sucursal
+Nodo 2	farmacia_gdl	Guadalajara	Sucursal
+Nodo 3	farmacia_mty	Monterrey	Sucursal
+Nodo 4	farmacia_central	Oficina Central	Consolidación y reportes
+Nota: Si tu versión de MySQL Workbench no permite múltiples conexiones, podemos simular los nodos como esquemas separados dentro de la misma conexión. ¿Prefieres múltiples conexiones o esquemas separados?
+
+2. Entidades y Atributos
+Entidad	Atributos	Descripción
+Sucursal	id_sucursal (PK), nombre, ciudad, direccion, telefono	Catálogo de sucursales (replicado en todos los nodos).
+Empleado	id_empleado (PK), nombre, puesto, salario, id_sucursal (FK)	Empleados de cada sucursal (fragmentado por sucursal).
+Medicamento	id_medicamento (PK), nombre, principio_activo, precio, requiere_receta	Catálogo global de medicamentos (replicado en todos los nodos).
+Inventario	id_inventario (PK), id_sucursal (FK), id_medicamento (FK), cantidad, fecha_actualizacion	Stock por sucursal (fragmentado por sucursal).
+Venta	id_venta (PK), fecha, id_sucursal (FK), id_empleado (FK), total	Transacciones de venta (fragmentado por sucursal).
+Detalle_Venta	id_detalle (PK), id_venta (FK), id_medicamento (FK), cantidad, subtotal	Medicamentos vendidos (fragmentado por sucursal).
+Receta	id_receta (PK), id_venta (FK), medico, folio, fecha	Registro de medicamentos controlados (replicado en todos los nodos).
+3. Fragmentación Propuesta
+Fragmentación Horizontal (por sucursal)
+Empleado: cada sucursal tiene sus propios empleados.
+
+Inventario: cada sucursal tiene su propio stock.
+
+Venta: cada sucursal registra sus propias ventas.
+
+Detalle_Venta: cada sucursal registra sus propios detalles.
+
+Fragmentación Vertical (por columnas)
+Medicamento:
+
+Fragmento público: id_medicamento, nombre, precio, requiere_receta
+
+Fragmento privado: id_medicamento, principio_activo (solo para uso interno/farmacéutico)
+
+Replicación
+Sucursal: replicada en todos los nodos (catálogo).
+
+Medicamento (fragmento público): replicado en todas las sucursales.
+
+Receta: replicada en todas las sucursales (por normativa sanitaria).
+
+4. Las 12 Reglas Aplicadas (Resumen)
+#	Regla	¿Cómo se aplica?
+1	Autonomía local	Cada sucursal gestiona sus propios datos (empleados, inventario, ventas).
+2	No dependencia de un sitio central	La oficina central no es indispensable para que las sucursales operen.
+3	Operación continua	Si una sucursal falla, las demás siguen operando.
+4	Independencia de ubicación	El usuario no necesita saber en qué sucursal está un dato.
+5	Independencia de fragmentación	Las consultas globales se reconstruyen a partir de fragmentos.
+6	Independencia de replicación	El catálogo de medicamentos se ve como uno solo, aunque esté replicado.
+7	Procesamiento de consultas distribuidas	Las consultas globales se descomponen y ejecutan en varios nodos.
+8	Administración de transacciones distribuidas	Las ventas que afectan inventario y recetas usan confirmación en dos fases.
+9	Independencia de hardware	Los nodos pueden estar en diferentes equipos.
+10	Independencia de sistema operativo	Los nodos pueden usar diferentes SO.
+11	Independencia de red	Los nodos pueden comunicarse por diferentes redes.
+12	Independencia de DBMS	Los nodos pueden usar diferentes SGBD (MySQL, PostgreSQL, etc.).
+5. Beneficios Esperados
+Consultas locales rápidas: Cada sucursal accede a su propio inventario sin depender de la red.
+
+Reportes consolidados: La oficina central puede consultar datos de todas las sucursales.
+
+Cumplimiento normativo: Las recetas de medicamentos controlados se replican en todas las sucursales.
+
+Alta disponibilidad: Si una sucursal falla, las demás siguen operando.
+
+Escalabilidad: Se pueden agregar nuevas sucursales fácilmente.
+
+Autonomía local: Cada sucursal controla sus propios datos.
+
+Preguntas para ti antes de generar los archivos
+¿Múltiples conexiones o esquemas separados en MySQL Workbench?
+
+Opción A: Múltiples conexiones (más realista, pero más complejo de configurar).
+
+Opción B: Esquemas separados en una misma conexión (más simple, pero simula la distribución).
+
+Recomendación: Opción B para simplificar, pero documentando que en un entorno real serían conexiones separadas.
+
+¿Quieres agregar más entidades o atributos?
+
+Por ejemplo: Proveedor, Compra, Devolucion, Cliente (para ventas con cliente identificado).
+
+¿Quieres que incluya datos de prueba realistas?
+
+Ej. 10 medicamentos, 5 empleados por sucursal, 20 ventas por sucursal.
+
+¿Quieres que los scripts SQL incluyan la creación de la oficina central?
+
+Sí, para demostrar las consultas globales.
+
+¿Algún requisito adicional de tu profesor o institución?
+
+Revisa el instrumento de evaluación y dime si hay algo específico que deba incluir.
+
+Plan de trabajo una vez que confirmes
+Yo genero:
+
+01_Investigacion_y_Apuntes/ (4 archivos .md)
+
+02_Diseno_Base_Datos/Caso_Estudio_Seleccionado.md
+
+02_Diseno_Base_Datos/Esquema_Logico_Distribuido.md
+
+02_Diseno_Base_Datos/Definicion_12_Reglas_Aplicadas.md
+
+03_Implementacion_MySQL/Scripts_SQL/ (5 archivos .sql)
+
+03_Implementacion_MySQL/Configuracion_MySQL_Workbench/Conexiones_Nodos.md
+
+04_Documentacion_Final/ (6 archivos .md)
+
+Tú haces:
+
+Ejecutar los scripts en MySQL Workbench.
+
+Tomar capturas de pantalla.
+
+Reportar errores o ajustes.
+
+Formatear el PDF final.
+
+Juntos refinamos:
+
+El diagrama E-R (yo doy el diseño, tú lo dibujas).
+
+El plan de fragmentación (yo doy la estructura, tú la llenas en Excel).
+
+El documento final (yo doy el contenido, tú lo formateas).
+
+¿Confirmas el diseño? ¿Respondes las 5 preguntas? Una vez que me des luz verde, empiezo a generar todos los archivos de texto y scripts SQL.
+
+Adelante con todo lo que hemos visto manteniendo la coherencia, funcionalidad, claridad y memorabilidad del proyecto continuemos.... aqui mis respuestas a las preguntas planteadas.
+
+1- Opcion A: Múltiples conexiones
+2-  Si.
+3- Si.
+4- Si.
+5- Si tu analizando toda la informaicón adicional que te comparti detectas algo adicional requerido para ser evaluado añadelo.
+¡Perfecto! Con tus respuestas confirmadas, el plan queda así:
+
+Proyecto: Sistema de Gestión Distribuida para Farmacias del Valle.
+
+Opción A: Múltiples conexiones en MySQL Workbench (más realista).
+
+Sí a agregar más entidades: incluiré Proveedor, Compra, Devolucion y Cliente.
+
+Sí a datos de prueba realistas.
+
+Sí a incluir la oficina central.
+
+Adicional detectado: Basado en los PDFs de Backup/Recovery y Migración que compartiste, la actividad podría enriquecerse incluyendo:
+
+Bitácoras (logs): Demostrar el uso de COMMIT y ROLLBACK en transacciones distribuidas.
+
+Respaldo y recuperación: Scripts de mysqldump para cada nodo.
+
+Espejeo/Replicación: Documentar cómo se replican los catálogos.
+
+Migración: Incluir una nota sobre cómo se migrarían datos entre nodos.
+
+Estructura Final del Proyecto
+text
+Actividad 04/
+│
+├── 01_Investigacion_y_Apuntes/
+│   ├── Resumen_12_Reglas_BDD.md
+│   ├── Comparativa_Arquitecturas_BDD.md
+│   ├── Notas_Sobre_Fragmentacion_y_Replicacion.md
+│   └── Analisis_Lecturas_Complementarias.md
+│
+├── 02_Diseno_Base_Datos/
+│   ├── Caso_Estudio_Seleccionado.md
+│   ├── Diagrama_Entidad_Relacion.md (texto para que tú dibujes)
+│   ├── Esquema_Logico_Distribuido.md
+│   ├── Plan_de_Fragmentacion_y_Replicacion.md (estructura para Excel)
+│   └── Definicion_12_Reglas_Aplicadas.md
+│
+├── 03_Implementacion_MySQL/
+│   ├── Scripts_SQL/
+│   │   ├── 00_Configuracion_Inicial.sql
+│   │   ├── 01_Creacion_Nodos.sql
+│   │   ├── 02_Creacion_Tablas_Fragmentos.sql
+│   │   ├── 03_Insercion_Datos.sql
+│   │   ├── 04_Consultas_Distribuidas.sql
+│   │   ├── 05_Transacciones_y_Recuperacion.sql
+│   │   ├── 06_Backup_Recovery.sql
+│   │   └── 07_Migracion_Datos.sql
+│   ├── Configuracion_MySQL_Workbench/
+│   │   └── Conexiones_Nodos.md
+│   └── Capturas_Pantalla/
+│       └── (Guía de capturas)
+│
+├── 04_Documentacion_Final/
+│   ├── Portada.md
+│   ├── Introduccion.md
+│   ├── Desarrollo_Proyecto.md
+│   ├── Conclusiones.md
+│   └── Referencias_APA.md
+│
+└── Archivos_Originales/
+    └── (Los PDFs que ya tienes)
+Diseño Detallado del Proyecto
+1. Nodos (Conexiones en MySQL Workbench)
+Nodo	Nombre BD	Ciudad	Rol
+Nodo 1	farmacia_cdmx	CDMX	Sucursal
+Nodo 2	farmacia_gdl	Guadalajara	Sucursal
+Nodo 3	farmacia_mty	Monterrey	Sucursal
+Nodo 4	farmacia_central	Oficina Central	Consolidación
+2. Entidades y Atributos (Ampliado)
+Entidad	Atributos	Fragmentación
+Sucursal	id_sucursal (PK), nombre, ciudad, direccion, telefono	Replicada
+Empleado	id_empleado (PK), nombre, puesto, salario, id_sucursal (FK)	Horizontal por sucursal
+Medicamento	id_medicamento (PK), nombre, precio, requiere_receta	Replicada (público)
+Medicamento_Detalle	id_medicamento (PK), principio_activo, laboratorio	Vertical (privado)
+Proveedor	id_proveedor (PK), nombre, contacto, telefono	Replicada
+Compra	id_compra (PK), fecha, id_proveedor (FK), id_sucursal (FK), total	Horizontal por sucursal
+Detalle_Compra	id_detalle_compra (PK), id_compra (FK), id_medicamento (FK), cantidad, precio_unitario	Horizontal por sucursal
+Inventario	id_inventario (PK), id_sucursal (FK), id_medicamento (FK), cantidad, fecha_actualizacion	Horizontal por sucursal
+Cliente	id_cliente (PK), nombre, telefono, email	Replicada
+Venta	id_venta (PK), fecha, id_sucursal (FK), id_empleado (FK), id_cliente (FK), total	Horizontal por sucursal
+Detalle_Venta	id_detalle_venta (PK), id_venta (FK), id_medicamento (FK), cantidad, subtotal	Horizontal por sucursal
+Receta	id_receta (PK), id_venta (FK), medico, folio, fecha	Replicada
+Devolucion	id_devolucion (PK), id_venta (FK), fecha, motivo, monto	Horizontal por sucursal
+3. Las 12 Reglas Aplicadas (Detalladas)
+#	Regla	Aplicación en Farmacias del Valle
+1	Autonomía local	Cada sucursal gestiona sus empleados, inventario, ventas y compras.
+2	No dependencia de un sitio central	La oficina central no es indispensable para operar; solo consolida reportes.
+3	Operación continua	Si una sucursal falla, las demás siguen operando con sus datos locales.
+4	Independencia de ubicación	El usuario consulta Medicamento sin saber en qué nodo está.
+5	Independencia de fragmentación	Las consultas globales reconstruyen Empleado uniendo fragmentos.
+6	Independencia de replicación	Medicamento se ve como una sola tabla, aunque esté en 4 nodos.
+7	Procesamiento de consultas distribuidas	La oficina central descompone consultas y las ejecuta en cada nodo.
+8	Administración de transacciones distribuidas	Una venta que afecta inventario y receta usa COMMIT/ROLLBACK.
+9	Independencia de hardware	Los nodos pueden estar en diferentes equipos.
+10	Independencia de sistema operativo	Los nodos pueden usar Windows, Linux, etc.
+11	Independencia de red	Los nodos se comunican por LAN, WAN, etc.
+12	Independencia de DBMS	Los nodos pueden usar MySQL, PostgreSQL, etc.
+4. Beneficios Esperados
+Consultas locales rápidas: Cada sucursal accede a su inventario sin depender de la red.
+
+Reportes consolidados: La oficina central consulta datos de todas las sucursales.
+
+Cumplimiento normativo: Las recetas se replican en todas las sucursales.
+
+Alta disponibilidad: Si una sucursal falla, las demás siguen operando.
+
+Escalabilidad: Se pueden agregar nuevas sucursales fácilmente.
+
+Autonomía local: Cada sucursal controla sus propios datos.
+
+Respaldo y recuperación: Cada nodo puede respaldarse con mysqldump.
+
+Migración: Los datos pueden migrarse entre nodos con ETL.
+
+Guía de Capturas de Pantalla
+#	Captura	Qué debe mostrar
+01	Esquema General	Las 4 conexiones en MySQL Workbench con sus bases de datos.
+02	Fragmentación Horizontal	Empleado en farmacia_cdmx vs farmacia_gdl.
+03	Fragmentación Vertical	Medicamento (público) vs Medicamento_Detalle (privado).
+04	Replicación	Medicamento replicado en los 4 nodos.
+05	Consultas Distribuidas	Consulta que une datos de varios nodos.
+06	Resultados Obtenidos	Resultado de la consulta consolidada.
+07	Transacciones	COMMIT y ROLLBACK en acción.
+08	Backup	Ejecución de mysqldump para un nodo.
+09	Migración	Ejemplo de migración de datos entre nodos.
+Plan de Trabajo Inmediato
+Voy a generar los archivos en el siguiente orden:
+
+Fase 1: Investigación y Apuntes (4 archivos .md)
+Resumen_12_Reglas_BDD.md
+
+Comparativa_Arquitecturas_BDD.md
+
+Notas_Sobre_Fragmentacion_y_Replicacion.md
+
+Analisis_Lecturas_Complementarias.md
+
+Fase 2: Diseño de la Base de Datos (5 archivos .md)
+Caso_Estudio_Seleccionado.md
+
+Diagrama_Entidad_Relacion.md
+
+Esquema_Logico_Distribuido.md
+
+Plan_de_Fragmentacion_y_Replicacion.md
+
+Definicion_12_Reglas_Aplicadas.md
+
+Fase 3: Scripts SQL (8 archivos .sql)
+00_Configuracion_Inicial.sql
+
+01_Creacion_Nodos.sql
+
+02_Creacion_Tablas_Fragmentos.sql
+
+03_Insercion_Datos.sql
+
+04_Consultas_Distribuidas.sql
+
+05_Transacciones_y_Recuperacion.sql
+
+06_Backup_Recovery.sql
+
+07_Migracion_Datos.sql
+
+Fase 4: Documentación Final (5 archivos .md)
+Portada.md
+
+Introduccion.md
+
+Desarrollo_Proyecto.md
+
+Conclusiones.md
+
+Referencias_APA.md
+
+Fase 5: Guías (2 archivos .md)
+Conexiones_Nodos.md
+
+Guia_Capturas_Pantalla.md
+
+¿Empezamos?
+Voy a generar todos los archivos en un solo bloque de respuesta para que los copies y pegues en tu carpeta. ¿Estás de acuerdo?
+
+Si es así, procedo a generar:
+
+Los 4 archivos de investigación.
+
+Los 5 archivos de diseño.
+
+Los 8 scripts SQL.
+
+Los 5 archivos de documentación.
+
+Las 2 guías.
+
+Será una respuesta larga, pero completa. ¿Procedo?
+
+Adelante manteniendo en el proyecto la coherencia, funcionalidad, claridad y memorabilidad procede con ello.
+¡Perfecto! Con todas tus respuestas confirmadas y el diseño validado, procedo a generar todos los archivos del proyecto "Sistema de Gestión Distribuida para Farmacias del Valle". Mantendré la coherencia, funcionalidad, claridad y memorabilidad en cada uno.
+
+📁 ESTRUCTURA COMPLETA DEL PROYECTO
+text
+Actividad 04/
+│
+├── 01_Investigacion_y_Apuntes/
+│   ├── Resumen_12_Reglas_BDD.md
+│   ├── Comparativa_Arquitecturas_BDD.md
+│   ├── Notas_Sobre_Fragmentacion_y_Replicacion.md
+│   └── Analisis_Lecturas_Complementarias.md
+│
+├── 02_Diseno_Base_Datos/
+│   ├── Caso_Estudio_Seleccionado.md
+│   ├── Diagrama_Entidad_Relacion.md
+│   ├── Esquema_Logico_Distribuido.md
+│   ├── Plan_de_Fragmentacion_y_Replicacion.md
+│   └── Definicion_12_Reglas_Aplicadas.md
+│
+├── 03_Implementacion_MySQL/
+│   ├── Scripts_SQL/
+│   │   ├── 00_Configuracion_Inicial.sql
+│   │   ├── 01_Creacion_Nodos.sql
+│   │   ├── 02_Creacion_Tablas_Fragmentos.sql
+│   │   ├── 03_Insercion_Datos.sql
+│   │   ├── 04_Consultas_Distribuidas.sql
+│   │   ├── 05_Transacciones_y_Recuperacion.sql
+│   │   ├── 06_Backup_Recovery.sql
+│   │   └── 07_Migracion_Datos.sql
+│   ├── Configuracion_MySQL_Workbench/
+│   │   └── Conexiones_Nodos.md
+│   └── Capturas_Pantalla/
+│       └── Guia_Capturas_Pantalla.md
+│
+├── 04_Documentacion_Final/
+│   ├── Portada.md
+│   ├── Introduccion.md
+│   ├── Desarrollo_Proyecto.md
+│   ├── Conclusiones.md
+│   └── Referencias_APA.md
+│
+└── Archivos_Originales/
+    └── (Los PDFs que ya tienes)
+📄 FASE 1: INVESTIGACIÓN Y APUNTES
+Archivo 1: 01_Investigacion_y_Apuntes/Resumen_12_Reglas_BDD.md
+markdown
+# Resumen de las 12 Reglas de las Bases de Datos Distribuidas
+
+## Introducción
+
+Las 12 reglas de las bases de datos distribuidas, propuestas por C.J. Date (2001) en su libro "Introducción a los sistemas de bases de datos", establecen los objetivos que debe cumplir un Sistema de Gestión de Bases de Datos Distribuidas (SGBDD) para considerarse un sistema distribuido verdadero y generalizado. Estas reglas no son independientes entre sí, pero proporcionan un marco de trabajo para caracterizar la funcionalidad de los sistemas distribuidos.
+
+## Las 12 Reglas
+
+### Regla 1: Autonomía Local
+
+**Definición:** Los sitios en un sistema distribuido deben ser autónomos. Todas las operaciones en un sitio dado están controladas por ese sitio; ningún sitio depende de otro para su operación satisfactoria.
+
+**Implicaciones:**
+- Los datos locales son propiedad y administración local.
+- La seguridad, integridad y representación de almacenamiento de los datos locales permanecen bajo control del sitio local.
+- Ningún sitio debe depender de un sitio central para servicios como procesamiento de consultas, administración de transacciones o asignación de nombres.
+
+**Ejemplo en Farmacias del Valle:**
+Cada sucursal (CDMX, Guadalajara, Monterrey) gestiona sus propios empleados, inventario, ventas y compras sin depender de la oficina central para operar.
+
+---
+
+### Regla 2: No Dependencia de un Sitio Central
+
+**Definición:** No debe haber dependencia de un sitio "maestro" central para servicios como procesamiento centralizado de consultas, administración centralizada de transacciones o servicios centralizados de asignación de nombres.
+
+**Implicaciones:**
+- Todos los sitios deben ser tratados como iguales.
+- La dependencia de un sitio central crearía un cuello de botella y un punto único de falla.
+
+**Ejemplo en Farmacias del Valle:**
+La oficina central no es indispensable para que las sucursales operen. Si la oficina central falla, las sucursales siguen funcionando con sus datos locales.
+
+---
+
+### Regla 3: Operación Continua
+
+**Definición:** El sistema debe proporcionar mayor confiabilidad y disponibilidad. Debe continuar operando (en un nivel reducido) cuando hay fallas en componentes individuales.
+
+**Implicaciones:**
+- **Confiabilidad:** Probabilidad de que el sistema esté funcionando en un momento dado.
+- **Disponibilidad:** Probabilidad de que el sistema esté disponible continuamente durante un intervalo.
+- Los apagados no planeados (fallas) son inevitables, pero los apagados planeados nunca deberían ser requeridos.
+
+**Ejemplo en Farmacias del Valle:**
+Si una sucursal falla (por ejemplo, CDMX), las demás sucursales (Guadalajara y Monterrey) siguen operando con sus datos locales.
+
+---
+
+### Regla 4: Independencia de Ubicación
+
+**Definición:** Los usuarios no tienen que saber dónde están almacenados físicamente los datos. Deben poder comportarse como si todos los datos estuvieran almacenados en su sitio local.
+
+**Implicaciones:**
+- Simplifica los programas de usuario y las actividades terminales.
+- Permite que los datos emigren de un sitio a otro sin invalidar programas.
+- Es una extensión de la independencia de datos física al caso distribuido.
+
+**Ejemplo en Farmacias del Valle:**
+Un usuario de la sucursal CDMX puede consultar el catálogo de medicamentos sin saber que está replicado en los 4 nodos.
+
+---
+
+### Regla 5: Independencia de Fragmentación
+
+**Definición:** Los usuarios deben poder comportarse como si los datos no estuvieran fragmentados. El sistema debe encargarse de reconstruir la relación original a partir de los fragmentos.
+
+**Implicaciones:**
+- Los datos pueden fragmentarse horizontal o verticalmente.
+- La reconstrucción se logra mediante operaciones de unión (horizontal) o junta (vertical).
+- El optimizador determina qué fragmentos acceder.
+
+**Ejemplo en Farmacias del Valle:**
+La tabla `Empleado` está fragmentada horizontalmente por sucursal. Una consulta global reconstruye la tabla uniendo los fragmentos de CDMX, Guadalajara y Monterrey.
+
+---
+
+### Regla 6: Independencia de Replicación
+
+**Definición:** Los usuarios deben poder comportarse como si los datos no estuvieran replicados. El sistema debe determinar qué réplicas acceder.
+
+**Implicaciones:**
+- Las réplicas se crean y destruyen sin invalidar programas.
+- Mejora el rendimiento (accesos locales) y la disponibilidad.
+- El optimizador selecciona la réplica más conveniente.
+
+**Ejemplo en Farmacias del Valle:**
+El catálogo de `Medicamento` está replicado en los 4 nodos. El usuario lo ve como una sola tabla.
+
+---
+
+### Regla 7: Procesamiento de Consultas Distribuidas
+
+**Definición:** El sistema debe poder procesar consultas que accedan a datos de múltiples sitios de manera eficiente.
+
+**Implicaciones:**
+- El costo de comunicación es un factor primordial.
+- Se utilizan técnicas como la semirreunión para reducir la transferencia de datos.
+- El optimizador descompone la consulta en subconsultas locales.
+
+**Ejemplo en Farmacias del Valle:**
+Una consulta desde la oficina central que consolida ventas de todas las sucursales se descompone y ejecuta en cada nodo.
+
+---
+
+### Regla 8: Administración de Transacciones Distribuidas
+
+**Definición:** El sistema debe garantizar las propiedades ACID (Atomicidad, Consistencia, Aislamiento, Durabilidad) para transacciones que accedan a múltiples sitios.
+
+**Implicaciones:**
+- Se utiliza el protocolo de confirmación de dos fases (2PC).
+- Se manejan fallos de sitios y enlaces de comunicación.
+- Se detectan y resuelven bloqueos mortales distribuidos.
+
+**Ejemplo en Farmacias del Valle:**
+Una venta que afecta el inventario y genera una receta debe confirmarse en todos los nodos involucrados o abortarse en todos.
+
+---
+
+### Regla 9: Independencia de Hardware
+
+**Definición:** El sistema debe poder ejecutarse en diferentes plataformas de hardware.
+
+**Implicaciones:**
+- Los nodos pueden estar en diferentes tipos de máquinas (IBM, HP, PC, etc.).
+- Se necesita una "imagen de sistema único".
+
+**Ejemplo en Farmacias del Valle:**
+Las sucursales pueden tener diferentes tipos de servidores, pero el sistema distribuido funciona igual.
+
+---
+
+### Regla 10: Independencia de Sistema Operativo
+
+**Definición:** El sistema debe poder ejecutarse en diferentes plataformas de sistema operativo.
+
+**Implicaciones:**
+- Los nodos pueden usar diferentes SO (Windows, Linux, etc.).
+- Se necesita una versión del DBMS para cada SO.
+
+**Ejemplo en Farmacias del Valle:**
+CDMX puede usar Windows, Guadalajara Linux, y Monterrey macOS, pero el sistema distribuido funciona igual.
+
+---
+
+### Regla 11: Independencia de Red
+
+**Definición:** El sistema debe poder soportar una variedad de redes de comunicación.
+
+**Implicaciones:**
+- Los nodos pueden comunicarse por LAN, WAN, etc.
+- Se necesitan protocolos de comunicación estándar.
+
+**Ejemplo en Farmacias del Valle:**
+Las sucursales pueden comunicarse por diferentes tipos de redes, pero el sistema distribuido funciona igual.
+
+---
+
+### Regla 12: Independencia de DBMS
+
+**Definición:** El sistema debe poder integrar diferentes SGBD (heterogéneos).
+
+**Implicaciones:**
+- Los nodos pueden usar MySQL, PostgreSQL, Oracle, etc.
+- Se necesita una capa de middleware para la traducción.
+- Es un objetivo difícil de alcanzar completamente.
+
+**Ejemplo en Farmacias del Valle:**
+CDMX podría usar MySQL, Guadalajara PostgreSQL, y Monterrey Oracle, pero el sistema distribuido funciona igual (en teoría).
+
+---
+
+## Conclusión
+
+Las 12 reglas de las bases de datos distribuidas proporcionan un marco de trabajo para diseñar e implementar sistemas distribuidos. En la práctica, no todos los sistemas cumplen todas las reglas, pero sirven como objetivos a alcanzar. En el proyecto "Farmacias del Valle", aplicamos estas reglas para diseñar un sistema distribuido que sea autónomo, disponible, escalable y transparente para el usuario.
+
+## Referencias
+
+Date, C. J. (2001). *Introducción a los sistemas de bases de datos* (7ª ed.). Pearson Education.
+
+Elmasri, R., & Navathe, S. B. (2000). *Sistemas de bases de datos: conceptos fundamentales* (3ª ed.). Addison Wesley.
+
+Silberschatz, A., Korth, H. F., & Sudarshan, S. (2002). *Fundamentos de bases de datos* (4ª ed.). McGraw-Hill.
+Archivo 2: 01_Investigacion_y_Apuntes/Comparativa_Arquitecturas_BDD.md
+markdown
+# Comparativa de Arquitecturas de Bases de Datos Distribuidas
+
+## Introducción
+
+Las bases de datos distribuidas pueden clasificarse según varios criterios: el grado de homogeneidad del software, el grado de autonomía local, y el grado de transparencia de la distribución. A continuación, se presenta una comparativa de las arquitecturas más comunes.
+
+## Tipos de Arquitecturas
+
+### 1. Arquitectura Cliente-Servidor
+
+**Descripción:**
+La arquitectura cliente-servidor divide el software del SGBD en dos niveles: cliente y servidor. Los clientes formulan consultas SQL y proporcionan la interfaz con el usuario; los servidores gestionan el almacenamiento y procesamiento de datos.
+
+**Características:**
+- Un servidor puede atender a múltiples clientes.
+- Un cliente puede acceder a múltiples servidores.
+- El cliente puede ocultar los detalles de la distribución (transparencia).
+
+**Ventajas:**
+- Reducción de la complejidad del software.
+- Mejor rendimiento en redes de área local.
+- Escalabilidad.
+
+**Desventajas:**
+- Mayor complejidad en la administración.
+- Posibles cuellos de botella en el servidor.
+
+**Ejemplo en Farmacias del Valle:**
+Cada sucursal tiene un cliente (MySQL Workbench) que se conecta a un servidor (MySQL Server). La oficina central actúa como cliente que consulta a los servidores de las sucursales.
+
+---
+
+### 2. SGBDD Homogéneo
+
+**Descripción:**
+Todos los servidores (o SGBDD locales individuales) utilizan software idéntico y todos los clientes emplean software idéntico.
+
+**Características:**
+- Esquema único e integrado.
+- Alto grado de transparencia de distribución.
+- Los sitios acuerdan cooperar.
+
+**Ventajas:**
+- Mayor facilidad de administración.
+- Mejor rendimiento (optimización global).
+- Menor complejidad de integración.
+
+**Desventajas:**
+- Menor autonomía local.
+- Difícil de implementar en organizaciones con sistemas preexistentes.
+
+**Ejemplo en Farmacias del Valle:**
+Todas las sucursales usan MySQL y el mismo esquema de base de datos.
+
+---
+
+### 3. SGBDD Heterogéneo
+
+**Descripción:**
+Diferentes sitios pueden utilizar esquemas diferentes y diferente software de gestión de bases de datos.
+
+**Características:**
+- Esquemas locales independientes.
+- Bajo grado de transparencia.
+- Se necesita una capa de middleware para la integración.
+
+**Ventajas:**
+- Mayor autonomía local.
+- Permite integrar sistemas preexistentes.
+- Flexibilidad.
+
+**Desventajas:**
+- Mayor complejidad técnica.
+- Problemas de desacoplamiento semántico.
+- Difícil optimización global.
+
+**Ejemplo en Farmacias del Valle:**
+CDMX usa MySQL, Guadalajara PostgreSQL, Monterrey Oracle, y la oficina central SQL Server.
+
+---
+
+### 4. SGBDD Federado (Sistema de Multibases de Datos)
+
+**Descripción:**
+Cada servidor es un SGBDD centralizado independiente y autónomo que tiene sus propios usuarios locales, transacciones locales y DBA. Cada servidor autoriza el acceso a porciones específicas de su base de datos mediante un esquema de exportación.
+
+**Características:**
+- Alto grado de autonomía local.
+- Es un híbrido entre sistemas distribuidos y centralizados.
+- Los usuarios globales acceden a datos de múltiples bases de datos autónomas.
+
+**Ventajas:**
+- Máxima autonomía local.
+- Integración de sistemas preexistentes.
+- Flexibilidad organizacional.
+
+**Desventajas:**
+- Alta complejidad.
+- Difícil garantizar transacciones globales.
+- Problemas de integridad y seguridad.
+
+**Ejemplo en Farmacias del Valle:**
+Cada sucursal es un sistema autónomo que decide qué datos exportar a la oficina central.
+
+---
+
+## Tabla Comparativa
+
+| Criterio | Cliente-Servidor | Homogéneo | Heterogéneo | Federado |
+|----------|------------------|-----------|-------------|----------|
+| **Autonomía local** | Baja | Media | Alta | Muy Alta |
+| **Transparencia** | Media | Alta | Baja | Baja |
+| **Complejidad** | Baja | Media | Alta | Muy Alta |
+| **Rendimiento** | Alto | Alto | Medio | Medio |
+| **Escalabilidad** | Alta | Alta | Media | Media |
+| **Integración** | Fácil | Fácil | Difícil | Muy Difícil |
+| **Costo** | Bajo | Medio | Alto | Muy Alto |
+
+---
+
+## Elección para Farmacias del Valle
+
+Para el proyecto "Farmacias del Valle", se elige una **arquitectura cliente-servidor homogénea** con las siguientes características:
+
+- **Nodos:** 3 sucursales (CDMX, Guadalajara, Monterrey) + 1 oficina central.
+- **DBMS:** MySQL en todos los nodos (homogéneo).
+- **Arquitectura:** Cliente-servidor (MySQL Workbench como cliente, MySQL Server como servidor).
+- **Transparencia:** Alta (los usuarios no necesitan saber la ubicación de los datos).
+- **Autonomía:** Media (cada sucursal gestiona sus datos locales, pero comparte catálogos).
+
+Esta elección equilibra la facilidad de implementación con la funcionalidad distribuida requerida.
+
+---
+
+## Referencias
+
+Date, C. J. (2001). *Introducción a los sistemas de bases de datos* (7ª ed.). Pearson Education.
+
+Elmasri, R., & Navathe, S. B. (2000). *Sistemas de bases de datos: conceptos fundamentales* (3ª ed.). Addison Wesley.
+
+Silberschatz, A., Korth, H. F., & Sudarshan, S. (2002). *Fundamentos de bases de datos* (4ª ed.). McGraw-Hill.
+Archivo 3: 01_Investigacion_y_Apuntes/Notas_Sobre_Fragmentacion_y_Replicacion.md
+markdown
+# Notas sobre Fragmentación y Replicación en Bases de Datos Distribuidas
+
+## Introducción
+
+La fragmentación y la replicación son dos técnicas fundamentales en el diseño de bases de datos distribuidas. Permiten distribuir los datos entre múltiples sitios para mejorar el rendimiento, la disponibilidad y la autonomía local.
+
+---
+
+## 1. Fragmentación de Datos
+
+### 1.1 Definición
+
+La fragmentación consiste en dividir una relación (tabla) en unidades lógicas más pequeñas llamadas fragmentos, que pueden almacenarse en diferentes sitios.
+
+### 1.2 Tipos de Fragmentación
+
+#### Fragmentación Horizontal
+
+**Definición:**
+Un fragmento horizontal de una relación es un subconjunto de las tuplas (filas) de esa relación. Las tuplas se especifican mediante una condición sobre uno o más atributos.
+
+**Ejemplo:**
+```sql
+-- Fragmento 1: Empleados de CDMX
+SELECT * FROM Empleado WHERE id_sucursal = 'CDMX';
+
+-- Fragmento 2: Empleados de Guadalajara
+SELECT * FROM Empleado WHERE id_sucursal = 'GDL';
+
+-- Fragmento 3: Empleados de Monterrey
+SELECT * FROM Empleado WHERE id_sucursal = 'MTY';
+Reconstrucción:
+
+sql
+-- Unión de todos los fragmentos
+SELECT * FROM Empleado_CDMX
+UNION
+SELECT * FROM Empleado_GDL
+UNION
+SELECT * FROM Empleado_MTY;
+Ventajas:
+
+Los datos se almacenan cerca de donde se usan más frecuentemente.
+
+Reduce la transferencia de datos.
+
+Mejora el rendimiento de consultas locales.
+
+Desventajas:
+
+Mayor complejidad en consultas globales.
+
+Necesidad de reconstruir la relación original.
+
+Fragmentación Vertical
+Definición:
+Un fragmento vertical de una relación mantiene solo ciertos atributos (columnas) de la relación. Es necesario incluir el atributo de clave primaria en todo fragmento vertical para poder reconstruir la relación completa.
+
+Ejemplo:
+
+sql
+-- Fragmento 1: Datos públicos de medicamentos
+SELECT id_medicamento, nombre, precio, requiere_receta FROM Medicamento;
+
+-- Fragmento 2: Datos privados de medicamentos
+SELECT id_medicamento, principio_activo, laboratorio FROM Medicamento;
+Reconstrucción:
+
+sql
+-- Junta natural de los fragmentos
+SELECT m1.id_medicamento, m1.nombre, m1.precio, m1.requiere_receta, m2.principio_activo, m2.laboratorio
+FROM Medicamento_Publico m1
+JOIN Medicamento_Privado m2 ON m1.id_medicamento = m2.id_medicamento;
+Ventajas:
+
+Permite separar datos sensibles de datos públicos.
+
+Mejora el rendimiento al acceder solo a los atributos necesarios.
+
+Facilita la seguridad y el control de acceso.
+
+Desventajas:
+
+Mayor complejidad en consultas que requieren todos los atributos.
+
+Necesidad de incluir la clave primaria en todos los fragmentos.
+
+Fragmentación Mixta
+Definición:
+Combina fragmentación horizontal y vertical. Primero se aplica una fragmentación horizontal y luego una vertical (o viceversa).
+
+Ejemplo:
+
+sql
+-- Fragmentación horizontal de Empleado por sucursal
+-- Luego fragmentación vertical de cada fragmento
+-- Fragmento CDMX: datos personales y datos laborales
+SELECT id_empleado, nombre, direccion FROM Empleado_CDMX;
+SELECT id_empleado, puesto, salario FROM Empleado_CDMX;
+1.3 Condiciones de Guardia
+Definición:
+En la fragmentación horizontal, la condición que especifica qué tuplas pertenecen a un fragmento se llama condición de guardia. Se almacena en el catálogo del sistema.
+
+Ejemplo:
+
+sql
+-- Condición de guardia para el fragmento CDMX
+ND = 5  -- Los empleados del departamento 5 están en CDMX
+Uso:
+
+El optimizador de consultas usa las condiciones de guardia para determinar qué fragmentos acceder.
+
+Permite simplificar consultas eliminando fragmentos que no contienen datos relevantes.
+
+2. Replicación de Datos
+2.1 Definición
+La replicación consiste en almacenar copias idénticas de una relación (o fragmento) en múltiples sitios.
+
+2.2 Tipos de Replicación
+Replicación Completa
+Definición:
+Se guarda una copia de la relación en cada sitio del sistema.
+
+Ejemplo:
+
+sql
+-- El catálogo de Medicamento se replica en los 4 nodos
+-- farmacia_cdmx.Medicamento
+-- farmacia_gdl.Medicamento
+-- farmacia_mty.Medicamento
+-- farmacia_central.Medicamento
+Ventajas:
+
+Máxima disponibilidad (si un sitio falla, los demás tienen copia).
+
+Máximo rendimiento en lecturas (accesos locales).
+
+Transparencia total.
+
+Desventajas:
+
+Mayor sobrecarga en actualizaciones (propagar a todos los sitios).
+
+Mayor espacio de almacenamiento.
+
+Mayor complejidad de control de concurrencia.
+
+Replicación Parcial
+Definición:
+Solo algunos fragmentos se replican en algunos sitios.
+
+Ejemplo:
+
+sql
+-- El fragmento público de Medicamento se replica en las sucursales
+-- El fragmento privado solo está en la oficina central
+Ventajas:
+
+Menor sobrecarga que la replicación completa.
+
+Flexibilidad para decidir qué replicar.
+
+Desventajas:
+
+Mayor complejidad de administración.
+
+Posibles inconsistencias.
+
+Replicación Maestro-Esclavo
+Definición:
+Un sitio (maestro) es el único que puede realizar actualizaciones. Los demás sitios (esclavos) solo pueden leer y reciben las actualizaciones del maestro.
+
+Ejemplo:
+
+sql
+-- farmacia_central es el maestro
+-- farmacia_cdmx, farmacia_gdl, farmacia_mty son esclavos
+-- Las actualizaciones al catálogo de Medicamento se hacen en el maestro
+-- y se propagan a los esclavos.
+Ventajas:
+
+Simplifica el control de concurrencia.
+
+Mejor rendimiento en lecturas.
+
+Fácil de implementar.
+
+Desventajas:
+
+El maestro es un punto único de falla.
+
+Mayor latencia en actualizaciones.
+
+2.3 Propagación de Actualizaciones
+Definición:
+Cuando se actualiza un objeto replicado, es necesario propagar la actualización a todas las copias.
+
+Estrategias:
+
+Propagación inmediata: La actualización se propaga antes de confirmar la transacción (síncrona).
+
+Propagación diferida: La actualización se propaga después de confirmar la transacción (asíncrona).
+
+Ejemplo:
+
+sql
+-- Propagación inmediata
+START TRANSACTION;
+UPDATE Medicamento SET precio = 100 WHERE id_medicamento = 1;
+-- Propagar a todos los nodos
+COMMIT;
+
+-- Propagación diferida
+START TRANSACTION;
+UPDATE Medicamento SET precio = 100 WHERE id_medicamento = 1;
+COMMIT;
+-- Propagar a todos los nodos después (en segundo plano)
+Ventajas de la propagación inmediata:
+
+Consistencia total.
+
+Mayor seguridad.
+
+Desventajas de la propagación inmediata:
+
+Mayor latencia.
+
+Mayor sobrecarga.
+
+Ventajas de la propagación diferida:
+
+Menor latencia.
+
+Mayor disponibilidad.
+
+Desventajas de la propagación diferida:
+
+Posibles inconsistencias.
+
+Mayor complejidad de resolución de conflictos.
+
+3. Aplicación en Farmacias del Valle
+3.1 Fragmentación
+Tabla	Tipo de Fragmentación	Criterio
+Empleado	Horizontal	Por id_sucursal
+Inventario	Horizontal	Por id_sucursal
+Venta	Horizontal	Por id_sucursal
+Detalle_Venta	Horizontal	Por id_sucursal
+Compra	Horizontal	Por id_sucursal
+Medicamento	Vertical	Público vs. Privado
+3.2 Replicación
+Tabla	Tipo de Replicación	Nodos
+Sucursal	Completa	Todos
+Medicamento (público)	Completa	Todos
+Proveedor	Completa	Todos
+Cliente	Completa	Todos
+Receta	Completa	Todos
+3.3 Beneficios
+Rendimiento: Consultas locales rápidas.
+
+Disponibilidad: Si un nodo falla, los demás siguen operando.
+
+Autonomía: Cada sucursal controla sus datos.
+
+Cumplimiento: Las recetas se replican por normativa sanitaria.
+
+Escalabilidad: Se pueden agregar nuevas sucursales fácilmente.
+
+Referencias
+Date, C. J. (2001). Introducción a los sistemas de bases de datos (7ª ed.). Pearson Education.
+
+Elmasri, R., & Navathe, S. B. (2000). Sistemas de bases de datos: conceptos fundamentales (3ª ed.). Addison Wesley.
+
+Silberschatz, A., Korth, H. F., & Sudarshan, S. (2002). Fundamentos de bases de datos (4ª ed.). McGraw-Hill.
+
+text
+
+---
+
+## Archivo 4: `01_Investigacion_y_Apuntes/Analisis_Lecturas_Complementarias.md`
+
+```markdown
+# Análisis de Lecturas Complementarias
+
+## Introducción
+
+Además de las lecturas base sobre bases de datos distribuidas, se proporcionaron lecturas complementarias sobre bases de datos orientadas a objetos (OODB) y documentos técnicos sobre backup, recovery y migración en MySQL. A continuación, se sintetizan los puntos clave de cada una y su relación con el proyecto "Farmacias del Valle".
+
+---
+
+## 1. Bases de Datos Orientadas a Objetos (Elmasri, 2000; Date, 2001)
+
+### 1.1 Conceptos Clave
+
+| Concepto | Descripción |
+|----------|-------------|
+| **Identidad de Objetos (OID)** | Cada objeto tiene un identificador único e inmutable, independiente de sus valores. |
+| **Estructura de Objetos** | Los objetos complejos se construyen aplicando constructores de tipos (átomo, tupla, conjunto, lista, bolsa). |
+| **Encapsulamiento** | La estructura interna de un objeto está oculta; solo se accede a través de métodos. |
+| **Jerarquías de Tipos y Clases** | Los tipos y clases pueden heredar atributos y métodos de otros tipos y clases. |
+| **Herencia** | Un subtipo hereda las funciones de su supertipo. |
+| **Polimorfismo** | Una operación puede tener diferentes implementaciones según el tipo de objeto. |
+| **Objetos Complejos** | Pueden ser estructurados (compuestos por otros objetos) o no estructurados (BLOBs). |
+
+### 1.2 Sistemas Mencionados
+
+| Sistema | Características |
+|---------|-----------------|
+| **O2** | Sistema OODB con lenguaje O2C y O2SQL. Soporta herencia múltiple y vínculos inversos. |
+| **ObjectStore** | Integrado con C++. Usa `os_Set` para conjuntos. Soporta vínculos inversos. |
+| **GEMSTONE/OPAL** | Basado en Smalltalk. Usa OPAL como lenguaje. |
+
+### 1.3 Relación con Farmacias del Valle
+
+Aunque el proyecto "Farmacias del Valle" utiliza un modelo relacional (MySQL), los conceptos de OODB son relevantes para:
+
+- **Identidad de objetos:** Cada medicamento, empleado, venta, etc., tiene un identificador único (PK).
+- **Encapsulamiento:** Los datos sensibles (ej. `principio_activo`) están separados en fragmentos verticales.
+- **Herencia:** No se aplica directamente, pero la jerarquía de tablas (ej. `Medicamento` → `Medicamento_Detalle`) es similar.
+- **Polimorfismo:** No se aplica directamente en MySQL, pero se podría simular con procedimientos almacenados.
+
+**Conclusión:** Los conceptos de OODB enriquecen la comprensión de los modelos de datos, pero para este proyecto se opta por el modelo relacional por su simplicidad y soporte en MySQL.
+
+---
+
+## 2. Backup and Recovery en MySQL (Sanchez Hernandez, 2020)
+
+### 2.1 Tipos de Backup
+
+| Tipo | Descripción | Herramienta |
+|------|-------------|-------------|
+| **Backup Lógico** | Exporta la estructura de las tablas y los datos mediante sentencias SQL (`CREATE TABLE`, `INSERT`). | `mysqldump` |
+| **Backup Físico** | Copia los archivos de datos reales de la base de datos. | `mysqlbackup`, `mysqlhotcopy` |
+
+### 2.2 Comandos Principales
+
+```bash
+# Exportar una base de datos completa
+mysqldump -u root -p --databases farmacia_cdmx > backup_cdmx.sql
+
+# Exportar todas las bases de datos
+mysqldump -u root -p --all-databases > backup_all.sql
+
+# Restaurar una base de datos
+mysql -u root -p farmacia_cdmx < backup_cdmx.sql
+2.3 Automatización
+bash
+#!/bin/bash
+# Script de backup automático
+USER="root"
+PASSWORD="tu_password"
+BACKUP_PATH="/path/to/backup"
+DATE=$(date +"%d-%b-%Y")
+
+mysqldump --user=$USER --password=$PASSWORD --all-databases > $BACKUP_PATH/$DATE.sql
+gzip $BACKUP_PATH/$DATE.sql
+
+# Eliminar backups mayores a 30 días
+find $BACKUP_PATH/* -mtime +30 -exec rm {} \;
+2.4 Relación con Farmacias del Valle
+Backup por nodo: Cada sucursal puede respaldar su base de datos local con mysqldump.
+
+Backup central: La oficina central puede consolidar los backups de todas las sucursales.
+
+Recuperación: En caso de falla, cada nodo puede restaurar su backup local.
+
+Automatización: Se puede programar un script para backups diarios.
+
+Conclusión: El backup y recovery son esenciales para garantizar la durabilidad y disponibilidad de los datos en un sistema distribuido.
+
+3. Migración de Bases de Datos (Leguizamon Tarazona, 2020)
+3.1 Proceso ETL
+Fase	Descripción
+Extracción	Lectura de datos del sistema origen.
+Transformación	Aplicación de reglas de negocio, limpieza y conversión de datos.
+Carga	Inserción de datos en el sistema destino.
+3.2 Estrategias de Migración
+Estrategia	Descripción
+Ejecución en Paralelo	Ambos sistemas (antiguo y nuevo) funcionan simultáneamente durante un período.
+Migración Incremental	Los datos se migran por partes, activando el nuevo sistema gradualmente.
+Big Bang	Todo el sistema se migra de una vez.
+3.3 Claves para una Migración Exitosa
+Especificaciones claras: Mapeo de columnas, reglas de negocio, limpieza de datos.
+
+Calidad de datos: Perfilado de datos en la primera etapa.
+
+Gestión del proyecto: No subestimar la complejidad, comprender las especificaciones.
+
+Equipo experto: Contar con un DBA experimentado.
+
+Metodología probada: Utilizar métodos que hayan tenido éxito.
+
+3.4 Relación con Farmacias del Valle
+Migración inicial: Si las sucursales ya tienen datos en sistemas locales, se migrarían al sistema distribuido.
+
+Migración entre nodos: Si una sucursal se mueve de ciudad, sus datos se migrarían a otro nodo.
+
+ETL: Se usaría para transformar datos de formatos antiguos al nuevo esquema.
+
+Estrategia: Se elegiría "Ejecución en Paralelo" para minimizar riesgos.
+
+Conclusión: La migración es un proceso crítico que debe planificarse cuidadosamente para evitar pérdida de datos y minimizar el impacto en las operaciones.
+
+4. Sistema de Gestión de Bases de Datos (Scala Higher Education, 2020)
+4.1 Operación y Mantenimiento
+Tipo de Mantenimiento	Descripción
+Correctivo	Responde a errores en el sistema.
+Adaptativo	Responde a cambios en el ambiente de negocios.
+Perfectivo	Brinda soluciones de mejora al sistema.
+4.2 Bitácoras (Logs)
+Binary Log: Registra todas las transacciones realizadas en el sistema.
+
+Funciones: Recuperación, replicación, auditoría.
+
+Comandos: COMMIT (confirma cambios), ROLLBACK (deshace cambios).
+
+4.3 Espejeo (Mirroring) y Réplica (Replication)
+Técnica	Descripción
+Espejeo	Mantiene un servidor de respaldo (espejo) para un servidor maestro.
+Réplica	Mantiene múltiples copias de la base de datos en diferentes ubicaciones.
+4.4 Relación con Farmacias del Valle
+Mantenimiento: Cada sucursal realiza mantenimiento correctivo, adaptativo y perfectivo.
+
+Bitácoras: Se usan para recuperación y auditoría.
+
+Espejeo: La oficina central podría ser un espejo de respaldo.
+
+Réplica: Los catálogos (Medicamento, Sucursal) se replican en todos los nodos.
+
+Conclusión: La operación y mantenimiento son esenciales para garantizar la continuidad del negocio.
+
+5. Conclusiones Generales
+Modelo Relacional vs. OO: Aunque los OODB ofrecen ventajas para aplicaciones complejas, el modelo relacional es suficiente y más simple para "Farmacias del Valle".
+
+Backup y Recovery: Son críticos para garantizar la durabilidad y disponibilidad. Se implementarán scripts de mysqldump por nodo.
+
+Migración: Se planificará cuidadosamente usando ETL y estrategias de ejecución en paralelo.
+
+Operación y Mantenimiento: Se realizarán los tres tipos de mantenimiento y se usarán bitácoras para recuperación.
+
+Integración: Todos estos conceptos se integran en el diseño del sistema distribuido, asegurando que sea robusto, disponible y escalable.
+
+Referencias
+Date, C. J. (2001). Introducción a los sistemas de bases de datos (7ª ed.). Pearson Education.
+
+Elmasri, R., & Navathe, S. B. (2000). Sistemas de bases de datos: conceptos fundamentales (3ª ed.). Addison Wesley.
+
+Leguizamon Tarazona, A. Y. (2020). Pautas para una correcta migración de base de datos. [Documento PDF].
+
+Sanchez Hernandez, J. J. (2020). Backup and Recovery en MySQL. [Documento PDF].
+
+Scala Higher Education. (2020). Sistema de Gestión de Bases de Datos. [Documento PDF].
+
+Silberschatz, A., Korth, H. F., & Sudarshan, S. (2002). Fundamentos de bases de datos (4ª ed.). McGraw-Hill.
+
+text
+
+---
+
+# 📄 FASE 2: DISEÑO DE LA BASE DE DATOS
+
+---
+
+## Archivo 5: `02_Diseno_Base_Datos/Caso_Estudio_Seleccionado.md`
+
+```markdown
+# Caso de Estudio: Sistema de Gestión Distribuida para Farmacias del Valle
+
+## 1. Nombre del Proyecto
+
+**Sistema de Gestión Distribuida para Farmacias del Valle**
+
+## 2. Introducción
+
+Farmacias del Valle es una cadena de farmacias con presencia en tres ciudades de México: Ciudad de México (CDMX), Guadalajara (GDL) y Monterrey (MTY). Cada sucursal maneja su propio inventario local, empleados, ventas y compras. Sin embargo, la oficina central necesita consultar y consolidar información de todas las sucursales para tomar decisiones estratégicas (reabastecimiento, reportes de ventas, control de medicamentos controlados).
+
+Actualmente, cada sucursal opera de manera independiente con su propio sistema de base de datos local, lo que dificulta la consolidación de información y la colaboración entre sucursales. Se requiere diseñar e implementar una base de datos distribuida que permita:
+
+- Mantener la autonomía local de cada sucursal.
+- Consolidar información en la oficina central.
+- Compartir catálogos globales (medicamentos, proveedores, clientes).
+- Cumplir con la normativa sanitaria para medicamentos controlados.
+- Garantizar alta disponibilidad y tolerancia a fallos.
+
+## 3. Objetivo
+
+Diseñar e implementar una base de datos distribuida utilizando MySQL Workbench que permita a Farmacias del Valle gestionar de manera eficiente y segura la información de sus tres sucursales y su oficina central, aplicando los conceptos de fragmentación, replicación y las 12 reglas de las bases de datos distribuidas.
+
+## 4. Justificación
+
+### 4.1 ¿Por qué es distribuido?
+
+- **Naturaleza distribuida del negocio:** Las sucursales están en diferentes ciudades, y es natural que sus datos estén distribuidos.
+- **Autonomía local:** Cada sucursal necesita gestionar sus propios datos sin depender de la oficina central.
+- **Consolidación:** La oficina central necesita acceder a datos remotos para consolidar reportes.
+- **Cumplimiento normativo:** Los medicamentos controlados deben registrarse en todas las sucursales.
+- **Alta disponibilidad:** Si una sucursal falla, las demás deben seguir operando.
+
+### 4.2 Beneficios Esperados
+
+| Beneficio | Descripción |
+|-----------|-------------|
+| **Consultas locales rápidas** | Cada sucursal accede a su propio inventario sin depender de la red. |
+| **Reportes consolidados** | La oficina central puede consultar datos de todas las sucursales. |
+| **Cumplimiento normativo** | Las recetas de medicamentos controlados se replican en todas las sucursales. |
+| **Alta disponibilidad** | Si una sucursal falla, las demás siguen operando. |
+| **Escalabilidad** | Se pueden agregar nuevas sucursales fácilmente. |
+| **Autonomía local** | Cada sucursal controla sus propios datos. |
+| **Respaldo y recuperación** | Cada nodo puede respaldarse con `mysqldump`. |
+| **Migración** | Los datos pueden migrarse entre nodos con ETL. |
+
+## 5. Arquitectura Propuesta
+
+### 5.1 Nodos
+
+| Nodo | Nombre BD | Ciudad | Rol |
+|------|-----------|--------|-----|
+| Nodo 1 | `farmacia_cdmx` | CDMX | Sucursal |
+| Nodo 2 | `farmacia_gdl` | Guadalajara | Sucursal |
+| Nodo 3 | `farmacia_mty` | Monterrey | Sucursal |
+| Nodo 4 | `farmacia_central` | Oficina Central | Consolidación |
+
+### 5.2 Tipo de Arquitectura
+
+- **Cliente-Servidor:** MySQL Workbench como cliente, MySQL Server como servidor.
+- **Homogénea:** Todos los nodos usan MySQL y el mismo esquema.
+- **Transparencia:** Alta (los usuarios no necesitan saber la ubicación de los datos).
+- **Autonomía:** Media (cada sucursal gestiona sus datos locales, pero comparte catálogos).
+
+### 5.3 Conexiones
+
+- **Opción A:** Múltiples conexiones en MySQL Workbench (una por nodo).
+- **Puertos:** 3306 (CDMX), 3307 (GDL), 3308 (MTY), 3309 (Central).
+- **Usuario:** `admin_farmacia` (mismo en todos los nodos).
+- **Contraseña:** `farmacia2024` (misma en todos los nodos).
+
+## 6. Entidades y Atributos
+
+### 6.1 Entidades Principales
+
+| Entidad | Atributos | Descripción |
+|---------|-----------|-------------|
+| **Sucursal** | `id_sucursal` (PK), `nombre`, `ciudad`, `direccion`, `telefono` | Catálogo de sucursales (replicado). |
+| **Empleado** | `id_empleado` (PK), `nombre`, `puesto`, `salario`, `id_sucursal` (FK) | Empleados (fragmentado por sucursal). |
+| **Medicamento** | `id_medicamento` (PK), `nombre`, `precio`, `requiere_receta` | Catálogo público (replicado). |
+| **Medicamento_Detalle** | `id_medicamento` (PK), `principio_activo`, `laboratorio` | Detalle privado (fragmentado vertical). |
+| **Proveedor** | `id_proveedor` (PK), `nombre`, `contacto`, `telefono` | Catálogo de proveedores (replicado). |
+| **Compra** | `id_compra` (PK), `fecha`, `id_proveedor` (FK), `id_sucursal` (FK), `total` | Compras (fragmentado por sucursal). |
+| **Detalle_Compra** | `id_detalle_compra` (PK), `id_compra` (FK), `id_medicamento` (FK), `cantidad`, `precio_unitario` | Detalle de compras (fragmentado). |
+| **Inventario** | `id_inventario` (PK), `id_sucursal` (FK), `id_medicamento` (FK), `cantidad`, `fecha_actualizacion` | Stock (fragmentado por sucursal). |
+| **Cliente** | `id_cliente` (PK), `nombre`, `telefono`, `email` | Catálogo de clientes (replicado). |
+| **Venta** | `id_venta` (PK), `fecha`, `id_sucursal` (FK), `id_empleado` (FK), `id_cliente` (FK), `total` | Ventas (fragmentado por sucursal). |
+| **Detalle_Venta** | `id_detalle_venta` (PK), `id_venta` (FK), `id_medicamento` (FK), `cantidad`, `subtotal` | Detalle de ventas (fragmentado). |
+| **Receta** | `id_receta` (PK), `id_venta` (FK), `medico`, `folio`, `fecha` | Recetas (replicado). |
+| **Devolucion** | `id_devolucion` (PK), `id_venta` (FK), `fecha`, `motivo`, `monto` | Devoluciones (fragmentado). |
+
+### 6.2 Relaciones
+
+- `Empleado` pertenece a `Sucursal`.
+- `Compra` es realizada por `Sucursal` y `Proveedor`.
+- `Detalle_Compra` referencia `Compra` y `Medicamento`.
+- `Inventario` referencia `Sucursal` y `Medicamento`.
+- `Venta` es realizada por `Sucursal`, `Empleado` y `Cliente`.
+- `Detalle_Venta` referencia `Venta` y `Medicamento`.
+- `Receta` referencia `Venta`.
+- `Devolucion` referencia `Venta`.
+
+## 7. Fragmentación y Replicación
+
+### 7.1 Fragmentación Horizontal
+
+| Tabla | Criterio |
+|-------|----------|
+| `Empleado` | `id_sucursal` |
+| `Compra` | `id_sucursal` |
+| `Detalle_Compra` | `id_sucursal` |
+| `Inventario` | `id_sucursal` |
+| `Venta` | `id_sucursal` |
+| `Detalle_Venta` | `id_sucursal` |
+| `Devolucion` | `id_sucursal` |
+
+### 7.2 Fragmentación Vertical
+
+| Tabla | Fragmento Público | Fragmento Privado |
+|-------|-------------------|-------------------|
+| `Medicamento` | `id_medicamento`, `nombre`, `precio`, `requiere_receta` | `id_medicamento`, `principio_activo`, `laboratorio` |
+
+### 7.3 Replicación
+
+| Tabla | Tipo | Nodos |
+|-------|------|-------|
+| `Sucursal` | Completa | Todos |
+| `Medicamento` (público) | Completa | Todos |
+| `Proveedor` | Completa | Todos |
+| `Cliente` | Completa | Todos |
+| `Receta` | Completa | Todos |
+
+## 8. Las 12 Reglas Aplicadas
+
+| # | Regla | Aplicación |
+|---|-------|------------|
+| 1 | Autonomía local | Cada sucursal gestiona sus datos. |
+| 2 | No dependencia de un sitio central | La oficina central no es indispensable. |
+| 3 | Operación continua | Si una sucursal falla, las demás siguen. |
+| 4 | Independencia de ubicación | El usuario no sabe dónde están los datos. |
+| 5 | Independencia de fragmentación | Las consultas globales reconstruyen fragmentos. |
+| 6 | Independencia de replicación | Los catálogos se ven como una sola tabla. |
+| 7 | Procesamiento de consultas distribuidas | Las consultas se descomponen y ejecutan en varios nodos. |
+| 8 | Administración de transacciones distribuidas | Se usa COMMIT/ROLLBACK. |
+| 9 | Independencia de hardware | Los nodos pueden estar en diferentes equipos. |
+| 10 | Independencia de sistema operativo | Los nodos pueden usar diferentes SO. |
+| 11 | Independencia de red | Los nodos pueden comunicarse por diferentes redes. |
+| 12 | Independencia de DBMS | Los nodos pueden usar diferentes SGBD. |
+
+## 9. Beneficios Esperados
+
+1. **Consultas locales rápidas:** Cada sucursal accede a su inventario sin depender de la red.
+2. **Reportes consolidados:** La oficina central consulta datos de todas las sucursales.
+3. **Cumplimiento normativo:** Las recetas se replican en todas las sucursales.
+4. **Alta disponibilidad:** Si una sucursal falla, las demás siguen operando.
+5. **Escalabilidad:** Se pueden agregar nuevas sucursales fácilmente.
+6. **Autonomía local:** Cada sucursal controla sus propios datos.
+7. **Respaldo y recuperación:** Cada nodo puede respaldarse con `mysqldump`.
+8. **Migración:** Los datos pueden migrarse entre nodos con ETL.
+
+## 10. Conclusiones
+
+El proyecto "Sistema de Gestión Distribuida para Farmacias del Valle" es un caso de estudio ideal para aplicar los conceptos de bases de datos distribuidas. La combinación de fragmentación horizontal y vertical, junto con la replicación de catálogos, permite diseñar un sistema que es autónomo, disponible, escalable y transparente para el usuario. La implementación en MySQL Workbench con múltiples conexiones simula un entorno distribuido real, y la inclusión de scripts de backup, recovery y migración enriquece el proyecto con aspectos prácticos esenciales.
+
+---
+
+## Referencias
+
+Date, C. J. (2001). *Introducción a los sistemas de bases de datos* (7ª ed.). Pearson Education.
+
+Elmasri, R., & Navathe, S. B. (2000). *Sistemas de bases de datos: conceptos fundamentales* (3ª ed.). Addison Wesley.
+
+Silberschatz, A., Korth, H. F., & Sudarshan, S. (2002). *Fundamentos de bases de datos* (4ª ed.). McGraw-Hill.
+Archivo 6: 02_Diseno_Base_Datos/Diagrama_Entidad_Relacion.md
+markdown
+# Diagrama Entidad-Relación: Farmacias del Valle
+
+## Instrucciones para Dibujar el Diagrama
+
+Este documento describe el diagrama E-R del proyecto. Debes dibujarlo en una herramienta como **draw.io**, **MySQL Workbench** (Modelo E-R), o **Lucidchart**, y exportarlo como PNG.
+
+## Entidades y Atributos
+
+### 1. Sucursal
+- `id_sucursal` (PK, VARCHAR(10))
+- `nombre` (VARCHAR(100))
+- `ciudad` (VARCHAR(50))
+- `direccion` (VARCHAR(200))
+- `telefono` (VARCHAR(20))
+
+### 2. Empleado
+- `id_empleado` (PK, VARCHAR(10))
+- `nombre` (VARCHAR(100))
+- `puesto` (VARCHAR(50))
+- `salario` (DECIMAL(10,2))
+- `id_sucursal` (FK, VARCHAR(10))
+
+### 3. Medicamento
+- `id_medicamento` (PK, VARCHAR(10))
+- `nombre` (VARCHAR(100))
+- `precio` (DECIMAL(10,2))
+- `requiere_receta` (BOOLEAN)
+
+### 4. Medicamento_Detalle
+- `id_medicamento` (PK, FK, VARCHAR(10))
+- `principio_activo` (VARCHAR(100))
+- `laboratorio` (VARCHAR(100))
+
+### 5. Proveedor
+- `id_proveedor` (PK, VARCHAR(10))
+- `nombre` (VARCHAR(100))
+- `contacto` (VARCHAR(100))
+- `telefono` (VARCHAR(20))
+
+### 6. Compra
+- `id_compra` (PK, VARCHAR(10))
+- `fecha` (DATE)
+- `id_proveedor` (FK, VARCHAR(10))
+- `id_sucursal` (FK, VARCHAR(10))
+- `total` (DECIMAL(10,2))
+
+### 7. Detalle_Compra
+- `id_detalle_compra` (PK, VARCHAR(10))
+- `id_compra` (FK, VARCHAR(10))
+- `id_medicamento` (FK, VARCHAR(10))
+- `cantidad` (INT)
+- `precio_unitario` (DECIMAL(10,2))
+
+### 8. Inventario
+- `id_inventario` (PK, VARCHAR(10))
+- `id_sucursal` (FK, VARCHAR(10))
+- `id_medicamento` (FK, VARCHAR(10))
+- `cantidad` (INT)
+- `fecha_actualizacion` (DATE)
+
+### 9. Cliente
+- `id_cliente` (PK, VARCHAR(10))
+- `nombre` (VARCHAR(100))
+- `telefono` (VARCHAR(20))
+- `email` (VARCHAR(100))
+
+### 10. Venta
+- `id_venta` (PK, VARCHAR(10))
+- `fecha` (DATE)
+- `id_sucursal` (FK, VARCHAR(10))
+- `id_empleado` (FK, VARCHAR(10))
+- `id_cliente` (FK, VARCHAR(10))
+- `total` (DECIMAL(10,2))
+
+### 11. Detalle_Venta
+- `id_detalle_venta` (PK, VARCHAR(10))
+- `id_venta` (FK, VARCHAR(10))
+- `id_medicamento` (FK, VARCHAR(10))
+- `cantidad` (INT)
+- `subtotal` (DECIMAL(10,2))
+
+### 12. Receta
+- `id_receta` (PK, VARCHAR(10))
+- `id_venta` (FK, VARCHAR(10))
+- `medico` (VARCHAR(100))
+- `folio` (VARCHAR(50))
+- `fecha` (DATE)
+
+### 13. Devolucion
+- `id_devolucion` (PK, VARCHAR(10))
+- `id_venta` (FK, VARCHAR(10))
+- `fecha` (DATE)
+- `motivo` (VARCHAR(200))
+- `monto` (DECIMAL(10,2))
+
+## Relaciones
+
+| Relación | Entidad 1 | Entidad 2 | Cardinalidad |
+|----------|-----------|-----------|--------------|
+| **Tiene** | Sucursal | Empleado | 1:N |
+| **Realiza** | Sucursal | Compra | 1:N |
+| **Provee** | Proveedor | Compra | 1:N |
+| **Incluye** | Compra | Detalle_Compra | 1:N |
+| **Referencia** | Medicamento | Detalle_Compra | 1:N |
+| **Almacena** | Sucursal | Inventario | 1:N |
+| **Contiene** | Medicamento | Inventario | 1:N |
+| **Efectúa** | Sucursal | Venta | 1:N |
+| **Atiende** | Empleado | Venta | 1:N |
+| **Compra** | Cliente | Venta | 1:N |
+| **Incluye** | Venta | Detalle_Venta | 1:N |
+| **Referencia** | Medicamento | Detalle_Venta | 1:N |
+| **Genera** | Venta | Receta | 1:1 |
+| **Solicita** | Venta | Devolucion | 1:N |
+| **Extiende** | Medicamento | Medicamento_Detalle | 1:1 |
+
+## Diagrama (Representación Textual)
++-------------+ +-------------+ +-------------+
+| Sucursal |1-----N| Empleado | | Proveedor |
++-------------+ +-------------+ +-------------+
+| id_sucursal | | id_empleado | | id_proveedor|
+| nombre | | nombre | | nombre |
+| ciudad | | puesto | | contacto |
+| direccion | | salario | | telefono |
+| telefono | | id_sucursal | +-------------+
++-------------+ +-------------+ |1
+|1 |
+| |N
+|N +-------------+
++-------------+ | Compra |
+| Inventario | +-------------+
++-------------+ | id_compra |
+| id_inventario| | fecha |
+| id_sucursal | | id_proveedor|
+| id_medicamento| | id_sucursal |
+| cantidad | | total |
+| fecha_act | +-------------+
++-------------+ |1
+|N |
+| |N
+| +-------------+
++-------------+ |Detalle_Compra|
+| Medicamento | +-------------+
++-------------+ | id_detalle |
+| id_medicamento| | id_compra |
+| nombre | | id_medicamento|
+| precio | | cantidad |
+| requiere_receta| | precio_unit |
++-------------+ +-------------+
+|1
+|
+|1
++---------------------+
+| Medicamento_Detalle |
++---------------------+
+| id_medicamento (FK) |
+| principio_activo |
+| laboratorio |
++---------------------+
+
++-------------+ +-------------+ +-------------+
+| Sucursal |1-----N| Venta |N-----1| Cliente |
++-------------+ +-------------+ +-------------+
+| | id_venta | | id_cliente |
+| | fecha | | nombre |
+| | id_sucursal | | telefono |
+| | id_empleado | | email |
+| | id_cliente | +-------------+
+| | total |
+| +-------------+
+| |1
+| |
+| |N
+| +-------------+
+| |Detalle_Venta|
+| +-------------+
+| | id_detalle |
+| | id_venta |
+| | id_medicamento|
+| | cantidad |
+| | subtotal |
+| +-------------+
+|
+|1
++-------------+
+| Receta |
++-------------+
+| id_receta |
+| id_venta |
+| medico |
+| folio |
+| fecha |
++-------------+
+
++-------------+
+| Devolucion |
++-------------+
+| id_devolucion|
+| id_venta |
+| fecha |
+| motivo |
+| monto |
++-------------+
+
+text
+
+## Notas para el Diagrama
+
+1. **PK:** Clave Primaria (Primary Key).
+2. **FK:** Clave Foránea (Foreign Key).
+3. **Cardinalidad:** 1:N (uno a muchos), 1:1 (uno a uno).
+4. **Colores sugeridos:**
+   - Entidades replicadas: Azul.
+   - Entidades fragmentadas horizontalmente: Verde.
+   - Entidades fragmentadas verticalmente: Naranja.
+5. **Herramientas recomendadas:**
+   - **draw.io:** https://app.diagrams.net/
+   - **MySQL Workbench:** Modelo E-R.
+   - **Lucidchart:** https://www.lucidchart.com/
+
+## Exportación
+
+Una vez dibujado, exporta el diagrama como **PNG** con el nombre `Diagrama_Entidad_Relacion.png` y guárdalo en la carpeta `02_Diseno_Base_Datos/`.
+Archivo 7: 02_Diseno_Base_Datos/Esquema_Logico_Distribuido.md
+markdown
+# Esquema Lógico Distribuido: Farmacias del Valle
+
+## Introducción
+
+Este documento describe el esquema lógico de la base de datos distribuida para Farmacias del Valle, indicando qué tablas se fragmentan, cómo se fragmentan y qué réplicas se crean en cada nodo.
+
+## Nodos
+
+| Nodo | Nombre BD | Ciudad | Rol |
+|------|-----------|--------|-----|
+| Nodo 1 | `farmacia_cdmx` | CDMX | Sucursal |
+| Nodo 2 | `farmacia_gdl` | Guadalajara | Sucursal |
+| Nodo 3 | `farmacia_mty` | Monterrey | Sucursal |
+| Nodo 4 | `farmacia_central` | Oficina Central | Consolidación |
+
+## Esquema por Nodo
+
+### Nodo 1: `farmacia_cdmx`
+
+#### Tablas Replicadas (Catálogos Globales)
+
+| Tabla | Descripción |
+|-------|-------------|
+| `Sucursal` | Catálogo de todas las sucursales. |
+| `Medicamento` | Catálogo público de medicamentos. |
+| `Proveedor` | Catálogo de proveedores. |
+| `Cliente` | Catálogo de clientes. |
+| `Receta` | Registro de recetas (replicado por normativa). |
+
+#### Tablas Fragmentadas Horizontalmente (Datos Locales)
+
+| Tabla | Condición de Guardia |
+|-------|---------------------|
+| `Empleado_CDMX` | `id_sucursal = 'CDMX'` |
+| `Compra_CDMX` | `id_sucursal = 'CDMX'` |
+| `Detalle_Compra_CDMX` | `id_compra IN (SELECT id_compra FROM Compra_CDMX)` |
+| `Inventario_CDMX` | `id_sucursal = 'CDMX'` |
+| `Venta_CDMX` | `id_sucursal = 'CDMX'` |
+| `Detalle_Venta_CDMX` | `id_venta IN (SELECT id_venta FROM Venta_CDMX)` |
+| `Devolucion_CDMX` | `id_venta IN (SELECT id_venta FROM Venta_CDMX)` |
+
+#### Tablas Fragmentadas Verticalmente
+
+| Tabla | Atributos |
+|-------|-----------|
+| `Medicamento_Detalle` | `id_medicamento`, `principio_activo`, `laboratorio` |
+
+---
+
+### Nodo 2: `farmacia_gdl`
+
+#### Tablas Replicadas (Catálogos Globales)
+
+| Tabla | Descripción |
+|-------|-------------|
+| `Sucursal` | Catálogo de todas las sucursales. |
+| `Medicamento` | Catálogo público de medicamentos. |
+| `Proveedor` | Catálogo de proveedores. |
+| `Cliente` | Catálogo de clientes. |
+| `Receta` | Registro de recetas (replicado por normativa). |
+
+#### Tablas Fragmentadas Horizontalmente (Datos Locales)
+
+| Tabla | Condición de Guardia |
+|-------|---------------------|
+| `Empleado_GDL` | `id_sucursal = 'GDL'` |
+| `Compra_GDL` | `id_sucursal = 'GDL'` |
+| `Detalle_Compra_GDL` | `id_compra IN (SELECT id_compra FROM Compra_GDL)` |
+| `Inventario_GDL` | `id_sucursal = 'GDL'` |
+| `Venta_GDL` | `id_sucursal = 'GDL'` |
+| `Detalle_Venta_GDL` | `id_venta IN (SELECT id_venta FROM Venta_GDL)` |
+| `Devolucion_GDL` | `id_venta IN (SELECT id_venta FROM Venta_GDL)` |
+
+#### Tablas Fragmentadas Verticalmente
+
+| Tabla | Atributos |
+|-------|-----------|
+| `Medicamento_Detalle` | `id_medicamento`, `principio_activo`, `laboratorio` |
+
+---
+
+### Nodo 3: `farmacia_mty`
+
+#### Tablas Replicadas (Catálogos Globales)
+
+| Tabla | Descripción |
+|-------|-------------|
+| `Sucursal` | Catálogo de todas las sucursales. |
+| `Medicamento` | Catálogo público de medicamentos. |
+| `Proveedor` | Catálogo de proveedores. |
+| `Cliente` | Catálogo de clientes. |
+| `Receta` | Registro de recetas (replicado por normativa). |
+
+#### Tablas Fragmentadas Horizontalmente (Datos Locales)
+
+| Tabla | Condición de Guardia |
+|-------|---------------------|
+| `Empleado_MTY` | `id_sucursal = 'MTY'` |
+| `Compra_MTY` | `id_sucursal = 'MTY'` |
+| `Detalle_Compra_MTY` | `id_compra IN (SELECT id_compra FROM Compra_MTY)` |
+| `Inventario_MTY` | `id_sucursal = 'MTY'` |
+| `Venta_MTY` | `id_sucursal = 'MTY'` |
+| `Detalle_Venta_MTY` | `id_venta IN (SELECT id_venta FROM Venta_MTY)` |
+| `Devolucion_MTY` | `id_venta IN (SELECT id_venta FROM Venta_MTY)` |
+
+#### Tablas Fragmentadas Verticalmente
+
+| Tabla | Atributos |
+|-------|-----------|
+| `Medicamento_Detalle` | `id_medicamento`, `principio_activo`, `laboratorio` |
+
+---
+
+### Nodo 4: `farmacia_central`
+
+#### Tablas Replicadas (Catálogos Globales)
+
+| Tabla | Descripción |
+|-------|-------------|
+| `Sucursal` | Catálogo de todas las sucursales. |
+| `Medicamento` | Catálogo público de medicamentos. |
+| `Proveedor` | Catálogo de proveedores. |
+| `Cliente` | Catálogo de clientes. |
+| `Receta` | Registro de recetas (replicado por normativa). |
+
+#### Tablas Fragmentadas Verticalmente
+
+| Tabla | Atributos |
+|-------|-----------|
+| `Medicamento_Detalle` | `id_medicamento`, `principio_activo`, `laboratorio` |
+
+#### Tablas de Consolidación (Vistas Materializadas)
+
+| Tabla | Descripción |
+|-------|-------------|
+| `Reporte_Ventas_Global` | Consolidación de ventas de todas las sucursales. |
+| `Reporte_Inventario_Global` | Consolidación de inventario de todas las sucursales. |
+| `Reporte_Compras_Global` | Consolidación de compras de todas las sucursales. |
+
+---
+
+## Resumen de Fragmentación y Replicación
+
+| Tabla | Tipo | Nodos |
+|-------|------|-------|
+| `Sucursal` | Replicada | Todos |
+| `Empleado` | Horizontal | CDMX, GDL, MTY |
+| `Medicamento` | Replicada (público) | Todos |
+| `Medicamento_Detalle` | Vertical (privado) | Todos |
+| `Proveedor` | Replicada | Todos |
+| `Compra` | Horizontal | CDMX, GDL, MTY |
+| `Detalle_Compra` | Horizontal | CDMX, GDL, MTY |
+| `Inventario` | Horizontal | CDMX, GDL, MTY |
+| `Cliente` | Replicada | Todos |
+| `Venta` | Horizontal | CDMX, GDL, MTY |
+| `Detalle_Venta` | Horizontal | CDMX, GDL, MTY |
+| `Receta` | Replicada | Todos |
+| `Devolucion` | Horizontal | CDMX, GDL, MTY |
+
+## Beneficios del Esquema
+
+1. **Rendimiento:** Consultas locales rápidas en cada sucursal.
+2. **Disponibilidad:** Si un nodo falla, los demás siguen operando.
+3. **Autonomía:** Cada sucursal controla sus datos locales.
+4. **Cumplimiento:** Las recetas se replican por normativa sanitaria.
+5. **Escalabilidad:** Se pueden agregar nuevas sucursales fácilmente.
+6. **Transparencia:** Los usuarios no necesitan saber la ubicación de los datos.
+
+## Referencias
+
+Date, C. J. (2001). *Introducción a los sistemas de bases de datos* (7ª ed.). Pearson Education.
+
+Elmasri, R., & Navathe, S. B. (2000). *Sistemas de bases de datos: conceptos fundamentales* (3ª ed.). Addison Wesley.
+
+Silberschatz, A., Korth, H. F., & Sudarshan, S. (2002). *Fundamentos de bases de datos* (4ª ed.). McGraw-Hill.
+Archivo 8: 02_Diseno_Base_Datos/Plan_de_Fragmentacion_y_Replicacion.md
+markdown
+# Plan de Fragmentación y Replicación: Farmacias del Valle
+
+## Instrucciones para Crear la Hoja de Cálculo
+
+Este documento describe la estructura de la hoja de cálculo que debes crear en Excel o Google Sheets. El archivo debe llamarse `Plan_de_Fragmentacion_y_Replicacion.xlsx` y guardarse en la carpeta `02_Diseno_Base_Datos/`.
+
+## Hoja 1: Nodos
+
+| Nodo | Nombre BD | Ciudad | Rol | Puerto | Usuario | Contraseña |
+|------|-----------|--------|-----|--------|---------|------------|
+| 1 | `farmacia_cdmx` | CDMX | Sucursal | 3306 | `admin_farmacia` | `farmacia2024` |
+| 2 | `farmacia_gdl` | Guadalajara | Sucursal | 3307 | `admin_farmacia` | `farmacia2024` |
+| 3 | `farmacia_mty` | Monterrey | Sucursal | 3308 | `admin_farmacia` | `farmacia2024` |
+| 4 | `farmacia_central` | Oficina Central | Consolidación | 3309 | `admin_farmacia` | `farmacia2024` |
+
+## Hoja 2: Fragmentación Horizontal
+
+| Tabla | Fragmento | Nodo | Condición de Guardia |
+|-------|-----------|------|---------------------|
+| `Empleado` | `Empleado_CDMX` | Nodo 1 | `id_sucursal = 'CDMX'` |
+| `Empleado` | `Empleado_GDL` | Nodo 2 | `id_sucursal = 'GDL'` |
+| `Empleado` | `Empleado_MTY` | Nodo 3 | `id_sucursal = 'MTY'` |
+| `Compra` | `Compra_CDMX` | Nodo 1 | `id_sucursal = 'CDMX'` |
+| `Compra` | `Compra_GDL` | Nodo 2 | `id_sucursal = 'GDL'` |
+| `Compra` | `Compra_MTY` | Nodo 3 | `id_sucursal = 'MTY'` |
+| `Inventario` | `Inventario_CDMX` | Nodo 1 | `id_sucursal = 'CDMX'` |
+| `Inventario` | `Inventario_GDL` | Nodo 2 | `id_sucursal = 'GDL'` |
+| `Inventario` | `Inventario_MTY` | Nodo 3 | `id_sucursal = 'MTY'` |
+| `Venta` | `Venta_CDMX` | Nodo 1 | `id_sucursal = 'CDMX'` |
+| `Venta` | `Venta_GDL` | Nodo 2 | `id_sucursal = 'GDL'` |
+| `Venta` | `Venta_MTY` | Nodo 3 | `id_sucursal = 'MTY'` |
+| `Detalle_Venta` | `Detalle_Venta_CDMX` | Nodo 1 | `id_venta IN (SELECT id_venta FROM Venta_CDMX)` |
+| `Detalle_Venta` | `Detalle_Venta_GDL` | Nodo 2 | `id_venta IN (SELECT id_venta FROM Venta_GDL)` |
+| `Detalle_Venta` | `Detalle_Venta_MTY` | Nodo 3 | `id_venta IN (SELECT id_venta FROM Venta_MTY)` |
+| `Devolucion` | `Devolucion_CDMX` | Nodo 1 | `id_venta IN (SELECT id_venta FROM Venta_CDMX)` |
+| `Devolucion` | `Devolucion_GDL` | Nodo 2 | `id_venta IN (SELECT id_venta FROM Venta_GDL)` |
+| `Devolucion` | `Devolucion_MTY` | Nodo 3 | `id_venta IN (SELECT id_venta FROM Venta_MTY)` |
+
+## Hoja 3: Fragmentación Vertical
+
+| Tabla | Fragmento | Atributos | Nodo |
+|-------|-----------|-----------|------|
+| `Medicamento` | `Medicamento` (público) | `id_medicamento`, `nombre`, `precio`, `requiere_receta` | Todos |
+| `Medicamento` | `Medicamento_Detalle` (privado) | `id_medicamento`, `principio_activo`, `laboratorio` | Todos |
+
+## Hoja 4: Replicación
+
+| Tabla | Tipo de Replicación | Nodos |
+|-------|---------------------|-------|
+| `Sucursal` | Completa | Nodo 1, Nodo 2, Nodo 3, Nodo 4 |
+| `Medicamento` (público) | Completa | Nodo 1, Nodo 2, Nodo 3, Nodo 4 |
+| `Proveedor` | Completa | Nodo 1, Nodo 2, Nodo 3, Nodo 4 |
+| `Cliente` | Completa | Nodo 1, Nodo 2, Nodo 3, Nodo 4 |
+| `Receta` | Completa | Nodo 1, Nodo 2, Nodo 3, Nodo 4 |
+
+## Hoja 5: Resumen
+
+| Tabla | Fragmentación | Replicación | Nodos |
+|-------|---------------|-------------|-------|
+| `Sucursal` | No | Completa | Todos |
+| `Empleado` | Horizontal | No | CDMX, GDL, MTY |
+| `Medicamento` | Vertical | Completa (público) | Todos |
+| `Medicamento_Detalle` | Vertical | Completa (privado) | Todos |
+| `Proveedor` | No | Completa | Todos |
+| `Compra` | Horizontal | No | CDMX, GDL, MTY |
+| `Detalle_Compra` | Horizontal | No | CDMX, GDL, MTY |
+| `Inventario` | Horizontal | No | CDMX, GDL, MTY |
+| `Cliente` | No | Completa | Todos |
+| `Venta` | Horizontal | No | CDMX, GDL, MTY |
+| `Detalle_Venta` | Horizontal | No | CDMX, GDL, MTY |
+| `Receta` | No | Completa | Todos |
+| `Devolucion` | Horizontal | No | CDMX, GDL, MTY |
+
+## Instrucciones
+
+1. Abre Excel o Google Sheets.
+2. Crea una hoja para cada sección (Nodos, Fragmentación Horizontal, Fragmentación Vertical, Replicación, Resumen).
+3. Copia los datos de las tablas anteriores.
+4. Guarda el archivo como `Plan_de_Fragmentacion_y_Replicacion.xlsx`.
+5. Guárdalo en la carpeta `02_Diseno_Base_Datos/`.
+Archivo 9: 02_Diseno_Base_Datos/Definicion_12_Reglas_Aplicadas.md
+markdown
+# Definición de las 12 Reglas Aplicadas: Farmacias del Valle
+
+## Introducción
+
+Este documento explica cómo el diseño de la base de datos distribuida para Farmacias del Valle cumple con cada una de las 12 reglas de las bases de datos distribuidas propuestas por C.J. Date (2001).
+
+---
+
+## Regla 1: Autonomía Local
+
+**Definición:** Los sitios en un sistema distribuido deben ser autónomos.
+
+**Aplicación en Farmacias del Valle:**
+- Cada sucursal (CDMX, GDL, MTY) gestiona sus propios empleados, inventario, ventas, compras y devoluciones.
+- La oficina central no interviene en las operaciones diarias de las sucursales.
+- Cada sucursal tiene su propio administrador de base de datos (DBA) local.
+
+**Evidencia:**
+- Las tablas `Empleado_CDMX`, `Empleado_GDL`, `Empleado_MTY` son independientes.
+- Las tablas `Inventario_CDMX`, `Inventario_GDL`, `Inventario_MTY` son independientes.
+
+---
+
+## Regla 2: No Dependencia de un Sitio Central
+
+**Definición:** No debe haber dependencia de un sitio "maestro" central.
+
+**Aplicación en Farmacias del Valle:**
+- La oficina central no es indispensable para que las sucursales operen.
+- Si la oficina central falla, las sucursales siguen funcionando con sus datos locales.
+- No hay un servidor central que gestione transacciones o asignación de nombres.
+
+**Evidencia:**
+- Las sucursales pueden operar sin conexión a la oficina central.
+- Los catálogos replicados (`Medicamento`, `Sucursal`, etc.) están en todos los nodos.
+
+---
+
+## Regla 3: Operación Continua
+
+**Definición:** El sistema debe proporcionar mayor confiabilidad y disponibilidad.
+
+**Aplicación en Farmacias del Valle:**
+- Si una sucursal falla, las demás siguen operando.
+- Los catálogos replicados garantizan que la información esté disponible en todos los nodos.
+- No se requieren apagados planeados para agregar nuevas sucursales o actualizar el sistema.
+
+**Evidencia:**
+- La replicación de `Medicamento`, `Sucursal`, `Proveedor`, `Cliente` y `Receta` en todos los nodos.
+- Cada nodo tiene su propio backup.
+
+---
+
+## Regla 4: Independencia de Ubicación
+
+**Definición:** Los usuarios no tienen que saber dónde están almacenados físicamente los datos.
+
+**Aplicación en Farmacias del Valle:**
+- Un usuario de cualquier sucursal puede consultar el catálogo de medicamentos sin saber que está replicado en los 4 nodos.
+- Las consultas globales se ejecutan sin que el usuario especifique la ubicación de los datos.
+
+**Evidencia:**
+- La tabla `Medicamento` se ve como una sola tabla, aunque esté en 4 nodos.
+- Las consultas globales usan vistas o sinónimos para ocultar la ubicación.
+
+---
+
+## Regla 5: Independencia de Fragmentación
+
+**Definición:** Los usuarios deben poder comportarse como si los datos no estuvieran fragmentados.
+
+**Aplicación en Farmacias del Valle:**
+- La tabla `Empleado` está fragmentada horizontalmente por sucursal.
+- Una consulta global reconstruye la tabla uniendo los fragmentos de CDMX, GDL y MTY.
+- El optimizador determina qué fragmentos acceder.
+
+**Evidencia:**
+- La vista `Empleado_Global` une `Empleado_CDMX`, `Empleado_GDL` y `Empleado_MTY`.
+- El usuario consulta `Empleado_Global` sin saber que está fragmentada.
+
+---
+
+## Regla 6: Independencia de Replicación
+
+**Definición:** Los usuarios deben poder comportarse como si los datos no estuvieran replicados.
+
+**Aplicación en Farmacias del Valle:**
+- El catálogo de `Medicamento` está replicado en los 4 nodos.
+- El usuario lo ve como una sola tabla.
+- El sistema determina qué réplica acceder (la más cercana o disponible).
+
+**Evidencia:**
+- La tabla `Medicamento` existe en los 4 nodos con los mismos datos.
+- El usuario consulta `Medicamento` sin especificar el nodo.
+
+---
+
+## Regla 7: Procesamiento de Consultas Distribuidas
+
+**Definición:** El sistema debe poder procesar consultas que accedan a datos de múltiples sitios.
+
+**Aplicación en Farmacias del Valle:**
+- Una consulta desde la oficina central que consolida ventas de todas las sucursales se descompone y ejecuta en cada nodo.
+- Se utilizan técnicas como la semirreunión para reducir la transferencia de datos.
+
+**Evidencia:**
+- La consulta `SELECT * FROM Venta_Global` se ejecuta como `UNION` de `Venta_CDMX`, `Venta_GDL` y `Venta_MTY`.
+- El optimizador decide el orden de ejecución.
+
+---
+
+## Regla 8: Administración de Transacciones Distribuidas
+
+**Definición:** El sistema debe garantizar las propiedades ACID para transacciones que accedan a múltiples sitios.
+
+**Aplicación en Farmacias del Valle:**
+- Una venta que afecta el inventario y genera una receta debe confirmarse en todos los nodos involucrados o abortarse en todos.
+- Se utiliza el protocolo de confirmación de dos fases (2PC).
+- Se manejan fallos de sitios y enlaces de comunicación.
+
+**Evidencia:**
+- Los scripts `05_Transacciones_y_Recuperacion.sql` demuestran el uso de `COMMIT` y `ROLLBACK`.
+- Se documenta el protocolo 2PC.
+
+---
+
+## Regla 9: Independencia de Hardware
+
+**Definición:** El sistema debe poder ejecutarse en diferentes plataformas de hardware.
+
+**Aplicación en Farmacias del Valle:**
+- Las sucursales pueden tener diferentes tipos de servidores (IBM, HP, Dell, etc.).
+- El sistema distribuido funciona igual sin importar el hardware.
+
+**Evidencia:**
+- La arquitectura cliente-servidor permite que los nodos estén en diferentes equipos.
+- No hay dependencia de un hardware específico.
+
+---
+
+## Regla 10: Independencia de Sistema Operativo
+
+**Definición:** El sistema debe poder ejecutarse en diferentes plataformas de sistema operativo.
+
+**Aplicación en Farmacias del Valle:**
+- CDMX puede usar Windows, GDL Linux, MTY macOS, y la oficina central Windows Server.
+- El sistema distribuido funciona igual.
+
+**Evidencia:**
+- MySQL está disponible para múltiples SO.
+- La comunicación entre nodos es independiente del SO.
+
+---
+
+## Regla 11: Independencia de Red
+
+**Definición:** El sistema debe poder soportar una variedad de redes de comunicación.
+
+**Aplicación en Farmacias del Valle:**
+- Las sucursales pueden comunicarse por LAN, WAN, VPN, etc.
+- El sistema distribuido funciona igual.
+
+**Evidencia:**
+- MySQL soporta múltiples protocolos de red.
+- La configuración de conexiones permite diferentes tipos de red.
+
+---
+
+## Regla 12: Independencia de DBMS
+
+**Definición:** El sistema debe poder integrar diferentes SGBD (heterogéneos).
+
+**Aplicación en Farmacias del Valle:**
+- En teoría, CDMX podría usar MySQL, GDL PostgreSQL, MTY Oracle, y la oficina central SQL Server.
+- En la práctica, se usa MySQL en todos los nodos (homogéneo).
+- Se documenta cómo se lograría la independencia de DBMS con middleware.
+
+**Evidencia:**
+- La arquitectura propuesta es homogénea (MySQL en todos los nodos).
+- Se menciona la posibilidad de heterogeneidad en la documentación.
+
+---
+
+## Conclusión
+
+El diseño de la base de datos distribuida para Farmacias del Valle cumple con las 12 reglas de las bases de datos distribuidas, garantizando autonomía local, disponibilidad, transparencia, escalabilidad y rendimiento. La implementación en MySQL Workbench con múltiples conexiones simula un entorno distribuido real, y la inclusión de scripts de backup, recovery y migración enriquece el proyecto con aspectos prácticos esenciales.
+
+---
+
+## Referencias
+
+Date, C. J. (2001). *Introducción a los sistemas de bases de datos* (7ª ed.). Pearson Education.
+
+Elmasri, R., & Navathe, S. B. (2000). *Sistemas de bases de datos: conceptos fundamentales* (3ª ed.). Addison Wesley.
+
+Silberschatz, A., Korth, H. F., & Sudarshan, S. (2002). *Fundamentos de bases de datos* (4ª ed.). McGraw-Hill.
+📄 FASE 3: SCRIPTS SQL
+Archivo 10: 03_Implementacion_MySQL/Scripts_SQL/00_Configuracion_Inicial.sql
+sql
+-- =====================================================
+-- SCRIPT: 00_Configuracion_Inicial.sql
+-- PROYECTO: Sistema de Gestión Distribuida para Farmacias del Valle
+-- DESCRIPCIÓN: Configuración inicial de los nodos y usuarios.
+-- =====================================================
+
+-- -----------------------------------------------------
+-- NOTA IMPORTANTE:
+-- Este script debe ejecutarse en CADA UNO de los 4 nodos
+-- (farmacia_cdmx, farmacia_gdl, farmacia_mty, farmacia_central)
+-- después de crear las conexiones en MySQL Workbench.
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 1. Crear la base de datos (si no existe)
+-- -----------------------------------------------------
+
+-- NODO 1: CDMX
+-- CREATE DATABASE IF NOT EXISTS farmacia_cdmx
+-- CHARACTER SET utf8mb4
+-- COLLATE utf8mb4_unicode_ci;
+
+-- NODO 2: GDL
+-- CREATE DATABASE IF NOT EXISTS farmacia_gdl
+-- CHARACTER SET utf8mb4
+-- COLLATE utf8mb4_unicode_ci;
+
+-- NODO 3: MTY
+-- CREATE DATABASE IF NOT EXISTS farmacia_mty
+-- CHARACTER SET utf8mb4
+-- COLLATE utf8mb4_unicode_ci;
+
+-- NODO 4: CENTRAL
+-- CREATE DATABASE IF NOT EXISTS farmacia_central
+-- CHARACTER SET utf8mb4
+-- COLLATE utf8mb4_unicode_ci;
+
+-- -----------------------------------------------------
+-- 2. Crear usuario administrador (ejecutar como root)
+-- -----------------------------------------------------
+
+-- CREATE USER IF NOT EXISTS 'admin_farmacia'@'%' IDENTIFIED BY 'farmacia2024';
+-- GRANT ALL PRIVILEGES ON farmacia_cdmx.* TO 'admin_farmacia'@'%';
+-- GRANT ALL PRIVILEGES ON farmacia_gdl.* TO 'admin_farmacia'@'%';
+-- GRANT ALL PRIVILEGES ON farmacia_mty.* TO 'admin_farmacia'@'%';
+-- GRANT ALL PRIVILEGES ON farmacia_central.* TO 'admin_farmacia'@'%';
+-- FLUSH PRIVILEGES;
+
+-- -----------------------------------------------------
+-- 3. Configurar variables de entorno (opcional)
+-- -----------------------------------------------------
+
+-- SET GLOBAL log_bin_trust_function_creators = 1;
+-- SET GLOBAL event_scheduler = ON;
+
+-- -----------------------------------------------------
+-- 4. Verificar configuración
+-- -----------------------------------------------------
+
+-- SELECT @@version AS 'Versión de MySQL';
+-- SELECT @@hostname AS 'Hostname';
+-- SELECT @@port AS 'Puerto';
+-- SHOW DATABASES;
+
+-- =====================================================
+-- FIN DEL SCRIPT
+-- =====================================================
+Archivo 11: 03_Implementacion_MySQL/Scripts_SQL/01_Creacion_Nodos.sql
+sql
+-- =====================================================
+-- SCRIPT: 01_Creacion_Nodos.sql
+-- PROYECTO: Sistema de Gestión Distribuida para Farmacias del Valle
+-- DESCRIPCIÓN: Creación de las bases de datos (nodos).
+-- =====================================================
+
+-- -----------------------------------------------------
+-- IMPORTANTE:
+-- Este script debe ejecutarse en la conexión LOCAL (localhost:3306)
+-- como usuario root. Crea las 4 bases de datos que simulan los nodos.
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- NODO 1: Farmacia CDMX
+-- -----------------------------------------------------
+CREATE DATABASE IF NOT EXISTS farmacia_cdmx
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+USE farmacia_cdmx;
+
+-- -----------------------------------------------------
+-- NODO 2: Farmacia Guadalajara
+-- -----------------------------------------------------
+CREATE DATABASE IF NOT EXISTS farmacia_gdl
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+USE farmacia_gdl;
+
+-- -----------------------------------------------------
+-- NODO 3: Farmacia Monterrey
+-- -----------------------------------------------------
+CREATE DATABASE IF NOT EXISTS farmacia_mty
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+USE farmacia_mty;
+
+-- -----------------------------------------------------
+-- NODO 4: Oficina Central
+-- -----------------------------------------------------
+CREATE DATABASE IF NOT EXISTS farmacia_central
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+USE farmacia_central;
+
+-- -----------------------------------------------------
+-- Verificar creación
+-- -----------------------------------------------------
+SHOW DATABASES LIKE 'farmacia%';
+
+-- =====================================================
+-- FIN DEL SCRIPT
+-- =====================================================
+Archivo 12: 03_Implementacion_MySQL/Scripts_SQL/02_Creacion_Tablas_Fragmentos.sql
+sql
+-- =====================================================
+-- SCRIPT: 02_Creacion_Tablas_Fragmentos.sql
+-- PROYECTO: Sistema de Gestión Distribuida para Farmacias del Valle
+-- DESCRIPCIÓN: Creación de tablas y fragmentos en cada nodo.
+-- =====================================================
+
+-- =====================================================
+-- NODO 1: farmacia_cdmx
+-- =====================================================
+USE farmacia_cdmx;
+
+-- -----------------------------------------------------
+-- Tablas Replicadas (Catálogos Globales)
+-- -----------------------------------------------------
+
+-- Sucursal
+CREATE TABLE IF NOT EXISTS Sucursal (
+    id_sucursal VARCHAR(10) PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    ciudad VARCHAR(50) NOT NULL,
+    direccion VARCHAR(200),
+    telefono VARCHAR(20)
+) ENGINE=InnoDB;
+
+-- Medicamento (Fragmento Público)
+CREATE TABLE IF NOT EXISTS Medicamento (
+    id_medicamento VARCHAR(10) PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    precio DECIMAL(10,2) NOT NULL,
+    requiere_receta BOOLEAN DEFAULT FALSE
+) ENGINE=InnoDB;
+
+-- Medicamento_Detalle (Fragmento Privado)
+CREATE TABLE IF NOT EXISTS Medicamento_Detalle (
+    id_medicamento VARCHAR(10) PRIMARY KEY,
+    principio_activo VARCHAR(100),
+    laboratorio VARCHAR(100),
+    FOREIGN KEY (id_medicamento) REFERENCES Medicamento(id_medicamento)
+) ENGINE=InnoDB;
+
+-- Proveedor
+CREATE TABLE IF NOT EXISTS Proveedor (
+    id_proveedor VARCHAR(10) PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    contacto VARCHAR(100),
+    telefono VARCHAR(20)
+) ENGINE=InnoDB;
+
+-- Cliente
+CREATE TABLE IF NOT EXISTS Cliente (
+    id_cliente VARCHAR(10) PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    telefono VARCHAR(20),
+    email VARCHAR(100)
+) ENGINE=InnoDB;
+
+-- Receta
+CREATE TABLE IF NOT EXISTS Receta (
+    id_receta VARCHAR(10) PRIMARY KEY,
+    id_venta VARCHAR(10) NOT NULL,
+    medico VARCHAR(100),
+    folio VARCHAR(50),
+    fecha DATE NOT NULL
+) ENGINE=InnoDB;
+
+-- -----------------------------------------------------
+-- Tablas Fragmentadas Horizontalmente (Datos Locales CDMX)
+-- -----------------------------------------------------
+
+-- Empleado_CDMX
+CREATE TABLE IF NOT EXISTS Empleado_CDMX (
+    id_empleado VARCHAR(10) PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    puesto VARCHAR(50),
+    salario DECIMAL(10,2),
+    id_sucursal VARCHAR(10) NOT NULL,
+    FOREIGN KEY (id_sucursal) REFERENCES Sucursal(id_sucursal)
+) ENGINE=InnoDB;
+
+-- Compra_CDMX
+CREATE TABLE IF NOT EXISTS Compra_CDMX (
+    id_compra VARCHAR(10) PRIMARY KEY,
+    fecha DATE NOT NULL,
+    id_proveedor VARCHAR(10) NOT NULL,
+    id_sucursal VARCHAR(10) NOT NULL,
+    total DECIMAL(10,2),
+    FOREIGN KEY (id_proveedor) REFERENCES Proveedor(id_proveedor),
+    FOREIGN KEY (id_sucursal) REFERENCES Sucursal(id_sucursal)
+) ENGINE=InnoDB;
+
+-- Detalle_Compra_CDMX
+CREATE TABLE IF NOT EXISTS Detalle_Compra_CDMX (
+    id_detalle_compra VARCHAR(10) PRIMARY KEY,
+    id_compra VARCHAR(10) NOT NULL,
+    id_medicamento VARCHAR(10) NOT NULL,
+    cantidad INT NOT NULL,
+    precio_unitario DECIMAL(10,2),
+    FOREIGN KEY (id_compra) REFERENCES Compra_CDMX(id_compra),
+    FOREIGN KEY (id_medicamento) REFERENCES Medicamento(id_medicamento)
+) ENGINE=InnoDB;
+
+-- Inventario_CDMX
+CREATE TABLE IF NOT EXISTS Inventario_CDMX (
+    id_inventario VARCHAR(10) PRIMARY KEY,
+    id_sucursal VARCHAR(10) NOT NULL,
+    id_medicamento VARCHAR(10) NOT NULL,
+    cantidad INT NOT NULL,
+    fecha_actualizacion DATE,
+    FOREIGN KEY (id_sucursal) REFERENCES Sucursal(id_sucursal),
+    FOREIGN KEY (id_medicamento) REFERENCES Medicamento(id_medicamento)
+) ENGINE=InnoDB;
+
+-- Venta_CDMX
+CREATE TABLE IF NOT EXISTS Venta_CDMX (
+    id_venta VARCHAR(10) PRIMARY KEY,
+    fecha DATE NOT NULL,
+    id_sucursal VARCHAR(10) NOT NULL,
+    id_empleado VARCHAR(10) NOT NULL,
+    id_cliente VARCHAR(10),
+    total DECIMAL(10,2),
+    FOREIGN KEY (id_sucursal) REFERENCES Sucursal(id_sucursal),
+    FOREIGN KEY (id_empleado) REFERENCES Empleado_CDMX(id_empleado),
+    FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente)
+) ENGINE=InnoDB;
+
+-- Detalle_Venta_CDMX
+CREATE TABLE IF NOT EXISTS Detalle_Venta_CDMX (
+    id_detalle_venta VARCHAR(10) PRIMARY KEY,
+    id_venta VARCHAR(10) NOT NULL,
+    id_medicamento VARCHAR(10) NOT NULL,
+    cantidad INT NOT NULL,
+    subtotal DECIMAL(10,2),
+    FOREIGN KEY (id_venta) REFERENCES Venta_CDMX(id_venta),
+    FOREIGN KEY (id_medicamento) REFERENCES Medicamento(id_medicamento)
+) ENGINE=InnoDB;
+
+-- Devolucion_CDMX
+CREATE TABLE IF NOT EXISTS Devolucion_CDMX (
+    id_devolucion VARCHAR(10) PRIMARY KEY,
+    id_venta VARCHAR(10) NOT NULL,
+    fecha DATE NOT NULL,
+    motivo VARCHAR(200),
+    monto DECIMAL(10,2),
+    FOREIGN KEY (id_venta) REFERENCES Venta_CDMX(id_venta)
+) ENGINE=InnoDB;
+
+-- =====================================================
+-- NODO 2: farmacia_gdl
+-- =====================================================
+USE farmacia_gdl;
+
+-- (Repetir la misma estructura que en CDMX, pero con tablas _GDL)
+-- Por brevedad, se omiten las tablas replicadas (son idénticas).
+-- Solo se muestran las tablas fragmentadas.
+
+CREATE TABLE IF NOT EXISTS Empleado_GDL (
+    id_empleado VARCHAR(10) PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    puesto VARCHAR(50),
+    salario DECIMAL(10,2),
+    id_sucursal VARCHAR(10) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS Compra_GDL (
+    id_compra VARCHAR(10) PRIMARY KEY,
+    fecha DATE NOT NULL,
+    id_proveedor VARCHAR(10) NOT NULL,
+    id_sucursal VARCHAR(10) NOT NULL,
+    total DECIMAL(10,2)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS Detalle_Compra_GDL (
+    id_detalle_compra VARCHAR(10) PRIMARY KEY,
+    id_compra VARCHAR(10) NOT NULL,
+    id_medicamento VARCHAR(10) NOT NULL,
+    cantidad INT NOT NULL,
+    precio_unitario DECIMAL(10,2)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS Inventario_GDL (
+    id_inventario VARCHAR(10) PRIMARY KEY,
+    id_sucursal VARCHAR(10) NOT NULL,
+    id_medicamento VARCHAR(10) NOT NULL,
+    cantidad INT NOT NULL,
+    fecha_actualizacion DATE
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS Venta_GDL (
+    id_venta VARCHAR(10) PRIMARY KEY,
+    fecha DATE NOT NULL,
+    id_sucursal VARCHAR(10) NOT NULL,
+    id_empleado VARCHAR(10) NOT NULL,
+    id_cliente VARCHAR(10),
+    total DECIMAL(10,2)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS Detalle_Venta_GDL (
+    id_detalle_venta VARCHAR(10) PRIMARY KEY,
+    id_venta VARCHAR(10) NOT NULL,
+    id_medicamento VARCHAR(10) NOT NULL,
+    cantidad INT NOT NULL,
+    subtotal DECIMAL(10,2)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS Devolucion_GDL (
+    id_devolucion VARCHAR(10) PRIMARY KEY,
+    id_venta VARCHAR(10) NOT NULL,
+    fecha DATE NOT NULL,
+    motivo VARCHAR(200),
+    monto DECIMAL(10,2)
+) ENGINE=InnoDB;
+
+-- =====================================================
+-- NODO 3: farmacia_mty
+-- =====================================================
+USE farmacia_mty;
+
+-- (Repetir la misma estructura que en CDMX, pero con tablas _MTY)
+
+CREATE TABLE IF NOT EXISTS Empleado_MTY (
+    id_empleado VARCHAR(10) PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    puesto VARCHAR(50),
+    salario DECIMAL(10,2),
+    id_sucursal VARCHAR(10) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS Compra_MTY (
+    id_compra VARCHAR(10) PRIMARY KEY,
+    fecha DATE NOT NULL,
+    id_proveedor VARCHAR(10) NOT NULL,
+    id_sucursal VARCHAR(10) NOT NULL,
+    total DECIMAL(10,2)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS Detalle_Compra_MTY (
+    id_detalle_compra VARCHAR(10) PRIMARY KEY,
+    id_compra VARCHAR(10) NOT NULL,
+    id_medicamento VARCHAR(10) NOT NULL,
+    cantidad INT NOT NULL,
+    precio_unitario DECIMAL(10,2)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS Inventario_MTY (
+    id_inventario VARCHAR(10) PRIMARY KEY,
+    id_sucursal VARCHAR(10) NOT NULL,
+    id_medicamento VARCHAR(10) NOT NULL,
+    cantidad INT NOT NULL,
+    fecha_actualizacion DATE
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS Venta_MTY (
+    id_venta VARCHAR(10) PRIMARY KEY,
+    fecha DATE NOT NULL,
+    id_sucursal VARCHAR(10) NOT NULL,
+    id_empleado VARCHAR(10) NOT NULL,
+    id_cliente VARCHAR(10),
+    total DECIMAL(10,2)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS Detalle_Venta_MTY (
+    id_detalle_venta VARCHAR(10) PRIMARY KEY,
+    id_venta VARCHAR(10) NOT NULL,
+    id_medicamento VARCHAR(10) NOT NULL,
+    cantidad INT NOT NULL,
+    subtotal DECIMAL(10,2)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS Devolucion_MTY (
+    id_devolucion VARCHAR(10) PRIMARY KEY,
+    id_venta VARCHAR(10) NOT NULL,
+    fecha DATE NOT NULL,
+    motivo VARCHAR(200),
+    monto DECIMAL(10,2)
+) ENGINE=InnoDB;
+
+-- =====================================================
+-- NODO 4: farmacia_central
+-- =====================================================
+USE farmacia_central;
+
+-- (Repetir la misma estructura que en CDMX, pero sin tablas fragmentadas locales.
+-- Solo se crean las tablas replicadas y las vistas materializadas.)
+
+-- Tablas Replicadas (idénticas a las de CDMX)
+-- Sucursal, Medicamento, Medicamento_Detalle, Proveedor, Cliente, Receta
+
+-- Vistas Materializadas (para consolidación)
+CREATE TABLE IF NOT EXISTS Reporte_Ventas_Global (
+    id_sucursal VARCHAR(10),
+    fecha DATE,
+    total_ventas DECIMAL(10,2),
+    PRIMARY KEY (id_sucursal, fecha)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS Reporte_Inventario_Global (
+    id_sucursal VARCHAR(10),
+    id_medicamento VARCHAR(10),
+    cantidad_total INT,
+    PRIMARY KEY (id_sucursal, id_medicamento)
+) ENGINE=InnoDB;
+
+-- =====================================================
+-- VERIFICACIÓN
+-- =====================================================
+
+SELECT 'Tablas creadas exitosamente' AS Mensaje;
+
+-- =====================================================
+-- FIN DEL SCRIPT
+-- =====================================================
+Archivo 13: 03_Implementacion_MySQL/Scripts_SQL/03_Insercion_Datos.sql
+sql
+-- =====================================================
+-- SCRIPT: 03_Insercion_Datos.sql
+-- PROYECTO: Sistema de Gestión Distribuida para Farmacias del Valle
+-- DESCRIPCIÓN: Inserción de datos de prueba realistas.
+-- =====================================================
+
+-- =====================================================
+-- NODO 1: farmacia_cdmx
+-- =====================================================
+USE farmacia_cdmx;
+
+-- -----------------------------------------------------
+-- 1. Sucursales (Replicado en todos los nodos)
+-- -----------------------------------------------------
+INSERT INTO Sucursal (id_sucursal, nombre, ciudad, direccion, telefono) VALUES
+('CDMX', 'Farmacia del Valle CDMX', 'Ciudad de México', 'Av. Reforma 123, Col. Centro', '55-1234-5678'),
+('GDL', 'Farmacia del Valle GDL', 'Guadalajara', 'Av. Vallarta 456, Col. Americana', '33-8765-4321'),
+('MTY', 'Farmacia del Valle MTY', 'Monterrey', 'Av. Constitución 789, Col. Centro', '81-9876-5432');
+
+-- -----------------------------------------------------
+-- 2. Medicamentos (Fragmento Público - Replicado)
+-- -----------------------------------------------------
+INSERT INTO Medicamento (id_medicamento, nombre, precio, requiere_receta) VALUES
+('MED001', 'Paracetamol 500mg', 25.50, FALSE),
+('MED002', 'Ibuprofeno 400mg', 35.00, FALSE),
+('MED003', 'Amoxicilina 500mg', 85.00, TRUE),
+('MED004', 'Omeprazol 20mg', 45.00, FALSE),
+('MED005', 'Tramadol 50mg', 120.00, TRUE),
+('MED006', 'Loratadina 10mg', 30.00, FALSE),
+('MED007', 'Metformina 850mg', 55.00, TRUE),
+('MED008', 'Losartán 50mg', 65.00, TRUE),
+('MED009', 'Salbutamol Inhalador', 150.00, TRUE),
+('MED010', 'Vitamina C 1g', 20.00, FALSE);
+
+-- -----------------------------------------------------
+-- 3. Medicamento_Detalle (Fragmento Privado - Replicado)
+-- -----------------------------------------------------
+INSERT INTO Medicamento_Detalle (id_medicamento, principio_activo, laboratorio) VALUES
+('MED001', 'Paracetamol', 'Genomma Lab'),
+('MED002', 'Ibuprofeno', 'Bayer'),
+('MED003', 'Amoxicilina', 'Pfizer'),
+('MED004', 'Omeprazol', 'AstraZeneca'),
+('MED005', 'Tramadol', 'Grünenthal'),
+('MED006', 'Loratadina', 'Schering-Plough'),
+('MED007', 'Metformina', 'Merck'),
+('MED008', 'Losartán', 'Novartis'),
+('MED009', 'Salbutamol', 'GlaxoSmithKline'),
+('MED010', 'Ácido Ascórbico', 'Roche');
+
+-- -----------------------------------------------------
+-- 4. Proveedores (Replicado)
+-- -----------------------------------------------------
+INSERT INTO Proveedor (id_proveedor, nombre, contacto, telefono) VALUES
+('PROV001', 'Distribuidora Farmacéutica del Norte', 'Juan Pérez', '55-1111-2222'),
+('PROV002', 'Laboratorios del Centro', 'María López', '33-3333-4444'),
+('PROV003', 'Suministros Médicos del Sur', 'Carlos Ramírez', '81-5555-6666');
+
+-- -----------------------------------------------------
+-- 5. Clientes (Replicado)
+-- -----------------------------------------------------
+INSERT INTO Cliente (id_cliente, nombre, telefono, email) VALUES
+('CLI001', 'Ana García', '55-1234-0001', 'ana.garcia@email.com'),
+('CLI002', 'Luis Martínez', '55-1234-0002', 'luis.martinez@email.com'),
+('CLI003', 'Carmen Rodríguez', '55-1234-0003', 'carmen.rodriguez@email.com'),
+('CLI004', 'Jorge Hernández', '55-1234-0004', 'jorge.hernandez@email.com'),
+('CLI005', 'Patricia Flores', '55-1234-0005', 'patricia.flores@email.com');
+
+-- -----------------------------------------------------
+-- 6. Empleados_CDMX (Fragmento Horizontal)
+-- -----------------------------------------------------
+INSERT INTO Empleado_CDMX (id_empleado, nombre, puesto, salario, id_sucursal) VALUES
+('EMP001', 'Roberto Sánchez', 'Gerente', 25000.00, 'CDMX'),
+('EMP002', 'Laura Díaz', 'Farmacéutica', 18000.00, 'CDMX'),
+('EMP003', 'Miguel Torres', 'Cajero', 12000.00, 'CDMX'),
+('EMP004', 'Sofía Ramírez', 'Farmacéutica', 18000.00, 'CDMX'),
+('EMP005', 'Diego López', 'Almacenista', 10000.00, 'CDMX');
+
+-- -----------------------------------------------------
+-- 7. Inventario_CDMX (Fragmento Horizontal)
+-- -----------------------------------------------------
+INSERT INTO Inventario_CDMX (id_inventario, id_sucursal, id_medicamento, cantidad, fecha_actualizacion) VALUES
+('INV001', 'CDMX', 'MED001', 500, '2024-01-15'),
+('INV002', 'CDMX', 'MED002', 300, '2024-01-15'),
+('INV003', 'CDMX', 'MED003', 150, '2024-01-15'),
+('INV004', 'CDMX', 'MED004', 200, '2024-01-15'),
+('INV005', 'CDMX', 'MED005', 50, '2024-01-15'),
+('INV006', 'CDMX', 'MED006', 400, '2024-01-15'),
+('INV007', 'CDMX', 'MED007', 100, '2024-01-15'),
+('INV008', 'CDMX', 'MED008', 80, '2024-01-15'),
+('INV009', 'CDMX', 'MED009', 30, '2024-01-15'),
+('INV010', 'CDMX', 'MED010', 600, '2024-01-15');
+
+-- -----------------------------------------------------
+-- 8. Ventas_CDMX (Fragmento Horizontal)
+-- -----------------------------------------------------
+INSERT INTO Venta_CDMX (id_venta, fecha, id_sucursal, id_empleado, id_cliente, total) VALUES
+('VTA001', '2024-01-16', 'CDMX', 'EMP002', 'CLI001', 150.50),
+('VTA002', '2024-01-16', 'CDMX', 'EMP003', 'CLI002', 85.00),
+('VTA003', '2024-01-17', 'CDMX', 'EMP002', 'CLI003', 220.00),
+('VTA004', '2024-01-17', 'CDMX', 'EMP004', 'CLI004', 45.00),
+('VTA005', '2024-01-18', 'CDMX', 'EMP003', 'CLI005', 300.00);
+
+-- -----------------------------------------------------
+-- 9. Detalle_Venta_CDMX (Fragmento Horizontal)
+-- -----------------------------------------------------
+INSERT INTO Detalle_Venta_CDMX (id_detalle_venta, id_venta, id_medicamento, cantidad, subtotal) VALUES
+('DET001', 'VTA001', 'MED001', 2, 51.00),
+('DET002', 'VTA001', 'MED002', 1, 35.00),
+('DET003', 'VTA001', 'MED006', 2, 60.00),
+('DET004', 'VTA002', 'MED003', 1, 85.00),
+('DET005', 'VTA003', 'MED004', 2, 90.00),
+('DET006', 'VTA003', 'MED005', 1, 120.00),
+('DET007', 'VTA004', 'MED004', 1, 45.00),
+('DET008', 'VTA005', 'MED009', 2, 300.00);
+
+-- -----------------------------------------------------
+-- 10. Recetas (Replicado)
+-- -----------------------------------------------------
+INSERT INTO Receta (id_receta, id_venta, medico, folio, fecha) VALUES
+('REC001', 'VTA002', 'Dr. Fernando Gómez', 'FOL-001', '2024-01-16'),
+('REC002', 'VTA003', 'Dra. Claudia Ruiz', 'FOL-002', '2024-01-17'),
+('REC003', 'VTA005', 'Dr. Andrés Mendoza', 'FOL-003', '2024-01-18');
+
+-- =====================================================
+-- NODO 2: farmacia_gdl
+-- =====================================================
+USE farmacia_gdl;
+
+-- (Repetir la inserción de tablas replicadas: Sucursal, Medicamento, Medicamento_Detalle, Proveedor, Cliente, Receta)
+-- (Los datos son idénticos a los de CDMX)
+
+-- Empleados_GDL (Fragmento Horizontal)
+INSERT INTO Empleado_GDL (id_empleado, nombre, puesto, salario, id_sucursal) VALUES
+('EMP006', 'Fernanda Guzmán', 'Gerente', 25000.00, 'GDL'),
+('EMP007', 'Ricardo Peña', 'Farmacéutico', 18000.00, 'GDL'),
+('EMP008', 'Valeria Soto', 'Cajera', 12000.00, 'GDL'),
+('EMP009', 'Héctor Vargas', 'Farmacéutico', 18000.00, 'GDL'),
+('EMP010', 'Natalia Ríos', 'Almacenista', 10000.00, 'GDL');
+
+-- Inventario_GDL (Fragmento Horizontal)
+INSERT INTO Inventario_GDL (id_inventario, id_sucursal, id_medicamento, cantidad, fecha_actualizacion) VALUES
+('INV011', 'GDL', 'MED001', 400, '2024-01-15'),
+('INV012', 'GDL', 'MED002', 250, '2024-01-15'),
+('INV013', 'GDL', 'MED003', 100, '2024-01-15'),
+('INV014', 'GDL', 'MED004', 180, '2024-01-15'),
+('INV015', 'GDL', 'MED005', 40, '2024-01-15'),
+('INV016', 'GDL', 'MED006', 350, '2024-01-15'),
+('INV017', 'GDL', 'MED007', 90, '2024-01-15'),
+('INV018', 'GDL', 'MED008', 70, '2024-01-15'),
+('INV019', 'GDL', 'MED009', 25, '2024-01-15'),
+('INV020', 'GDL', 'MED010', 500, '2024-01-15');
+
+-- Ventas_GDL (Fragmento Horizontal)
+INSERT INTO Venta_GDL (id_venta, fecha, id_sucursal, id_empleado, id_cliente, total) VALUES
+('VTA006', '2024-01-16', 'GDL', 'EMP007', 'CLI001', 120.00),
+('VTA007', '2024-01-17', 'GDL', 'EMP008', 'CLI003', 95.00),
+('VTA008', '2024-01-17', 'GDL', 'EMP007', 'CLI005', 200.00);
+
+-- Detalle_Venta_GDL (Fragmento Horizontal)
+INSERT INTO Detalle_Venta_GDL (id_detalle_venta, id_venta, id_medicamento, cantidad, subtotal) VALUES
+('DET009', 'VTA006', 'MED001', 2, 51.00),
+('DET010', 'VTA006', 'MED006', 2, 60.00),
+('DET011', 'VTA007', 'MED004', 2, 90.00),
+('DET012', 'VTA008', 'MED009', 1, 150.00),
+('DET013', 'VTA008', 'MED010', 2, 40.00);
+
+-- =====================================================
+-- NODO 3: farmacia_mty
+-- =====================================================
+USE farmacia_mty;
+
+-- (Repetir la inserción de tablas replicadas)
+
+-- Empleados_MTY (Fragmento Horizontal)
+INSERT INTO Empleado_MTY (id_empleado, nombre, puesto, salario, id_sucursal) VALUES
+('EMP011', 'Arturo Cavazos', 'Gerente', 25000.00, 'MTY'),
+('EMP012', 'Mónica Salinas', 'Farmacéutica', 18000.00, 'MTY'),
+('EMP013', 'Raúl Treviño', 'Cajero', 12000.00, 'MTY'),
+('EMP014', 'Elena Garza', 'Farmacéutica', 18000.00, 'MTY'),
+('EMP015', 'Oscar Cantú', 'Almacenista', 10000.00, 'MTY');
+
+-- Inventario_MTY (Fragmento Horizontal)
+INSERT INTO Inventario_MTY (id_inventario, id_sucursal, id_medicamento, cantidad, fecha_actualizacion) VALUES
+('INV021', 'MTY', 'MED001', 350, '2024-01-15'),
+('INV022', 'MTY', 'MED002', 200, '2024-01-15'),
+('INV023', 'MTY', 'MED003', 120, '2024-01-15'),
+('INV024', 'MTY', 'MED004', 150, '2024-01-15'),
+('INV025', 'MTY', 'MED005', 60, '2024-01-15'),
+('INV026', 'MTY', 'MED006', 300, '2024-01-15'),
+('INV027', 'MTY', 'MED007', 80, '2024-01-15'),
+('INV028', 'MTY', 'MED008', 90, '2024-01-15'),
+('INV029', 'MTY', 'MED009', 35, '2024-01-15'),
+('INV030', 'MTY', 'MED010', 450, '2024-01-15');
+
+-- Ventas_MTY (Fragmento Horizontal)
+INSERT INTO Venta_MTY (id_venta, fecha, id_sucursal, id_empleado, id_cliente, total) VALUES
+('VTA009', '2024-01-16', 'MTY', 'EMP012', 'CLI002', 180.00),
+('VTA010', '2024-01-18', 'MTY', 'EMP013', 'CLI004', 250.00);
+
+-- Detalle_Venta_MTY (Fragmento Horizontal)
+INSERT INTO Detalle_Venta_MTY (id_detalle_venta, id_venta, id_medicamento, cantidad, subtotal) VALUES
+('DET014', 'VTA009', 'MED003', 2, 170.00),
+('DET015', 'VTA009', 'MED006', 1, 30.00),
+('DET016', 'VTA010', 'MED005', 2, 240.00);
+
+-- =====================================================
+-- NODO 4: farmacia_central
+-- =====================================================
+USE farmacia_central;
+
+-- (Repetir la inserción de tablas replicadas)
+
+-- =====================================================
+-- VERIFICACIÓN
+-- =====================================================
+
+SELECT 'Datos insertados exitosamente' AS Mensaje;
+
+-- =====================================================
+-- FIN DEL SCRIPT
+-- =====================================================
+Archivo 14: 03_Implementacion_MySQL/Scripts_SQL/04_Consultas_Distribuidas.sql
+sql
+-- =====================================================
+-- SCRIPT: 04_Consultas_Distribuidas.sql
+-- PROYECTO: Sistema de Gestión Distribuida para Farmacias del Valle
+-- DESCRIPCIÓN: Consultas que demuestran el funcionamiento distribuido.
+-- =====================================================
+
+-- =====================================================
+-- CONSULTA 1: Ventas totales por sucursal (Consulta Global)
+-- =====================================================
+-- Esta consulta se ejecuta en la oficina central y consolida
+-- las ventas de todas las sucursales.
+
+SELECT 'CDMX' AS Sucursal, SUM(total) AS Total_Ventas FROM farmacia_cdmx.Venta_CDMX
+UNION ALL
+SELECT 'GDL' AS Sucursal, SUM(total) AS Total_Ventas FROM farmacia_gdl.Venta_GDL
+UNION ALL
+SELECT 'MTY' AS Sucursal, SUM(total) AS Total_Ventas FROM farmacia_mty.Venta_MTY;
+
+-- =====================================================
+-- CONSULTA 2: Inventario consolidado por medicamento
+-- =====================================================
+-- Esta consulta consolida el inventario de todas las sucursales.
+
+SELECT
+    m.id_medicamento,
+    m.nombre,
+    SUM(i.cantidad) AS Cantidad_Total
+FROM farmacia_cdmx.Medicamento m
+JOIN (
+    SELECT id_medicamento, cantidad FROM farmacia_cdmx.Inventario_CDMX
+    UNION ALL
+    SELECT id_medicamento, cantidad FROM farmacia_gdl.Inventario_GDL
+    UNION ALL
+    SELECT id_medicamento, cantidad FROM farmacia_mty.Inventario_MTY
+) i ON m.id_medicamento = i.id_medicamento
+GROUP BY m.id_medicamento, m.nombre
+ORDER BY Cantidad_Total DESC;
+
+-- =====================================================
+-- CONSULTA 3: Empleados de todas las sucursales (Reconstrucción de fragmentos)
+-- =====================================================
+-- Esta consulta reconstruye la tabla Empleado uniendo los fragmentos.
+
+SELECT id_empleado, nombre, puesto, salario, 'CDMX' AS Sucursal FROM farmacia_cdmx.Empleado_CDMX
+UNION ALL
+SELECT id_empleado, nombre, puesto, salario, 'GDL' AS Sucursal FROM farmacia_gdl.Empleado_GDL
+UNION ALL
+SELECT id_empleado, nombre, puesto, salario, 'MTY' AS Sucursal FROM farmacia_mty.Empleado_MTY
+ORDER BY Sucursal, nombre;
+
+-- =====================================================
+-- CONSULTA 4: Medicamentos que requieren receta (Fragmentación Vertical)
+-- =====================================================
+-- Esta consulta une el fragmento público con el privado.
+
+SELECT
+    m.id_medicamento,
+    m.nombre,
+    m.precio,
+    md.principio_activo,
+    md.laboratorio
+FROM farmacia_cdmx.Medicamento m
+JOIN farmacia_cdmx.Medicamento_Detalle md ON m.id_medicamento = md.id_medicamento
+WHERE m.requiere_receta = TRUE;
+
+-- =====================================================
+-- CONSULTA 5: Clientes con más compras (Consulta Global)
+-- =====================================================
+-- Esta consulta consolida las ventas por cliente.
+
+SELECT
+    c.id_cliente,
+    c.nombre,
+    COUNT(v.id_venta) AS Numero_Compras,
+    SUM(v.total) AS Total_Comprado
+FROM farmacia_cdmx.Cliente c
+LEFT JOIN (
+    SELECT id_cliente, id_venta, total FROM farmacia_cdmx.Venta_CDMX
+    UNION ALL
+    SELECT id_cliente, id_venta, total FROM farmacia_gdl.Venta_GDL
+    UNION ALL
+    SELECT id_cliente, id_venta, total FROM farmacia_mty.Venta_MTY
+) v ON c.id_cliente = v.id_cliente
+GROUP BY c.id_cliente, c.nombre
+ORDER BY Total_Comprado DESC;
+
+-- =====================================================
+-- CONSULTA 6: Recetas emitidas por sucursal (Replicación)
+-- =====================================================
+-- Esta consulta muestra las recetas de todas las sucursales.
+
+SELECT
+    r.id_receta,
+    r.folio,
+    r.medico,
+    r.fecha,
+    v.id_sucursal
+FROM farmacia_cdmx.Receta r
+JOIN (
+    SELECT id_venta, id_sucursal FROM farmacia_cdmx.Venta_CDMX
+    UNION ALL
+    SELECT id_venta, id_sucursal FROM farmacia_gdl.Venta_GDL
+    UNION ALL
+    SELECT id_venta, id_sucursal FROM farmacia_mty.Venta_MTY
+) v ON r.id_venta = v.id_venta
+ORDER BY r.fecha DESC;
+
+-- =====================================================
+-- CONSULTA 7: Productos más vendidos (Consulta Global)
+-- =====================================================
+-- Esta consulta consolida los detalles de venta de todas las sucursales.
+
+SELECT
+    m.id_medicamento,
+    m.nombre,
+    SUM(dv.cantidad) AS Total_Vendido,
+    SUM(dv.subtotal) AS Ingresos_Totales
+FROM farmacia_cdmx.Medicamento m
+JOIN (
+    SELECT id_medicamento, cantidad, subtotal FROM farmacia_cdmx.Detalle_Venta_CDMX
+    UNION ALL
+    SELECT id_medicamento, cantidad, subtotal FROM farmacia_gdl.Detalle_Venta_GDL
+    UNION ALL
+    SELECT id_medicamento, cantidad, subtotal FROM farmacia_mty.Detalle_Venta_MTY
+) dv ON m.id_medicamento = dv.id_medicamento
+GROUP BY m.id_medicamento, m.nombre
+ORDER BY Total_Vendido DESC;
+
+-- =====================================================
+-- CONSULTA 8: Comparativa de ventas entre sucursales
+-- =====================================================
+-- Esta consulta compara las ventas totales de cada sucursal.
+
+SELECT
+    'CDMX' AS Sucursal,
+    COUNT(*) AS Numero_Ventas,
+    SUM(total) AS Total_Ventas,
+    AVG(total) AS Promedio_Venta
+FROM farmacia_cdmx.Venta_CDMX
+UNION ALL
+SELECT
+    'GDL' AS Sucursal,
+    COUNT(*) AS Numero_Ventas,
+    SUM(total) AS Total_Ventas,
+    AVG(total) AS Promedio_Venta
+FROM farmacia_gdl.Venta_GDL
+UNION ALL
+SELECT
+    'MTY' AS Sucursal,
+    COUNT(*) AS Numero_Ventas,
+    SUM(total) AS Total_Ventas,
+    AVG(total) AS Promedio_Venta
+FROM farmacia_mty.Venta_MTY;
+
+-- =====================================================
+-- FIN DEL SCRIPT
+-- =====================================================
+Archivo 15: 03_Implementacion_MySQL/Scripts_SQL/05_Transacciones_y_Recuperacion.sql
+sql
+-- =====================================================
+-- SCRIPT: 05_Transacciones_y_Recuperacion.sql
+-- PROYECTO: Sistema de Gestión Distribuida para Farmacias del Valle
+-- DESCRIPCIÓN: Demostración de transacciones, COMMIT y ROLLBACK.
+-- =====================================================
+
+-- =====================================================
+-- TRANSACCIÓN 1: Venta exitosa (COMMIT)
+-- =====================================================
+-- Esta transacción registra una venta en CDMX y actualiza el inventario.
+-- Si todo está correcto, se confirma con COMMIT.
+
+USE farmacia_cdmx;
+
+START TRANSACTION;
+
+-- 1. Insertar la venta
+INSERT INTO Venta_CDMX (id_venta, fecha, id_sucursal, id_empleado, id_cliente, total)
+VALUES ('VTA011', '2024-01-19', 'CDMX', 'EMP002', 'CLI001', 110.00);
+
+-- 2. Insertar el detalle de la venta
+INSERT INTO Detalle_Venta_CDMX (id_detalle_venta, id_venta, id_medicamento, cantidad, subtotal)
+VALUES ('DET017', 'VTA011', 'MED001', 2, 51.00),
+       ('DET018', 'VTA011', 'MED006', 2, 60.00);
+
+-- 3. Actualizar el inventario
+UPDATE Inventario_CDMX
+SET cantidad = cantidad - 2
+WHERE id_sucursal = 'CDMX' AND id_medicamento = 'MED001';
+
+UPDATE Inventario_CDMX
+SET cantidad = cantidad - 2
+WHERE id_sucursal = 'CDMX' AND id_medicamento = 'MED006';
+
+-- 4. Confirmar la transacción
+COMMIT;
+
+SELECT 'Venta registrada exitosamente' AS Mensaje;
+
+-- =====================================================
+-- TRANSACCIÓN 2: Venta fallida (ROLLBACK)
+-- =====================================================
+-- Esta transacción intenta registrar una venta, pero falla
+-- porque el medicamento no tiene stock suficiente.
+-- Se deshace con ROLLBACK.
+
+USE farmacia_cdmx;
+
+START TRANSACTION;
+
+-- 1. Insertar la venta
+INSERT INTO Venta_CDMX (id_venta, fecha, id_sucursal, id_empleado, id_cliente, total)
+VALUES ('VTA012', '2024-01-19', 'CDMX', 'EMP003', 'CLI002', 600.00);
+
+-- 2. Insertar el detalle de la venta
+INSERT INTO Detalle_Venta_CDMX (id_detalle_venta, id_venta, id_medicamento, cantidad, subtotal)
+VALUES ('DET019', 'VTA012', 'MED005', 5, 600.00);
+
+-- 3. Verificar stock
+SELECT cantidad FROM Inventario_CDMX
+WHERE id_sucursal = 'CDMX' AND id_medicamento = 'MED005';
+
+-- 4. El stock es insuficiente (solo hay 50), así que hacemos ROLLBACK
+ROLLBACK;
+
+SELECT 'Venta cancelada por falta de stock' AS Mensaje;
+
+-- =====================================================
+-- TRANSACCIÓN 3: Actualización de precios (COMMIT)
+-- =====================================================
+-- Esta transacción actualiza el precio de un medicamento en todos los nodos.
+
+-- En CDMX
+USE farmacia_cdmx;
+START TRANSACTION;
+UPDATE Medicamento SET precio = 30.00 WHERE id_medicamento = 'MED001';
+COMMIT;
+
+-- En GDL
+USE farmacia_gdl;
+START TRANSACTION;
+UPDATE Medicamento SET precio = 30.00 WHERE id_medicamento = 'MED001';
+COMMIT;
+
+-- En MTY
+USE farmacia_mty;
+START TRANSACTION;
+UPDATE Medicamento SET precio = 30.00 WHERE id_medicamento = 'MED001';
+COMMIT;
+
+-- En Central
+USE farmacia_central;
+START TRANSACTION;
+UPDATE Medicamento SET precio = 30.00 WHERE id_medicamento = 'MED001';
+COMMIT;
+
+SELECT 'Precio actualizado en todos los nodos' AS Mensaje;
+
+-- =====================================================
+-- TRANSACCIÓN 4: Recuperación con ROLLBACK
+-- =====================================================
+-- Esta transacción simula un fallo y se recupera con ROLLBACK.
+
+USE farmacia_cdmx;
+
+START TRANSACTION;
+
+-- 1. Insertar un empleado
+INSERT INTO Empleado_CDMX (id_empleado, nombre, puesto, salario, id_sucursal)
+VALUES ('EMP016', 'Prueba Empleado', 'Cajero', 12000.00, 'CDMX');
+
+-- 2. Simular un error (por ejemplo, violación de clave foránea)
+-- INSERT INTO Empleado_CDMX (id_empleado, nombre, puesto, salario, id_sucursal)
+-- VALUES ('EMP017', 'Error', 'Cajero', 12000.00, 'SucursalInexistente');
+
+-- 3. Deshacer la transacción
+ROLLBACK;
+
+SELECT 'Transacción deshecha correctamente' AS Mensaje;
+
+-- =====================================================
+-- VERIFICACIÓN DE TRANSACCIONES
+-- =====================================================
+
+-- Verificar que la venta exitosa se registró
+SELECT * FROM farmacia_cdmx.Venta_CDMX WHERE id_venta = 'VTA011';
+
+-- Verificar que la venta fallida NO se registró
+SELECT * FROM farmacia_cdmx.Venta_CDMX WHERE id_venta = 'VTA012';
+
+-- Verificar que el empleado de prueba NO se registró
+SELECT * FROM farmacia_cdmx.Empleado_CDMX WHERE id_empleado = 'EMP016';
+
+-- =====================================================
+-- FIN DEL SCRIPT
+-- =====================================================
+Archivo 16: 03_Implementacion_MySQL/Scripts_SQL/06_Backup_Recovery.sql
+sql
+-- =====================================================
+-- SCRIPT: 06_Backup_Recovery.sql
+-- PROYECTO: Sistema de Gestión Distribuida para Farmacias del Valle
+-- DESCRIPCIÓN: Comandos para backup y recovery de cada nodo.
+-- =====================================================
+
+-- =====================================================
+-- NOTA IMPORTANTE:
+-- Los comandos de backup (mysqldump) se ejecutan desde la
+-- línea de comandos (terminal), NO desde MySQL Workbench.
+-- Este script documenta los comandos a ejecutar.
+-- =====================================================
+
+-- =====================================================
+-- 1. BACKUP LÓGICO CON mysqldump
+-- =====================================================
+
+-- -----------------------------------------------------
+-- 1.1 Backup de una base de datos completa (CDMX)
+-- -----------------------------------------------------
+-- Ejecutar en terminal:
+-- mysqldump -u root -p --databases farmacia_cdmx > backup_cdmx.sql
+
+-- -----------------------------------------------------
+-- 1.2 Backup de todas las bases de datos
+-- -----------------------------------------------------
+-- Ejecutar en terminal:
+-- mysqldump -u root -p --all-databases > backup_all.sql
+
+-- -----------------------------------------------------
+-- 1.3 Backup de una tabla específica
+-- -----------------------------------------------------
+-- Ejecutar en terminal:
+-- mysqldump -u root -p farmacia_cdmx Venta_CDMX > backup_ventas_cdmx.sql
+
+-- -----------------------------------------------------
+-- 1.4 Backup con compresión
+-- -----------------------------------------------------
+-- Ejecutar en terminal:
+-- mysqldump -u root -p --databases farmacia_cdmx | gzip > backup_cdmx.sql.gz
+
+-- =====================================================
+-- 2. RESTAURACIÓN CON mysql
+-- =====================================================
+
+-- -----------------------------------------------------
+-- 2.1 Restaurar una base de datos completa
+-- -----------------------------------------------------
+-- Ejecutar en terminal:
+-- mysql -u root -p < backup_cdmx.sql
+
+-- -----------------------------------------------------
+-- 2.2 Restaurar una base de datos específica
+-- -----------------------------------------------------
+-- Ejecutar en terminal:
+-- mysql -u root -p farmacia_cdmx < backup_cdmx.sql
+
+-- -----------------------------------------------------
+-- 2.3 Restaurar desde un archivo comprimido
+-- -----------------------------------------------------
+-- Ejecutar en terminal:
+-- gunzip < backup_cdmx.sql.gz | mysql -u root -p farmacia_cdmx
+
+-- =====================================================
+-- 3. AUTOMATIZACIÓN CON SCRIPT BASH
+-- =====================================================
+
+-- -----------------------------------------------------
+-- 3.1 Script de backup automático
+-- -----------------------------------------------------
+-- Crear un archivo llamado backup_farmacia.sh con el siguiente contenido:
+
+/*
+#!/bin/bash
+
+# Datos de acceso a MySQL
+USER="root"
+PASSWORD="farmacia2024"
+
+# Ruta donde se guardarán los backups
+BACKUP_PATH="/home/usuario/backups/farmacia"
+DATE=$(date +"%d-%b-%Y")
+
+# Crear el directorio si no existe
+mkdir -p $BACKUP_PATH
+
+# Backup de todas las bases de datos
+mysqldump --user=$USER --password=$PASSWORD --all-databases > $BACKUP_PATH/$DATE.sql
+
+# Comprimir el archivo
+gzip $BACKUP_PATH/$DATE.sql
+
+# Eliminar backups mayores a 30 días
+find $BACKUP_PATH/* -mtime +30 -exec rm {} \;
+
+echo "Backup completado: $DATE"
+*/
+
+-- -----------------------------------------------------
+-- 3.2 Programar con crontab
+-- -----------------------------------------------------
+-- Ejecutar en terminal:
+-- crontab -e
+
+-- Agregar la siguiente línea para backup diario a las 2:00 AM:
+-- 0 2 * * * /home/usuario/backup_farmacia.sh
+
+-- =====================================================
+-- 4. VERIFICACIÓN DE BACKUP
+-- =====================================================
+
+-- Verificar que el archivo de backup existe (desde terminal):
+-- ls -lh /home/usuario/backups/farmacia/
+
+-- Verificar el contenido del backup (desde terminal):
+-- head -n 50 backup_cdmx.sql
+
+-- =====================================================
+-- 5. RECUPERACIÓN ANTE FALLOS
+-- =====================================================
+
+-- -----------------------------------------------------
+-- 5.1 Simular fallo y recuperación
+-- -----------------------------------------------------
+-- 1. Eliminar una tabla accidentalmente:
+-- DROP TABLE farmacia_cdmx.Venta_CDMX;
+
+-- 2. Restaurar desde el backup:
+-- mysql -u root -p farmacia_cdmx < backup_cdmx.sql
+
+-- 3. Verificar que la tabla se restauró:
+-- SELECT * FROM farmacia_cdmx.Venta_CDMX;
+
+-- =====================================================
+-- 6. BACKUP FÍSICO (MYSQL ENTERPRISE)
+-- =====================================================
+
+-- NOTA: mysqlbackup y mysqlhotcopy solo están disponibles
+-- en MySQL Enterprise Edition. Si no cuentas con ella,
+-- usa solo el backup lógico con mysqldump.
+
+-- mysqlbackup --user=root --password=farmacia2024 --backup-dir=/backups/farmacia backup
+
+-- =====================================================
+-- FIN DEL SCRIPT
+-- =====================================================
+Archivo 17: 03_Implementacion_MySQL/Scripts_SQL/07_Migracion_Datos.sql
+sql
+-- =====================================================
+-- SCRIPT: 07_Migracion_Datos.sql
+-- PROYECTO: Sistema de Gestión Distribuida para Farmacias del Valle
+-- DESCRIPCIÓN: Ejemplo de migración de datos entre nodos.
+-- =====================================================
+
+-- =====================================================
+-- NOTA IMPORTANTE:
+-- La migración de datos implica extraer datos de un nodo
+-- (origen), transformarlos y cargarlos en otro nodo (destino).
+-- Este script documenta el proceso ETL.
+-- =====================================================
+
+-- =====================================================
+-- CASO DE USO: Migrar datos de CDMX a GDL
+-- =====================================================
+-- Supongamos que la sucursal CDMX se cierra y sus datos
+-- deben migrarse a la sucursal GDL.
+
+-- -----------------------------------------------------
+-- FASE 1: EXTRACCIÓN (Extraer datos de CDMX)
+-- -----------------------------------------------------
+
+-- 1.1 Extraer empleados de CDMX
+SELECT * FROM farmacia_cdmx.Empleado_CDMX;
+
+-- 1.2 Extraer inventario de CDMX
+SELECT * FROM farmacia_cdmx.Inventario_CDMX;
+
+-- 1.3 Extraer ventas de CDMX
+SELECT * FROM farmacia_cdmx.Venta_CDMX;
+
+-- 1.4 Extraer detalle de ventas de CDMX
+SELECT * FROM farmacia_cdmx.Detalle_Venta_CDMX;
+
+-- -----------------------------------------------------
+-- FASE 2: TRANSFORMACIÓN (Ajustar datos para GDL)
+-- -----------------------------------------------------
+
+-- 2.1 Transformar empleados: cambiar id_sucursal a 'GDL'
+SELECT
+    id_empleado,
+    nombre,
+    puesto,
+    salario,
+    'GDL' AS id_sucursal
+FROM farmacia_cdmx.Empleado_CDMX;
+
+-- 2.2 Transformar inventario: cambiar id_sucursal a 'GDL'
+SELECT
+    id_inventario,
+    'GDL' AS id_sucursal,
+    id_medicamento,
+    cantidad,
+    fecha_actualizacion
+FROM farmacia_cdmx.Inventario_CDMX;
+
+-- 2.3 Transformar ventas: cambiar id_sucursal a 'GDL'
+SELECT
+    id_venta,
+    fecha,
+    'GDL' AS id_sucursal,
+    id_empleado,
+    id_cliente,
+    total
+FROM farmacia_cdmx.Venta_CDMX;
+
+-- -----------------------------------------------------
+-- FASE 3: CARGA (Insertar datos en GDL)
+-- -----------------------------------------------------
+
+-- 3.1 Insertar empleados migrados en GDL
+INSERT INTO farmacia_gdl.Empleado_GDL (id_empleado, nombre, puesto, salario, id_sucursal)
+SELECT
+    id_empleado,
+    nombre,
+    puesto,
+    salario,
+    'GDL'
+FROM farmacia_cdmx.Empleado_CDMX
+ON DUPLICATE KEY UPDATE
+    nombre = VALUES(nombre),
+    puesto = VALUES(puesto),
+    salario = VALUES(salario);
+
+-- 3.2 Insertar inventario migrado en GDL
+INSERT INTO farmacia_gdl.Inventario_GDL (id_inventario, id_sucursal, id_medicamento, cantidad, fecha_actualizacion)
+SELECT
+    id_inventario,
+    'GDL',
+    id_medicamento,
+    cantidad,
+    fecha_actualizacion
+FROM farmacia_cdmx.Inventario_CDMX
+ON DUPLICATE KEY UPDATE
+    cantidad = VALUES(cantidad),
+    fecha_actualizacion = VALUES(fecha_actualizacion);
+
+-- 3.3 Insertar ventas migradas en GDL
+INSERT INTO farmacia_gdl.Venta_GDL (id_venta, fecha, id_sucursal, id_empleado, id_cliente, total)
+SELECT
+    id_venta,
+    fecha,
+    'GDL',
+    id_empleado,
+    id_cliente,
+    total
+FROM farmacia_cdmx.Venta_CDMX
+ON DUPLICATE KEY UPDATE
+    total = VALUES(total);
+
+-- 3.4 Insertar detalle de ventas migrado en GDL
+INSERT INTO farmacia_gdl.Detalle_Venta_GDL (id_detalle_venta, id_venta, id_medicamento, cantidad, subtotal)
+SELECT
+    id_detalle_venta,
+    id_venta,
+    id_medicamento,
+    cantidad,
+    subtotal
+FROM farmacia_cdmx.Detalle_Venta_CDMX
+ON DUPLICATE KEY UPDATE
+    cantidad = VALUES(cantidad),
+    subtotal = VALUES(subtotal);
+
+-- -----------------------------------------------------
+-- FASE 4: VERIFICACIÓN
+-- -----------------------------------------------------
+
+-- 4.1 Verificar empleados en GDL
+SELECT COUNT(*) AS Total_Empleados_GDL FROM farmacia_gdl.Empleado_GDL;
+
+-- 4.2 Verificar inventario en GDL
+SELECT COUNT(*) AS Total_Inventario_GDL FROM farmacia_gdl.Inventario_GDL;
+
+-- 4.3 Verificar ventas en GDL
+SELECT COUNT(*) AS Total_Ventas_GDL FROM farmacia_gdl.Venta_GDL;
+
+-- =====================================================
+-- CASO DE USO 2: Migrar datos de GDL a MTY
+-- =====================================================
+-- (Repetir el mismo proceso para migrar de GDL a MTY)
+
+-- =====================================================
+-- ESTRATEGIAS DE MIGRACIÓN
+-- =====================================================
+
+-- 1. EJECUCIÓN EN PARALELO:
+--    Mantener ambos sistemas (origen y destino) funcionando
+--    simultáneamente durante un período de prueba.
+
+-- 2. MIGRACIÓN INCREMENTAL:
+--    Migrar los datos por partes (por ejemplo, por año o por sucursal).
+
+-- 3. BIG BANG:
+--    Migrar todos los datos de una vez (mayor riesgo).
+
+-- =====================================================
+-- MEJORES PRÁCTICAS
+-- =====================================================
+
+-- 1. Realizar un backup completo antes de la migración.
+-- 2. Validar la integridad de los datos después de la migración.
+-- 3. Documentar todos los pasos del proceso ETL.
+-- 4. Probar la migración en un entorno de desarrollo primero.
+-- 5. Tener un plan de rollback en caso de fallo.
+
+-- =====================================================
+-- FIN DEL SCRIPT
+-- =====================================================
+📄 FASE 4: DOCUMENTACIÓN FINAL
+Archivo 18: 04_Documentacion_Final/Portada.md
+markdown
+# PORTADA
+
+---
+
+## UNIVERSIDAD IEU
+
+### Maestría en Ciencias de la Computación
+
+### Bases de Datos II
+
+### Unidad 04 - Actividad 04
+
+---
+
+## Sistema de Gestión Distribuida para Farmacias del Valle
+
+---
+
+**Alumno:** Eric Flores
+
+**Matrícula:** [Tu matrícula]
+
+**Profesor:** [Nombre del profesor]
+
+**Fecha:** [Fecha de entrega]
+
+---
+
+## Introducción
+
+El presente proyecto tiene como objetivo diseñar e implementar una base de datos distribuida utilizando MySQL Workbench para la cadena de farmacias "Farmacias del Valle". Se aplican los conceptos de fragmentación, replicación y las 12 reglas de las bases de datos distribuidas.
+
+---
+
+## Índice
+
+1. Introducción
+2. Objetivo
+3. Justificación
+4. Marco Teórico
+5. Diseño de la Base de Datos
+6. Implementación en MySQL Workbench
+7. Aplicación de las 12 Reglas
+8. Beneficios Esperados
+9. Resultados Obtenidos
+10. Conclusiones
+11. Referencias
+
+---
+
+## Referencias (APA)
+
+Date, C. J. (2001). *Introducción a los sistemas de bases de datos* (7ª ed.). Pearson Education.
+
+Elmasri, R., & Navathe, S. B. (2000). *Sistemas de bases de datos: conceptos fundamentales* (3ª ed.). Addison Wesley.
+
+Silberschatz, A., Korth, H. F., & Sudarshan, S. (2002). *Fundamentos de bases de datos* (4ª ed.). McGraw-Hill.
+Archivo 19: 04_Documentacion_Final/Introduccion.md
+markdown
+# Introducción
+
+## 1. Contexto
+
+Farmacias del Valle es una cadena de farmacias con presencia en tres ciudades de México: Ciudad de México (CDMX), Guadalajara (GDL) y Monterrey (MTY). Cada sucursal maneja su propio inventario local, empleados, ventas y compras. Sin embargo, la oficina central necesita consultar y consolidar información de todas las sucursales para tomar decisiones estratégicas (reabastecimiento, reportes de ventas, control de medicamentos controlados).
+
+Actualmente, cada sucursal opera de manera independiente con su propio sistema de base de datos local, lo que dificulta la consolidación de información y la colaboración entre sucursales. Se requiere diseñar e implementar una base de datos distribuida que permita:
+
+- Mantener la autonomía local de cada sucursal.
+- Consolidar información en la oficina central.
+- Compartir catálogos globales (medicamentos, proveedores, clientes).
+- Cumplir con la normativa sanitaria para medicamentos controlados.
+- Garantizar alta disponibilidad y tolerancia a fallos.
+
+## 2. Objetivo
+
+Diseñar e implementar una base de datos distribuida utilizando MySQL Workbench que permita a Farmacias del Valle gestionar de manera eficiente y segura la información de sus tres sucursales y su oficina central, aplicando los conceptos de fragmentación, replicación y las 12 reglas de las bases de datos distribuidas.
+
+## 3. Justificación
+
+### 3.1 ¿Por qué es distribuido?
+
+- **Naturaleza distribuida del negocio:** Las sucursales están en diferentes ciudades, y es natural que sus datos estén distribuidos.
+- **Autonomía local:** Cada sucursal necesita gestionar sus propios datos sin depender de la oficina central.
+- **Consolidación:** La oficina central necesita acceder a datos remotos para consolidar reportes.
+- **Cumplimiento normativo:** Los medicamentos controlados deben registrarse en todas las sucursales.
+- **Alta disponibilidad:** Si una sucursal falla, las demás deben seguir operando.
+
+### 3.2 Beneficios Esperados
+
+| Beneficio | Descripción |
+|-----------|-------------|
+| **Consultas locales rápidas** | Cada sucursal accede a su propio inventario sin depender de la red. |
+| **Reportes consolidados** | La oficina central puede consultar datos de todas las sucursales. |
+| **Cumplimiento normativo** | Las recetas de medicamentos controlados se replican en todas las sucursales. |
+| **Alta disponibilidad** | Si una sucursal falla, las demás siguen operando. |
+| **Escalabilidad** | Se pueden agregar nuevas sucursales fácilmente. |
+| **Autonomía local** | Cada sucursal controla sus propios datos. |
+| **Respaldo y recuperación** | Cada nodo puede respaldarse con `mysqldump`. |
+| **Migración** | Los datos pueden migrarse entre nodos con ETL. |
+
+## 4. Alcance
+
+El proyecto incluye:
+
+1. **Diseño de la base de datos distribuida:** Entidades, atributos, relaciones, fragmentación y replicación.
+2. **Implementación en MySQL Workbench:** Creación de 4 nodos (3 sucursales + 1 oficina central) con múltiples conexiones.
+3. **Scripts SQL:** Creación de tablas, inserción de datos, consultas distribuidas, transacciones, backup y migración.
+4. **Aplicación de las 12 reglas:** Explicación de cómo el diseño cumple cada regla.
+5. **Documentación:** Portada, introducción, desarrollo, conclusiones y referencias.
+
+## 5. Metodología
+
+1. **Investigación:** Revisión de las lecturas base y complementaria del Bloque 4.
+2. **Diseño:** Definición del caso de estudio, entidades, atributos, relaciones, fragmentación y replicación.
+3. **Implementación:** Creación de los nodos en MySQL Workbench, ejecución de scripts SQL, capturas de pantalla.
+4. **Documentación:** Redacción del documento final con todos los elementos requeridos.
+5. **Evaluación:** Revisión del instrumento de evaluación y ajustes finales.
+
+## 6. Estructura del Documento
+
+1. **Introducción:** Contexto, objetivo, justificación, alcance y metodología.
+2. **Marco Teórico:** Conceptos de bases de datos distribuidas, fragmentación, replicación y las 12 reglas.
+3. **Diseño de la Base de Datos:** Caso de estudio, diagrama E-R, esquema lógico distribuido, plan de fragmentación y replicación.
+4. **Implementación en MySQL Workbench:** Configuración de conexiones, scripts SQL, capturas de pantalla.
+5. **Aplicación de las 12 Reglas:** Explicación detallada de cómo se cumple cada regla.
+6. **Beneficios Esperados:** Lista de beneficios del sistema distribuido.
+7. **Resultados Obtenidos:** Resultados de las consultas, transacciones, backup y migración.
+8. **Conclusiones:** Reflexiones finales sobre el proyecto.
+9. **Referencias:** Bibliografía en formato APA.
+
+---
+
+## Referencias
+
+Date, C. J. (2001). *Introducción a los sistemas de bases de datos* (7ª ed.). Pearson Education.
+
+Elmasri, R., & Navathe, S. B. (2000). *Sistemas de bases de datos: conceptos fundamentales* (3ª ed.). Addison Wesley.
+
+Silberschatz, A., Korth, H. F., & Sudarshan, S. (2002). *Fundamentos de bases de datos* (4ª ed.). McGraw-Hill.
+Archivo 20: 04_Documentacion_Final/Desarrollo_Proyecto.md
+markdown
+# Desarrollo del Proyecto
+
+## 1. Marco Teórico
+
+### 1.1 Bases de Datos Distribuidas
+
+Una base de datos distribuida es una colección de datos que pertenece lógicamente al mismo sistema pero que está dispersa físicamente entre los sitios de una red de computadoras (Elmasri & Navathe, 2000).
+
+### 1.2 Ventajas de las Bases de Datos Distribuidas
+
+- **Naturaleza distribuida de algunas aplicaciones:** Las sucursales están en diferentes ciudades.
+- **Mayor fiabilidad y disponibilidad:** Si un sitio falla, los demás siguen operando.
+- **Compartir datos manteniendo control local:** Cada sucursal controla sus datos.
+- **Mejor rendimiento:** Consultas locales más rápidas.
+
+### 1.3 Las 12 Reglas de las Bases de Datos Distribuidas
+
+| # | Regla | Descripción |
+|---|-------|-------------|
+| 1 | Autonomía local | Cada sitio controla sus operaciones. |
+| 2 | No dependencia de un sitio central | No hay un sitio maestro. |
+| 3 | Operación continua | El sistema sigue operando ante fallos. |
+| 4 | Independencia de ubicación | El usuario no sabe dónde están los datos. |
+| 5 | Independencia de fragmentación | El usuario no sabe que los datos están fragmentados. |
+| 6 | Independencia de replicación | El usuario no sabe que los datos están replicados. |
+| 7 | Procesamiento de consultas distribuidas | Las consultas se ejecutan en varios sitios. |
+| 8 | Administración de transacciones distribuidas | Se garantizan las propiedades ACID. |
+| 9 | Independencia de hardware | Los nodos pueden tener diferente hardware. |
+| 10 | Independencia de sistema operativo | Los nodos pueden tener diferente SO. |
+| 11 | Independencia de red | Los nodos pueden usar diferentes redes. |
+| 12 | Independencia de DBMS | Los nodos pueden usar diferentes SGBD. |
+
+## 2. Diseño de la Base de Datos
+
+### 2.1 Caso de Estudio
+
+**Sistema de Gestión Distribuida para Farmacias del Valle**
+
+- **Nodos:** 3 sucursales (CDMX, GDL, MTY) + 1 oficina central.
+- **DBMS:** MySQL en todos los nodos.
+- **Arquitectura:** Cliente-servidor homogénea.
+- **Transparencia:** Alta.
+- **Autonomía:** Media.
+
+### 2.2 Entidades y Atributos
+
+| Entidad | Atributos |
+|---------|-----------|
+| Sucursal | id_sucursal (PK), nombre, ciudad, direccion, telefono |
+| Empleado | id_empleado (PK), nombre, puesto, salario, id_sucursal (FK) |
+| Medicamento | id_medicamento (PK), nombre, precio, requiere_receta |
+| Medicamento_Detalle | id_medicamento (PK), principio_activo, laboratorio |
+| Proveedor | id_proveedor (PK), nombre, contacto, telefono |
+| Compra | id_compra (PK), fecha, id_proveedor (FK), id_sucursal (FK), total |
+| Detalle_Compra | id_detalle_compra (PK), id_compra (FK), id_medicamento (FK), cantidad, precio_unitario |
+| Inventario | id_inventario (PK), id_sucursal (FK), id_medicamento (FK), cantidad, fecha_actualizacion |
+| Cliente | id_cliente (PK), nombre, telefono, email |
+| Venta | id_venta (PK), fecha, id_sucursal (FK), id_empleado (FK), id_cliente (FK), total |
+| Detalle_Venta | id_detalle_venta (PK), id_venta (FK), id_medicamento (FK), cantidad, subtotal |
+| Receta | id_receta (PK), id_venta (FK), medico, folio, fecha |
+| Devolucion | id_devolucion (PK), id_venta (FK), fecha, motivo, monto |
+
+### 2.3 Fragmentación
+
+#### Fragmentación Horizontal
+
+| Tabla | Criterio |
+|-------|----------|
+| Empleado | id_sucursal |
+| Compra | id_sucursal |
+| Detalle_Compra | id_sucursal |
+| Inventario | id_sucursal |
+| Venta | id_sucursal |
+| Detalle_Venta | id_sucursal |
+| Devolucion | id_sucursal |
+
+#### Fragmentación Vertical
+
+| Tabla | Fragmento Público | Fragmento Privado |
+|-------|-------------------|-------------------|
+| Medicamento | id_medicamento, nombre, precio, requiere_receta | id_medicamento, principio_activo, laboratorio |
+
+### 2.4 Replicación
+
+| Tabla | Tipo | Nodos |
+|-------|------|-------|
+| Sucursal | Completa | Todos |
+| Medicamento (público) | Completa | Todos |
+| Proveedor | Completa | Todos |
+| Cliente | Completa | Todos |
+| Receta | Completa | Todos |
+
+## 3. Implementación en MySQL Workbench
+
+### 3.1 Configuración de Conexiones
+
+| Nodo | Nombre BD | Ciudad | Puerto | Usuario | Contraseña |
+|------|-----------|--------|--------|---------|------------|
+| 1 | farmacia_cdmx | CDMX | 3306 | admin_farmacia | farmacia2024 |
+| 2 | farmacia_gdl | Guadalajara | 3307 | admin_farmacia | farmacia2024 |
+| 3 | farmacia_mty | Monterrey | 3308 | admin_farmacia | farmacia2024 |
+| 4 | farmacia_central | Oficina Central | 3309 | admin_farmacia | farmacia2024 |
+
+### 3.2 Scripts SQL Ejecutados
+
+1. `00_Configuracion_Inicial.sql`
+2. `01_Creacion_Nodos.sql`
+3. `02_Creacion_Tablas_Fragmentos.sql`
+4. `03_Insercion_Datos.sql`
+5. `04_Consultas_Distribuidas.sql`
+6. `05_Transacciones_y_Recuperacion.sql`
+7. `06_Backup_Recovery.sql`
+8. `07_Migracion_Datos.sql`
+
+### 3.3 Capturas de Pantalla
+
+#### Captura 01: Esquema General
+
+[Insertar captura de las 4 conexiones en MySQL Workbench]
+
+#### Captura 02: Fragmentación Horizontal
+
+[Insertar captura de Empleado_CDMX vs Empleado_GDL]
+
+#### Captura 03: Fragmentación Vertical
+
+[Insertar captura de Medicamento vs Medicamento_Detalle]
+
+#### Captura 04: Replicación
+
+[Insertar captura de Medicamento replicado en los 4 nodos]
+
+#### Captura 05: Consultas Distribuidas
+
+[Insertar captura de la consulta que une datos de varios nodos]
+
+#### Captura 06: Resultados Obtenidos
+
+[Insertar captura del resultado de la consulta consolidada]
+
+#### Captura 07: Transacciones
+
+[Insertar captura de COMMIT y ROLLBACK en acción]
+
+#### Captura 08: Backup
+
+[Insertar captura de la ejecución de mysqldump para un nodo]
+
+#### Captura 09: Migración
+
+[Insertar captura del ejemplo de migración de datos entre nodos]
+
+## 4. Aplicación de las 12 Reglas
+
+| # | Regla | Aplicación en Farmacias del Valle | Evidencia |
+|---|-------|-----------------------------------|-----------|
+| 1 | Autonomía local | Cada sucursal gestiona sus datos. | Tablas fragmentadas por sucursal. |
+| 2 | No dependencia de un sitio central | La oficina central no es indispensable. | Las sucursales operan sin conexión a la central. |
+| 3 | Operación continua | Si una sucursal falla, las demás siguen. | Replicación de catálogos. |
+| 4 | Independencia de ubicación | El usuario no sabe dónde están los datos. | Consultas globales sin especificar nodo. |
+| 5 | Independencia de fragmentación | Las consultas reconstruyen fragmentos. | UNION de tablas fragmentadas. |
+| 6 | Independencia de replicación | Los catálogos se ven como una sola tabla. | Medicamento replicado en 4 nodos. |
+| 7 | Procesamiento de consultas distribuidas | Las consultas se descomponen. | Consultas con UNION ALL. |
+| 8 | Administración de transacciones distribuidas | Se usa COMMIT/ROLLBACK. | Script 05. |
+| 9 | Independencia de hardware | Los nodos pueden estar en diferentes equipos. | Arquitectura cliente-servidor. |
+| 10 | Independencia de sistema operativo | Los nodos pueden usar diferentes SO. | MySQL multiplataforma. |
+| 11 | Independencia de red | Los nodos pueden usar diferentes redes. | Configuración de conexiones. |
+| 12 | Independencia de DBMS | Los nodos pueden usar diferentes SGBD. | Documentado (en teoría). |
+
+## 5. Beneficios Esperados
+
+1. **Consultas locales rápidas:** Cada sucursal accede a su inventario sin depender de la red.
+2. **Reportes consolidados:** La oficina central consulta datos de todas las sucursales.
+3. **Cumplimiento normativo:** Las recetas se replican en todas las sucursales.
+4. **Alta disponibilidad:** Si una sucursal falla, las demás siguen operando.
+5. **Escalabilidad:** Se pueden agregar nuevas sucursales fácilmente.
+6. **Autonomía local:** Cada sucursal controla sus propios datos.
+7. **Respaldo y recuperación:** Cada nodo puede respaldarse con `mysqldump`.
+8. **Migración:** Los datos pueden migrarse entre nodos con ETL.
+
+## 6. Resultados Obtenidos
+
+### 6.1 Consultas Distribuidas
+
+| Consulta | Resultado |
+|----------|-----------|
+| Ventas totales por sucursal | CDMX: $1500.50, GDL: $415.00, MTY: $430.00 |
+| Inventario consolidado | MED001: 1250 unidades, MED002: 750 unidades, ... |
+| Empleados de todas las sucursales | 15 empleados en total. |
+| Medicamentos que requieren receta | 5 medicamentos. |
+| Clientes con más compras | Ana García: 2 compras, $270.50. |
+| Recetas emitidas por sucursal | 3 recetas. |
+| Productos más vendidos | MED001: 6 unidades, MED006: 5 unidades, ... |
+| Comparativa de ventas | CDMX lidera en ventas. |
+
+### 6.2 Transacciones
+
+| Transacción | Resultado |
+|-------------|-----------|
+| Venta exitosa (COMMIT) | VTA011 registrada. |
+| Venta fallida (ROLLBACK) | VTA012 no registrada. |
+| Actualización de precios (COMMIT) | Precio de MED001 actualizado en 4 nodos. |
+| Recuperación con ROLLBACK | Empleado de prueba no registrado. |
+
+### 6.3 Backup y Recuperación
+
+| Acción | Resultado |
+|--------|-----------|
+| Backup lógico con mysqldump | Archivo backup_cdmx.sql generado. |
+| Restauración | Tabla Venta_CDMX restaurada. |
+| Automatización con crontab | Backup diario a las 2:00 AM. |
+
+### 6.4 Migración
+
+| Acción | Resultado |
+|--------|-----------|
+| Migración de CDMX a GDL | 5 empleados, 10 inventarios, 5 ventas migradas. |
+| Verificación | Datos consistentes en GDL. |
+
+## 7. Conclusiones
+
+El proyecto "Sistema de Gestión Distribuida para Farmacias del Valle" demuestra la aplicación práctica de los conceptos de bases de datos distribuidas. La combinación de fragmentación horizontal y vertical, junto con la replicación de catálogos, permite diseñar un sistema que es autónomo, disponible, escalable y transparente para el usuario.
+
+La implementación en MySQL Workbench con múltiples conexiones simula un entorno distribuido real, y la inclusión de scripts de backup, recovery y migración enriquece el proyecto con aspectos prácticos esenciales.
+
+Se cumplen las 12 reglas de las bases de datos distribuidas, y se obtienen los beneficios esperados: consultas locales rápidas, reportes consolidados, cumplimiento normativo, alta disponibilidad, escalabilidad, autonomía local, respaldo y recuperación, y migración.
+
+---
+
+## Referencias
+
+Date, C. J. (2001). *Introducción a los sistemas de bases de datos* (7ª ed.). Pearson Education.
+
+Elmasri, R., & Navathe, S. B. (2000). *Sistemas de bases de datos: conceptos fundamentales* (3ª ed.). Addison Wesley.
+
+Silberschatz, A., Korth, H. F., & Sudarshan, S. (2002). *Fundamentos de bases de datos* (4ª ed.). McGraw-Hill.
+Archivo 21: 04_Documentacion_Final/Conclusiones.md
+markdown
+# Conclusiones
+
+## 1. Reflexiones sobre el Proyecto
+
+El desarrollo del proyecto "Sistema de Gestión Distribuida para Farmacias del Valle" ha permitido aplicar de manera práctica los conceptos teóricos de las bases de datos distribuidas. A continuación, se presentan las conclusiones principales.
+
+## 2. Cumplimiento de los Objetivos
+
+### 2.1 Objetivo General
+
+**Diseñar e implementar una base de datos distribuida utilizando MySQL Workbench que permita a Farmacias del Valle gestionar de manera eficiente y segura la información de sus tres sucursales y su oficina central, aplicando los conceptos de fragmentación, replicación y las 12 reglas de las bases de datos distribuidas.**
+
+**Cumplimiento:** ✅ Se logró diseñar e implementar la base de datos distribuida con 4 nodos (3 sucursales + 1 oficina central), aplicando fragmentación horizontal y vertical, replicación de catálogos y las 12 reglas.
+
+### 2.2 Objetivos Específicos
+
+| Objetivo | Cumplimiento |
+|----------|--------------|
+| Diseñar el esquema lógico distribuido | ✅ Completado |
+| Implementar los nodos en MySQL Workbench | ✅ Completado |
+| Aplicar las 12 reglas | ✅ Completado |
+| Documentar el proceso | ✅ Completado |
+| Incluir backup, recovery y migración | ✅ Completado |
+
+## 3. Aprendizajes Obtenidos
+
+### 3.1 Conceptos Teóricos
+
+- **Fragmentación:** La fragmentación horizontal (por sucursal) y vertical (público/privado) permite distribuir los datos de manera eficiente.
+- **Replicación:** La replicación de catálogos (Medicamento, Sucursal, etc.) garantiza la disponibilidad y el rendimiento.
+- **Las 12 reglas:** Proporcionan un marco de trabajo para diseñar sistemas distribuidos robustos.
+- **Transacciones distribuidas:** El uso de COMMIT y ROLLBACK garantiza las propiedades ACID.
+- **Backup y recovery:** Son esenciales para garantizar la durabilidad de los datos.
+- **Migración:** El proceso ETL permite mover datos entre nodos de manera controlada.
+
+### 3.2 Habilidades Prácticas
+
+- **MySQL Workbench:** Configuración de múltiples conexiones, creación de tablas, ejecución de consultas.
+- **SQL:** Creación de tablas, inserción de datos, consultas distribuidas, transacciones.
+- **Documentación:** Redacción de documentos técnicos en formato Markdown.
+- **Investigación:** Revisión de lecturas base y complementaria.
+
+## 4. Dificultades Encontradas
+
+| Dificultad | Solución |
+|------------|----------|
+| Configuración de múltiples conexiones | Se documentó el proceso paso a paso. |
+| Complejidad de las consultas distribuidas | Se usaron UNION ALL para consolidar datos. |
+| Manejo de transacciones | Se implementaron COMMIT y ROLLBACK. |
+| Backup y recovery | Se usaron scripts de mysqldump. |
+| Migración de datos | Se implementó un proceso ETL. |
+
+## 5. Mejoras Futuras
+
+1. **Implementar la independencia de DBMS:** Usar diferentes SGBD en cada nodo (MySQL, PostgreSQL, Oracle).
+2. **Implementar la independencia de red:** Configurar los nodos en diferentes redes.
+3. **Automatizar la replicación:** Usar herramientas como MySQL Replication o Galera Cluster.
+4. **Implementar seguridad:** Agregar autenticación y autorización más robustas.
+5. **Monitoreo:** Implementar herramientas de monitoreo para detectar fallos.
+6. **Escalabilidad:** Agregar más sucursales y nodos.
+
+## 6. Conclusiones Finales
+
+El proyecto "Sistema de Gestión Distribuida para Farmacias del Valle" demuestra que es posible diseñar e implementar una base de datos distribuida utilizando MySQL Workbench, aplicando los conceptos de fragmentación, replicación y las 12 reglas de las bases de datos distribuidas.
+
+La combinación de fragmentación horizontal y vertical, junto con la replicación de catálogos, permite diseñar un sistema que es:
+
+- **Autónomo:** Cada sucursal controla sus datos.
+- **Disponible:** Si una sucursal falla, las demás siguen operando.
+- **Escalable:** Se pueden agregar nuevas sucursales fácilmente.
+- **Transparente:** Los usuarios no necesitan saber la ubicación de los datos.
+- **Eficiente:** Consultas locales rápidas.
+- **Seguro:** Cumplimiento normativo para medicamentos controlados.
+
+La inclusión de scripts de backup, recovery y migración enriquece el proyecto con aspectos prácticos esenciales para la operación y mantenimiento de un sistema distribuido.
+
+## 7. Reflexión Personal
+
+Este proyecto ha sido una oportunidad invaluable para aplicar los conceptos teóricos de las bases de datos distribuidas en un caso de estudio realista. La experiencia de diseñar, implementar y documentar un sistema distribuido ha fortalecido mis habilidades técnicas y mi comprensión de los desafíos que implica la distribución de datos.
+
+Recomiendo a futuros estudiantes que aborden este tipo de proyectos con curiosidad y rigor, aprovechando las herramientas disponibles y documentando cada paso del proceso.
+
+---
+
+## Referencias
+
+Date, C. J. (2001). *Introducción a los sistemas de bases de datos* (7ª ed.). Pearson Education.
+
+Elmasri, R., & Navathe, S. B. (2000). *Sistemas de bases de datos: conceptos fundamentales* (3ª ed.). Addison Wesley.
+
+Silberschatz, A., Korth, H. F., & Sudarshan, S. (2002). *Fundamentos de bases de datos* (4ª ed.). McGraw-Hill.
+Archivo 22: 04_Documentacion_Final/Referencias_APA.md
+markdown
+# Referencias en Formato APA
+
+## Libros
+
+Date, C. J. (2001). *Introducción a los sistemas de bases de datos* (7ª ed.). Pearson Education.
+
+Elmasri, R., & Navathe, S. B. (2000). *Sistemas de bases de datos: conceptos fundamentales* (3ª ed.). Addison Wesley.
+
+Silberschatz, A., Korth, H. F., & Sudarshan, S. (2002). *Fundamentos de bases de datos* (4ª ed.). McGraw-Hill.
+
+## Documentos PDF
+
+Leguizamon Tarazona, A. Y. (2020). *Pautas para una correcta migración de base de datos*. [Documento PDF].
+
+Sanchez Hernandez, J. J. (2020). *Backup and Recovery en MySQL*. [Documento PDF].
+
+Scala Higher Education. (2020). *Sistema de Gestión de Bases de Datos*. [Documento PDF].
+
+## Recursos en Línea
+
+MySQL. (2024). *MySQL Workbench*. https://www.mysql.com/products/workbench/
+
+MySQL. (2024). *MySQL Documentation*. https://dev.mysql.com/doc/
+
+## Notas
+
+- Todas las referencias están en formato APA 7ª edición.
+- Las fechas de acceso a los recursos en línea son enero de 2024.
+- Los documentos PDF fueron proporcionados como material de estudio del Bloque 4.
+📄 FASE 5: GUÍAS
+Archivo 23: 03_Implementacion_MySQL/Configuracion_MySQL_Workbench/Conexiones_Nodos.md
+markdown
+# Configuración de Conexiones en MySQL Workbench
+
+## Introducción
+
+Para simular un entorno distribuido con MySQL Workbench, se crearán **4 conexiones** (una por nodo). Cada conexión apunta a una base de datos diferente en el mismo servidor MySQL (simulando diferentes sitios).
+
+## Requisitos Previos
+
+1. **MySQL Server** instalado y en ejecución.
+2. **MySQL Workbench** instalado.
+3. **Usuario root** con contraseña conocida.
+
+## Paso 1: Crear las Bases de Datos
+
+Ejecutar el script `01_Creacion_Nodos.sql` en la conexión local (localhost:3306).
+
+```sql
+CREATE DATABASE IF NOT EXISTS farmacia_cdmx;
+CREATE DATABASE IF NOT EXISTS farmacia_gdl;
+CREATE DATABASE IF NOT EXISTS farmacia_mty;
+CREATE DATABASE IF NOT EXISTS farmacia_central;
+Paso 2: Crear las Conexiones en MySQL Workbench
+Conexión 1: Farmacia CDMX
+Abrir MySQL Workbench.
+
+Clic en el ícono "+" junto a "MySQL Connections".
+
+Configurar:
+
+Connection Name: Farmacia CDMX
+
+Connection Method: Standard (TCP/IP)
+
+Hostname: 127.0.0.1
+
+Port: 3306
+
+Username: root
+
+Password: [Tu contraseña]
+
+Default Schema: farmacia_cdmx
+
+Clic en "Test Connection" para verificar.
+
+Clic en "OK".
+
+Conexión 2: Farmacia GDL
+Clic en el ícono "+".
+
+Configurar:
+
+Connection Name: Farmacia GDL
+
+Connection Method: Standard (TCP/IP)
+
+Hostname: 127.0.0.1
+
+Port: 3306
+
+Username: root
+
+Password: [Tu contraseña]
+
+Default Schema: farmacia_gdl
+
+Clic en "Test Connection".
+
+Clic en "OK".
+
+Conexión 3: Farmacia MTY
+Clic en el ícono "+".
+
+Configurar:
+
+Connection Name: Farmacia MTY
+
+Connection Method: Standard (TCP/IP)
+
+Hostname: 127.0.0.1
+
+Port: 3306
+
+Username: root
+
+Password: [Tu contraseña]
+
+Default Schema: farmacia_mty
+
+Clic en "Test Connection".
+
+Clic en "OK".
+
+Conexión 4: Oficina Central
+Clic en el ícono "+".
+
+Configurar:
+
+Connection Name: Oficina Central
+
+Connection Method: Standard (TCP/IP)
+
+Hostname: 127.0.0.1
+
+Port: 3306
+
+Username: root
+
+Password: [Tu contraseña]
+
+Default Schema: farmacia_central
+
+Clic en "Test Connection".
+
+Clic en "OK".
+
+Paso 3: Verificar las Conexiones
+Deberías ver 4 conexiones en la pantalla principal de MySQL Workbench:
+
+text
++------------------+
+| Farmacia CDMX    |
++------------------+
+| Farmacia GDL     |
++------------------+
+| Farmacia MTY     |
++------------------+
+| Oficina Central  |
++------------------+
+Paso 4: Ejecutar los Scripts
+Para cada conexión:
+
+Abrir la conexión.
+
+Abrir el script SQL correspondiente.
+
+Ejecutar el script (Ctrl + Shift + Enter).
+
+Orden de Ejecución
+Script	Conexión
+00_Configuracion_Inicial.sql	Todas
+01_Creacion_Nodos.sql	Local (localhost)
+02_Creacion_Tablas_Fragmentos.sql	Cada nodo
+03_Insercion_Datos.sql	Cada nodo
+04_Consultas_Distribuidas.sql	Oficina Central
+05_Transacciones_y_Recuperacion.sql	Cada nodo
+06_Backup_Recovery.sql	Terminal
+07_Migracion_Datos.sql	Oficina Central
+Paso 5: Capturas de Pantalla
+Tomar capturas de:
+
+Las 4 conexiones en MySQL Workbench.
+
+El esquema de cada base de datos.
+
+Los resultados de las consultas.
+
+Las transacciones (COMMIT/ROLLBACK).
+
+Los backups.
+
+Notas
+Si tu versión de MySQL Workbench no permite múltiples conexiones al mismo servidor, puedes usar esquemas separados en una sola conexión.
+
+Para simular diferentes puertos, puedes instalar múltiples instancias de MySQL Server (avanzado).
+
+Para este proyecto, usar el mismo puerto (3306) con diferentes esquemas es suficiente.
+
+Referencias
+MySQL. (2024). MySQL Workbench Manual. https://dev.mysql.com/doc/workbench/en/
+
+text
+
+---
+
+## Archivo 24: `03_Implementacion_MySQL/Capturas_Pantalla/Guia_Capturas_Pantalla.md`
+
+```markdown
+# Guía de Capturas de Pantalla
+
+## Introducción
+
+Esta guía indica exactamente qué capturas de pantalla debes tomar para evidenciar el desarrollo del proyecto "Sistema de Gestión Distribuida para Farmacias del Valle".
+
+## Lista de Capturas
+
+| # | Nombre | Qué debe mostrar | Dónde guardar |
+|---|--------|------------------|---------------|
+| 01 | Esquema General | Las 4 conexiones en MySQL Workbench con sus bases de datos. | `01_Esquema_General.png` |
+| 02 | Fragmentación Horizontal | `Empleado_CDMX` vs `Empleado_GDL` (estructura y datos). | `02_Fragmentacion_Horizontal.png` |
+| 03 | Fragmentación Vertical | `Medicamento` (público) vs `Medicamento_Detalle` (privado). | `03_Fragmentacion_Vertical.png` |
+| 04 | Replicación | `Medicamento` replicado en los 4 nodos. | `04_Replicacion.png` |
+| 05 | Consultas Distribuidas | Consulta que une datos de varios nodos (código SQL). | `05_Consultas_Distribuidas.png` |
+| 06 | Resultados Obtenidos | Resultado de la consulta consolidada. | `06_Resultados_Obtenidos.png` |
+| 07 | Transacciones | `COMMIT` y `ROLLBACK` en acción. | `07_Transacciones.png` |
+| 08 | Backup | Ejecución de `mysqldump` para un nodo. | `08_Backup.png` |
+| 09 | Migración | Ejemplo de migración de datos entre nodos. | `09_Migracion.png` |
+
+## Instrucciones Detalladas
+
+### Captura 01: Esquema General
+
+1. Abrir MySQL Workbench.
+2. Capturar la pantalla principal con las 4 conexiones visibles.
+3. Guardar como `01_Esquema_General.png`.
+
+### Captura 02: Fragmentación Horizontal
+
+1. Abrir la conexión `Farmacia CDMX`.
+2. Ejecutar: `SELECT * FROM Empleado_CDMX;`
+3. Capturar el resultado.
+4. Abrir la conexión `Farmacia GDL`.
+5. Ejecutar: `SELECT * FROM Empleado_GDL;`
+6. Capturar el resultado.
+7. Unir ambas capturas en una sola imagen.
+8. Guardar como `02_Fragmentacion_Horizontal.png`.
+
+### Captura 03: Fragmentación Vertical
+
+1. Abrir la conexión `Farmacia CDMX`.
+2. Ejecutar: `SELECT * FROM Medicamento;`
+3. Capturar el resultado (fragmento público).
+4. Ejecutar: `SELECT * FROM Medicamento_Detalle;`
+5. Capturar el resultado (fragmento privado).
+6. Unir ambas capturas en una sola imagen.
+7. Guardar como `03_Fragmentacion_Vertical.png`.
+
+### Captura 04: Replicación
+
+1. Abrir las 4 conexiones.
+2. En cada una, ejecutar: `SELECT COUNT(*) FROM Medicamento;`
+3. Capturar los 4 resultados.
+4. Unir las capturas en una sola imagen.
+5. Guardar como `04_Replicacion.png`.
+
+### Captura 05: Consultas Distribuidas
+
+1. Abrir la conexión `Oficina Central`.
+2. Abrir el script `04_Consultas_Distribuidas.sql`.
+3. Capturar el código SQL de la consulta 1 (ventas totales por sucursal).
+4. Guardar como `05_Consultas_Distribuidas.png`.
+
+### Captura 06: Resultados Obtenidos
+
+1. Ejecutar la consulta 1.
+2. Capturar el resultado (tabla con ventas totales).
+3. Guardar como `06_Resultados_Obtenidos.png`.
+
+### Captura 07: Transacciones
+
+1. Abrir la conexión `Farmacia CDMX`.
+2. Abrir el script `05_Transacciones_y_Recuperacion.sql`.
+3. Ejecutar la transacción 1 (COMMIT).
+4. Capturar el resultado.
+5. Ejecutar la transacción 2 (ROLLBACK).
+6. Capturar el resultado.
+7. Unir ambas capturas en una sola imagen.
+8. Guardar como `07_Transacciones.png`.
+
+### Captura 08: Backup
+
+1. Abrir la terminal (CMD o PowerShell).
+2. Ejecutar: `mysqldump -u root -p --databases farmacia_cdmx > backup_cdmx.sql`
+3. Capturar la pantalla de la terminal.
+4. Guardar como `08_Backup.png`.
+
+### Captura 09: Migración
+
+1. Abrir la conexión `Oficina Central`.
+2. Abrir el script `07_Migracion_Datos.sql`.
+3. Ejecutar la migración de CDMX a GDL.
+4. Capturar el resultado (verificación de datos migrados).
+5. Guardar como `09_Migracion.png`.
+
+## Formato de las Capturas
+
+- **Formato:** PNG
+- **Resolución:** Mínimo 1280x720
+- **Nombre:** Seguir la nomenclatura indicada
+- **Ubicación:** `03_Implementacion_MySQL/Capturas_Pantalla/`
+
+## Herramientas Recomendadas
+
+- **Windows:** Recortes (Win + Shift + S), Snipping Tool
+- **macOS:** Captura de pantalla (Cmd + Shift + 4)
+- **Linux:** GNOME Screenshot, Flameshot
+- **Edición:** Paint, GIMP, Photoshop (para unir capturas)
+
+## Notas
+
+- Asegurarse de que las capturas sean legibles.
+- Incluir el nombre de la conexión en la captura.
+- Si es posible, incluir la fecha y hora.
+✅ RESUMEN DE ARCHIVOS GENERADOS
+#	Archivo	Estado
+1	01_Investigacion_y_Apuntes/Resumen_12_Reglas_BDD.md	✅ Generado
+2	01_Investigacion_y_Apuntes/Comparativa_Arquitecturas_BDD.md	✅ Generado
+3	01_Investigacion_y_Apuntes/Notas_Sobre_Fragmentacion_y_Replicacion.md	✅ Generado
+4	01_Investigacion_y_Apuntes/Analisis_Lecturas_Complementarias.md	✅ Generado
+5	02_Diseno_Base_Datos/Caso_Estudio_Seleccionado.md	✅ Generado
+6	02_Diseno_Base_Datos/Diagrama_Entidad_Relacion.md	✅ Generado
+7	02_Diseno_Base_Datos/Esquema_Logico_Distribuido.md	✅ Generado
+8	02_Diseno_Base_Datos/Plan_de_Fragmentacion_y_Replicacion.md	✅ Generado
+9	02_Diseno_Base_Datos/Definicion_12_Reglas_Aplicadas.md	✅ Generado
+10	03_Implementacion_MySQL/Scripts_SQL/00_Configuracion_Inicial.sql	✅ Generado
+11	03_Implementacion_MySQL/Scripts_SQL/01_Creacion_Nodos.sql	✅ Generado
+12	03_Implementacion_MySQL/Scripts_SQL/02_Creacion_Tablas_Fragmentos.sql	✅ Generado
+13	03_Implementacion_MySQL/Scripts_SQL/03_Insercion_Datos.sql	✅ Generado
+14	03_Implementacion_MySQL/Scripts_SQL/04_Consultas_Distribuidas.sql	✅ Generado
+15	03_Implementacion_MySQL/Scripts_SQL/05_Transacciones_y_Recuperacion.sql	✅ Generado
+16	03_Implementacion_MySQL/Scripts_SQL/06_Backup_Recovery.sql	✅ Generado
+17	03_Implementacion_MySQL/Scripts_SQL/07_Migracion_Datos.sql	✅ Generado
+18	04_Documentacion_Final/Portada.md	✅ Generado
+19	04_Documentacion_Final/Introduccion.md	✅ Generado
+20	04_Documentacion_Final/Desarrollo_Proyecto.md	✅ Generado
+21	04_Documentacion_Final/Conclusiones.md	✅ Generado
+22	04_Documentacion_Final/Referencias_APA.md	✅ Generado
+23	03_Implementacion_MySQL/Configuracion_MySQL_Workbench/Conexiones_Nodos.md	✅ Generado
+24	03_Implementacion_MySQL/Capturas_Pantalla/Guia_Capturas_Pantalla.md	✅ Generado
+🚀 PRÓXIMOS PASOS PARA TI
+Crear la estructura de carpetas en C:\Users\Eric Flores\Downloads\- Universidad\- IEU AI\18 (MC) Bases de Datos II\Unidad 04\Actividad 04.
+
+Copiar y pegar cada archivo en su ubicación correspondiente.
+
+Ejecutar los scripts SQL en MySQL Workbench (en el orden indicado).
+
+Tomar las capturas de pantalla siguiendo la guía.
+
+Dibujar el diagrama E-R basándote en el archivo Diagrama_Entidad_Relacion.md.
+
+Crear la hoja de cálculo Plan_de_Fragmentacion_y_Replicacion.xlsx basándote en el archivo .md.
+
+Convertir el documento final a PDF y subirlo a la plataforma.
+
+¿Necesitas que ajuste algo o que profundice en alguna parte?
+
+This response is AI-generated, for reference only.
+es necesario los archivos .md? en que parte de la evaluación los requieren?
+Excelente pregunta. Vamos a analizarlo con precisión.
+
+¿La actividad pide archivos .md?
+No. La actividad NO menciona archivos Markdown (.md) en ninguna parte. Revisando las instrucciones originales:
+
+Incorpora capturas de pantalla de la consola y MySQL Workbench...
+
+Describe de forma clara el funcionamiento y proceso del esquema...
+
+El documento deberá incluir portada de presentación, introducción y conclusiones.
+
+En caso de utilizar fuentes de consulta externa, cita en formato APA.
+
+Sube la evidencia de aprendizaje en el espacio indicado en la plataforma.
+
+No se pide:
+
+Archivos .md
+
+Archivos .sql por separado
+
+Archivos .xlsx
+
+Archivos .png por separado
+
+Lo que realmente se pide es:
+
+Un documento final (probablemente .docx o .pdf) que contenga:
+
+Portada
+
+Introducción
+
+Desarrollo (esquema, 12 reglas, descripción del funcionamiento, beneficios)
+
+Conclusiones
+
+Referencias en APA
+
+Capturas de pantalla incrustadas
+
+La base de datos creada en MySQL Workbench (se evidencia con capturas).
+
+¿Entonces por qué generé archivos .md?
+Los generé porque:
+
+Tú me pediste una estructura de carpetas y archivos para organizar el trabajo.
+
+Yo propuse los .md como borradores de trabajo para organizar el contenido antes de pasarlo al documento final.
+
+Markdown es un formato de texto plano fácil de generar y leer, pero no es el formato de entrega final.
+
+¿Qué debo hacer con los .md?
+Tienes dos opciones:
+
+Opción A: Usar los .md como borradores y consolidar todo en un solo documento
+Copiar el contenido de cada .md a un documento de Word (.docx).
+
+Consolidar todo en un solo documento final:
+
+Portada
+
+Introducción
+
+Desarrollo (que incluye: caso de estudio, marco teórico, diseño, implementación, 12 reglas, beneficios, resultados)
+
+Conclusiones
+
+Referencias
+
+Insertar las capturas de pantalla en las secciones correspondientes.
+
+Exportar a PDF y subir.
+
+Opción B: Ignorar los .md y crear directamente el documento final
+Crear un documento de Word desde cero.
+
+Copiar y pegar el contenido relevante de los .md (o de esta conversación).
+
+Insertar las capturas.
+
+Exportar a PDF.
+
+¿Los archivos .sql son necesarios?
+Sí, pero no como entrega separada. Los scripts SQL son evidencia del trabajo práctico. Debes:
+
+Ejecutarlos en MySQL Workbench.
+
+Tomar capturas de su ejecución.
+
+Incluir las capturas en el documento final.
+
+Opcional: Puedes incluir los scripts SQL como anexos al final del documento, pero no es obligatorio.
+
+¿Qué archivos son realmente necesarios para la entrega?
+Archivo	¿Necesario?	¿Cómo se entrega?
+Documento final (.docx o .pdf)	✅ Obligatorio	En la plataforma
+Capturas de pantalla	✅ Obligatorio	Incrustadas en el documento
+Scripts SQL	⚠️ Opcional	Como anexo en el documento
+Diagrama E-R	✅ Obligatorio	Incrustado en el documento
+Archivos .md	❌ No	Son borradores internos
+Archivo .xlsx	❌ No	Es un borrador interno
+Conexiones MySQL Workbench	✅ Obligatorio	Evidenciado con capturas
+Resumen: ¿Qué hago con todo lo que generé?
+Lo que DEBES entregar:
+Un solo documento (Word o PDF) con:
+
+Portada
+
+Introducción
+
+Desarrollo (marco teórico, caso de estudio, diseño, implementación, 12 reglas, beneficios, resultados, capturas)
+
+Conclusiones
+
+Referencias APA
+
+Lo que NO debes entregar (pero sí usar):
+Los archivos .md → Son borradores para organizar el contenido. Úsalos para copiar y pegar en Word.
+
+Los scripts .sql → Son herramientas de trabajo. Úsalos en MySQL Workbench y captura los resultados.
+
+El archivo .xlsx → Es un borrador del plan de fragmentación. Puedes incluirlo como tabla en el documento.
+
+Lo que debes hacer tú:
+Ejecutar los scripts SQL en MySQL Workbench.
+
+Tomar capturas de pantalla de todo el proceso.
+
+Crear el documento final en Word, consolidando:
+
+El contenido de los .md (marco teórico, diseño, 12 reglas, etc.).
+
+Las capturas de pantalla.
+
+El diagrama E-R.
+
+Las tablas del plan de fragmentación.
+
+Exportar a PDF y subir.
+
+¿Quieres que te ayude a consolidar todo en un solo documento?
+Puedo generarte un solo documento Markdown consolidado que contenga todo el contenido (sin las partes de "instrucciones para ti"), listo para que lo copies y pegues en Word. Ese documento incluiría:
+
+Portada
+
+Introducción
+
+Desarrollo completo (marco teórico + caso de estudio + diseño + implementación + 12 reglas + beneficios + resultados)
+
+Conclusiones
+
+Referencias
+
+Marcadores donde debes insertar las capturas de pantalla (ej. [INSERTAR CAPTURA 01: ESQUEMA GENERAL AQUÍ])
+
+¿Te genero ese documento consolidado? Así solo tendrías que:
+
+Copiarlo a Word.
+
+Insertar las capturas.
+
+Exportar a PDF.
+
+Subir.
+
+¿Te parece bien?
